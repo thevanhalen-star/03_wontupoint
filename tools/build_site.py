@@ -314,6 +314,7 @@ POINT_CSS = """
 .wontu-kakao p{font-size:14px!important;margin:0 0 6px!important}.wontu-kakao .src{display:block}
 .wontu-kakao .src img{height:15px;width:auto;vertical-align:-2px;margin-right:6px}
 @media(max-width:700px){.wontu-kakao{flex-direction:column;align-items:flex-start}}
+@media(max-width:700px){.point-media.ad-photo img{width:70%!important;max-width:70%!important;height:auto!important;aspect-ratio:1/1;object-fit:cover}}
 .wontu-safety{margin:34px 0 0;padding:16px 18px;background:#fff8ec;border:1px solid #f3dcb2;border-radius:8px;font-size:14px;line-height:1.75;color:#4b4030}
 .wontu-safety strong{display:block;margin-bottom:4px;color:#7a4b00}
 .wontu-safety ul{margin:6px 0 0;padding-left:18px}

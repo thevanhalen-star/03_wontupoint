@@ -58,7 +58,7 @@
     #count{font-size:12px;color:#879cad;white-space:nowrap}
     .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 16px}
     .point-card{border:1px solid #e0e7ee;border-radius:5px;overflow:hidden;background:#fff;box-shadow:0 1px 2px #172e4810;text-decoration:none;color:inherit;min-width:0;transition:transform .15s,box-shadow .15s}
-    .point-card.last{border-color:#1d7fc1;box-shadow:0 0 0 3px #1d7fc1,0 5px 16px #172e4821}
+    .point-card.last{border:3px solid #e8590c;box-shadow:0 5px 16px #e8590c40}
     .point-card:hover{transform:translateY(-2px);box-shadow:0 5px 16px #172e4821}
     .point-photo{width:100%;aspect-ratio:1.335/1;display:block;object-fit:cover;background:#e8eff4;color:transparent}
     .card-info{padding:8px 10px 10px;min-height:60px}
@@ -201,7 +201,7 @@
     if(!items.length){parent.append(make('div','empty',all.length?'검색 조건에 맞는 포인트가 없습니다.':'포인트 데이터를 불러오지 못했습니다.'));return;}
     for(const item of items){
       const a=make('a','point-card'+(item.id===lastId?' last':''));a.href=pointUrl(item.url);
-      a.addEventListener('click',()=>{try{sessionStorage.setItem('wontu-last',item.id);}catch(e){}});a.title=item.name+' — '+item.address;
+      a.addEventListener('click',()=>{lastId=item.id;document.querySelectorAll('.point-card.last').forEach(c=>c.classList.remove('last'));a.classList.add('last');try{sessionStorage.setItem('wontu-last',item.id);}catch(e){}});a.title=item.name+' — '+item.address;
       const img=make('img','point-photo');img.src=pointUrl(item.image);img.alt=item.name+' 포인트 사진';img.loading='lazy';img.decoding='async';
       img.addEventListener('error',()=>{img.style.background='#e8eff4';img.alt='이미지를 불러올 수 없습니다';},{once:true});
       const info=make('div','card-info');info.append(make('div','point-name',item.name),make('div','point-address',item.address));
@@ -245,6 +245,7 @@
   page=parseInt(current.searchParams.get('page'),10)||1;
   const presetQuery=current.searchParams.get('q');
   if(presetQuery){keyword=presetQuery;el('searchInput').value=presetQuery;}
+  addEventListener('pageshow',e=>{if(e.persisted){const lc=document.querySelector('.point-card.last');if(lc)lc.scrollIntoView({block:'center'});}});
   fetch('./points.json',{cache:'no-cache'})
     .then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();})
     .then(data=>{
