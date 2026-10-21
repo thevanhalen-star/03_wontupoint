@@ -310,6 +310,7 @@ POINT_CSS = """
 .ad-photo img{aspect-ratio:1/1;object-fit:cover}
 .wontu-ad-label{position:absolute;top:8px;left:8px;z-index:1;font-size:11px;font-weight:700;line-height:1;color:#fff;background:rgba(0,0,0,.62);border-radius:3px;padding:4px 6px;letter-spacing:.04em;pointer-events:none}
 .point-photo{position:relative}.point-photo img{display:block!important}
+.point-photo + .ad-photo{margin-top:24px!important}
 .wontu-img-credit{position:absolute;right:8px;bottom:8px;max-width:calc(100% - 16px);font-size:11px;line-height:1.3;color:#fff;background:rgba(0,0,0,.55);border-radius:3px;padding:3px 7px;text-align:right}.wontu-img-credit a{color:inherit;text-decoration:none}
 @media(max-width:700px){.wontu-img-credit{font-size:9.5px;right:5px;bottom:5px;padding:2px 5px}}
 .wontu-kakao{margin:34px 0 0;padding:16px 18px;border:1px solid #dde6ed;border-radius:8px;display:flex;gap:18px;align-items:center;font-size:14px;line-height:1.7}
