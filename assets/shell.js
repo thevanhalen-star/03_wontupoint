@@ -86,6 +86,41 @@
   var foot = document.querySelector('.wontu-foot');
   if (foot) foot.parentNode.insertBefore(bottom, foot); else container.parentNode.insertBefore(bottom, container.nextSibling);
 
+  // 포인트 사진 클릭 → 팝업 확대 (광고 이미지는 제외). ←/→ 로 이전·다음, Esc 또는 바깥 클릭으로 닫기
+  var photos = [].slice.call(document.querySelectorAll('.point-photo img'));
+  if (photos.length) {
+    var lbCss = make('style');
+    lbCss.textContent = '.point-photo img{cursor:zoom-in}'
+      + '.lb{position:fixed;inset:0;z-index:100;background:rgba(8,16,26,.92);display:none;align-items:center;justify-content:center;padding:16px}'
+      + '.lb.on{display:flex}.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:4px;box-shadow:0 8px 40px rgba(0,0,0,.5)}'
+      + '.lb button{position:absolute;background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:22px;cursor:pointer;line-height:1}'
+      + '.lb button:hover{background:rgba(255,255,255,.3)}.lb .x{top:14px;right:14px}.lb .p{left:14px;top:50%;margin-top:-22px}.lb .n{right:14px;top:50%;margin-top:-22px}'
+      + '.lb .c{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#c9d6e2;font-size:13px;font-family:"Malgun Gothic",system-ui,sans-serif}';
+    document.head.appendChild(lbCss);
+    var lb = make('div', 'lb'); lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true');
+    var lbImg = make('img'), lbCount = make('div', 'c');
+    var bx = make('button', 'x', '✕'), bp = make('button', 'p', '‹'), bn = make('button', 'n', '›');
+    bx.setAttribute('aria-label', '닫기'); bp.setAttribute('aria-label', '이전 사진'); bn.setAttribute('aria-label', '다음 사진');
+    lb.append(lbImg, bx, bp, bn, lbCount); document.body.appendChild(lb);
+    var cur = 0;
+    function show(i) {
+      cur = (i + photos.length) % photos.length;
+      lbImg.src = photos[cur].currentSrc || photos[cur].src; lbImg.alt = photos[cur].alt;
+      lbCount.textContent = (cur + 1) + ' / ' + photos.length;
+      bp.style.display = bn.style.display = photos.length > 1 ? '' : 'none';
+    }
+    function close() { lb.classList.remove('on'); document.body.style.overflow = ''; }
+    photos.forEach(function (im, i) { im.addEventListener('click', function () { show(i); lb.classList.add('on'); document.body.style.overflow = 'hidden'; }); });
+    lb.addEventListener('click', function (e) { if (e.target === lb || e.target === lbImg) close(); });
+    bx.addEventListener('click', close);
+    bp.addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+    bn.addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('on')) return;
+      if (e.key === 'Escape') close(); else if (e.key === 'ArrowLeft') show(cur - 1); else if (e.key === 'ArrowRight') show(cur + 1);
+    });
+  }
+
   // 카테고리 목록 (points.json → 현재 포인트의 지역/시군 펼침)
   var m = location.pathname.match(/\/points\/([^/]+)\//), id = m && m[1];
   fetch('/points.json').then(function (r) { return r.json(); }).then(function (all) {
