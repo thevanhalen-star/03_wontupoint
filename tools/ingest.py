@@ -42,9 +42,9 @@ def esc(s):
 
 def ad_block(n, margin):
     return (
-        f'<div class="point-media ad-photo" style="margin:{margin};text-align:center;"><span class="wontu-ad-label">광고</span><br>'
-        f'<a href="{ADS[n]}" target="_blank" rel="sponsored noopener noreferrer"><img src="/ad_image/00{n}/001.jpg" data-ad="{n}" '
-        f'alt="광고 이미지 {n}" loading="lazy" style="display:inline-block;width:400px;max-width:100%;height:auto;"></a></div>'
+        f'<div class="point-media ad-photo" style="margin:{margin};text-align:center;">'
+        f'<a href="{ADS[n]}" target="_blank" rel="sponsored noopener noreferrer"><span class="wontu-ad-label">AD 광고</span><img src="/ad_image/00{n}/001.jpg" data-ad="{n}" '
+        f'alt="광고 이미지 {n}" loading="lazy" style="display:block;width:100%;height:auto;"></a></div>'
     )
 
 

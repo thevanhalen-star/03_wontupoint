@@ -48,7 +48,7 @@
     + 'body.wontu-shell .highlight{font-weight:700;background:linear-gradient(transparent 55%,#cfe9d4 55%)!important;padding:0 2px!important;border-radius:0!important}'
     + 'body.wontu-shell main .lead{font-size:17px;font-weight:500;color:#2a4a63}'
     + 'body.wontu-shell .point-name{letter-spacing:-.3px}';
-  css += '@media(max-width:600px){body.wontu-shell .ad-photo img{width:70%!important;max-width:70%!important;height:auto!important;aspect-ratio:1/1}.ws-title{width:100%;margin:2px 0 0;order:5}body.wontu-shell main h1{font-size:25px}}';
+  css += '@media(max-width:600px){.ws-title{width:100%;margin:2px 0 0;order:5}body.wontu-shell main h1{font-size:25px}}';
   var st = make('style'); st.textContent = css; document.head.appendChild(st);
   document.body.classList.add('wontu-shell');
 
@@ -94,7 +94,12 @@
       + '.lb{position:fixed;inset:0;z-index:100;background:rgba(8,16,26,.92);display:none;align-items:center;justify-content:center;padding:16px}'
       + '.lb.on{display:flex}.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:4px;box-shadow:0 8px 40px rgba(0,0,0,.5)}'
       + '.lb button{position:absolute;background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:22px;cursor:pointer;line-height:1}'
-      + '.lb button:hover{background:rgba(255,255,255,.3)}.lb .x{top:14px;right:14px}.lb .p{left:14px;top:50%;margin-top:-22px}.lb .n{right:14px;top:50%;margin-top:-22px}'
+      + '.lb .x:hover{background:rgba(255,255,255,.3)}.lb .x{top:14px;right:14px;z-index:2}'
+      // 좌·우 가장자리 영역에 마우스를 올리면 희미한 화살표가 나타나고, 눌러서 이전/다음으로 이동
+      + '.lb .p,.lb .n{top:0;bottom:0;width:22%;height:auto;border-radius:0;background:transparent;font-size:54px;font-weight:300;display:flex;align-items:center;color:rgba(255,255,255,0);transition:color .2s,background .2s}'
+      + '.lb .p{left:0;justify-content:flex-start;padding-left:26px}.lb .n{right:0;justify-content:flex-end;padding-right:26px}'
+      + '.lb .p:hover,.lb .n:hover{color:rgba(255,255,255,.55);background:linear-gradient(90deg,rgba(255,255,255,.06),transparent)}.lb .n:hover{background:linear-gradient(270deg,rgba(255,255,255,.06),transparent)}'
+      + '@media(hover:none){.lb .p,.lb .n{color:rgba(255,255,255,.35);width:16%}}'
       + '.lb .c{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#c9d6e2;font-size:13px;font-family:"Malgun Gothic",system-ui,sans-serif}';
     document.head.appendChild(lbCss);
     var lb = make('div', 'lb'); lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true');

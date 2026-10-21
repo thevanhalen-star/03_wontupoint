@@ -88,7 +88,7 @@ def layout(path, title, desc, eyebrow, h1, body, robots="index,follow", extra_he
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><meta name="robots" content="{robots}"><link rel="canonical" href="{url}">{ICON_LINKS}
 <meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg"><meta name="twitter:card" content="summary_large_image">{crumbs}<style>{LEGACY_CSS}</style></head><body><main><nav class="nav">{nav}</nav><h1>{h1}</h1>
 {body}
-<div class="foot-links">{footer_links()}<span>© 2026 차박·원투·워킹 낚시 포인트</span></div></main><script src="/assets/shell.js?v=3" defer></script></body></html>
+<div class="foot-links">{footer_links()}<span>© 2026 차박·원투·워킹 낚시 포인트</span></div></main><script src="/assets/shell.js?v=4" defer></script></body></html>
 ''')
 
 
@@ -306,15 +306,16 @@ def build_all_points():
 # ---------------------------------------------------------------- 포인트 페이지
 POINT_CSS = """
 .wontu-disclosure{font-size:13px!important;line-height:1.7;color:#5b6b78;background:#f4f7fa;border-radius:6px;padding:8px 12px;margin:0 0 6px!important}
-.wontu-ad-label{display:inline-block;font-size:12px;font-weight:700;line-height:1;color:#fff;background:#56626d;border-radius:3px;padding:4px 7px;margin:0 0 6px;letter-spacing:.05em}
-.ad-photo{position:relative}
+.ad-photo a{position:relative;display:inline-block;width:400px;max-width:100%;line-height:0;vertical-align:top}
+.ad-photo img{aspect-ratio:1/1;object-fit:cover}
+.wontu-ad-label{position:absolute;top:8px;left:8px;z-index:1;font-size:11px;font-weight:700;line-height:1;color:#fff;background:rgba(0,0,0,.62);border-radius:3px;padding:4px 6px;letter-spacing:.04em;pointer-events:none}
 .wontu-img-credit{font-size:13px;color:#5b6b78;text-align:right;margin-top:4px;line-height:1.5}.wontu-img-credit a{color:inherit}
 .wontu-kakao{margin:34px 0 0;padding:16px 18px;border:1px solid #dde6ed;border-radius:8px;display:flex;gap:18px;align-items:center;font-size:14px;line-height:1.7}
 .wontu-kakao img.qr{width:120px;height:120px;flex:none;border:1px solid #e6ecf1;border-radius:4px;background:#fff}
 .wontu-kakao p{font-size:14px!important;margin:0 0 6px!important}.wontu-kakao .src{display:block}
 .wontu-kakao .src img{height:15px;width:auto;vertical-align:-2px;margin-right:6px}
 @media(max-width:700px){.wontu-kakao{flex-direction:column;align-items:flex-start}}
-@media(max-width:700px){.point-media.ad-photo img{width:70%!important;max-width:70%!important;height:auto!important;aspect-ratio:1/1;object-fit:cover}}
+@media(max-width:700px){.ad-photo a{width:70%}}
 .wontu-safety{margin:34px 0 0;padding:16px 18px;background:#fff8ec;border:1px solid #f3dcb2;border-radius:8px;font-size:14px;line-height:1.75;color:#4b4030}
 .wontu-safety strong{display:block;margin-bottom:4px;color:#7a4b00}
 .wontu-safety ul{margin:6px 0 0;padding-left:18px}
@@ -386,10 +387,10 @@ def process_point(path: Path):
 
     # 2) 광고 표시 라벨
     def ad_fix(m):
-        block = m.group(0)
-        if "wontu-ad-label" in block:
-            return block
-        return re.sub(r"(<div class=\"point-media ad-photo\"[^>]*>)", r'\1<span class="wontu-ad-label">광고</span><br>', block, count=1)
+        # 이전 방식(이미지 위 별도 '광고' 라벨)을 이미지 모퉁이 'AD 광고' 표시로 정리
+        block = re.sub(r'<span class="wontu-ad-label">[^<]*</span>(?:<br>)?', "", m.group(0))
+        block = re.sub(r"(<a [^>]*>)", r'\1<span class="wontu-ad-label">AD 광고</span>', block, count=1)
+        return block.replace("display:inline-block;width:400px;max-width:100%;height:auto;", "display:block;width:100%;height:auto;")
     t = re.sub(r'<div class="point-media ad-photo".*?</div>', ad_fix, t, flags=re.S)
 
     # 3) 포인트 사진 alt + 출처(카카오맵 가이드 표기법)
@@ -462,7 +463,7 @@ def process_point(path: Path):
     t = replace_block(t, "WONTU_FOOT", foot, r"</body>")
 
     # 8) 공통 스크립트: 광고 랜덤 이미지(ad-random.js), 좌측 카테고리·상하단 버튼(shell.js)
-    for src, ver in (("ad-random.js", 2), ("shell.js", 3)):  # 스크립트를 고치면 ver 을 올려 캐시를 갱신
+    for src, ver in (("ad-random.js", 2), ("shell.js", 4)):  # 스크립트를 고치면 ver 을 올려 캐시를 갱신
         tag = f'<script src="/assets/{src}?v={ver}" defer></script>'
         if tag not in t:
             t = re.sub(r'<script src="/assets/' + re.escape(src) + r'[^"]*" defer></script>\s*', "", t)
