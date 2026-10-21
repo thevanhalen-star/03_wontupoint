@@ -380,6 +380,7 @@ def process_point(path: Path):
     img_abs = f"{DOMAIN}/points/{pid}/image/001.jpg"
 
     # 1) 깨진 해시태그 aria-label 수정
+    t = re.sub(r'(<div class="wontu-title-divider"[^>]*aria-label=")[^"]*(")', r"\1제목과 본문 구분\2", t)
     t = re.sub(r'(<div class="wontu-hashtags" aria-label=")[^"]*(")', r"\1해시태그\2", t)
 
     # 2) 광고 표시 라벨
@@ -424,7 +425,9 @@ def process_point(path: Path):
         f'<p class="wontu-disclosure">이 페이지에는 <strong>광고</strong>(제휴 링크 포함)가 있으며, 광고 링크를 통해 구매하면 운영자가 판매 수익 또는 수수료를 받을 수 있습니다. '
         f'포인트 사진: {IMAGE_CREDIT_LONG}. {IMAGE_DIFF_NOTE}</p>'
     )
-    t = replace_block(t, "WONTU_TOPNAV", top, r'<div class="container">\s*', before=False)
+    # 제목이 맨 위에 오도록 수정된 페이지는 제목·구분선 바로 아래에, 아니면 컨테이너 시작에 넣는다
+    anchor = r"<!-- WONTU_TITLE_DIVIDER_END -->\s*" if "<!-- WONTU_TITLE_DIVIDER_END -->" in t else r'<div class="container">\s*'
+    t = replace_block(t, "WONTU_TOPNAV", top, anchor, before=False)
 
     # 5b) 카카오맵 바로가기 QR (가이드 2-3-a) + 출처
     q = quote(addr or name, safe="")
