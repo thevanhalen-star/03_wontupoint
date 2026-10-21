@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="전국 원투낚시 포인트를 지역별로 살펴보세요. 포인트 사진, 이름, 지역 정보를 한눈에 확인할 수 있습니다.">
+  <meta name="description" content="전국 차박·원투낚시·워킹낚시 포인트를 지역별로 살펴보세요. 포인트 사진, 이름, 지역 정보를 한눈에 확인할 수 있습니다.">
   <meta name="theme-color" content="#10293d">
-  <title>원투포인트 | 전국 원투낚시 포인트</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+  <title>낚시·차박 포인트 | 전국 차박·원투·워킹 낚시 포인트</title>
   <link rel="canonical" href="https://wontupoint.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="원투포인트">
-  <meta property="og:title" content="원투포인트 | 전국 원투낚시 포인트">
-  <meta property="og:description" content="전국 원투낚시 포인트 533곳의 사진과 위치 정보를 지역별로 찾아보세요.">
+  <meta property="og:title" content="낚시·차박 포인트 | 전국 차박·원투·워킹 낚시 포인트">
+  <meta property="og:description" content="전국 차박·원투·워킹 낚시 포인트 533곳의 사진과 위치 정보를 지역별로 찾아보세요.">
   <meta property="og:url" content="https://wontupoint.com/">
   <meta name="robots" content="index,follow">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml"><!-- WONTU_HEAD_START -->
@@ -24,12 +25,12 @@
     :root{--navy:#10283c;--blue:#1d669f;--text:#213b53;--muted:#7990a5;--line:#dee6ed;--page:#f6f8fb;--side:184px}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;background:var(--page);color:var(--text);font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;font-size:14px;-webkit-font-smoothing:antialiased}
+    body{margin:0;background:var(--page);color:var(--text);font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;font-size:14px;-webkit-font-smoothing:antialiased}
     button,input,select{font:inherit}
     button{cursor:pointer}
     .sidebar{position:fixed;left:0;top:0;bottom:0;width:var(--side);background:var(--navy);color:#c0d0de;overflow:auto;z-index:12}
-    .brand{height:77px;margin:0 11px;border-bottom:1px solid #30475a;display:flex;align-items:center;gap:9px;color:#f8fcff;text-decoration:none;font-size:19px;font-weight:700;white-space:nowrap}
-    .brand svg{width:29px;height:29px;flex:none;color:#65c6ed}
+    .brand{height:77px;margin:0 11px;border-bottom:1px solid #30475a;display:flex;align-items:center;gap:6px;color:#f8fcff;text-decoration:none;font-size:15px;font-weight:800;letter-spacing:-.4px;white-space:nowrap}
+    .brand svg{width:24px;height:24px;flex:none;color:#65c6ed}
     .side-caption{font-size:12px;color:#7f9caf;padding:21px 22px 10px}
     .region-list{padding:0 11px 22px;display:grid;gap:2px}
     .region-btn{background:transparent;border:0;color:#c3d2df;display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;border-radius:5px;padding:12px 11px;font-size:14px;font-weight:700;min-height:39px;transition:background .12s}
@@ -71,6 +72,11 @@
     .footer-links{display:flex;gap:16px}.footer a{color:inherit;text-decoration:none}.footer a:hover{text-decoration:underline}
     .mobile-menu{display:none;background:none;border:0;padding:6px;color:var(--text)}
     .shade{display:none}
+        .upd{font-size:9.5px;font-weight:400;color:#f2b765;margin-right:5px;letter-spacing:0}
+    .topbar h1{font-weight:800;background:linear-gradient(90deg,#10283c,#1d7fc1);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.8px}
+    .subbar h2{font-weight:700;color:#10283c;letter-spacing:-.3px}
+    .point-name{color:#10283c;letter-spacing:-.4px}
+    .point-address{letter-spacing:-.2px}
     @media(min-width:1500px){.main{padding-left:42px;padding-right:42px}.footer{margin-left:42px;margin-right:42px}}
     @media(max-width:900px){:root{--side:165px}.main{padding:24px 23px 0}.footer{margin:0 23px}.topbar h1{font-size:21px}.search-field{width:220px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:600px){:root{--side:0px}.sidebar{transform:translateX(-100%);width:230px;transition:transform .2s}.sidebar.open{transform:translateX(0)}.shade.open{display:block;position:fixed;inset:0;background:#101b2b80;z-index:11}.mobile-menu{display:inline-flex}.main{padding:19px 15px 0}.topbar{flex-wrap:wrap;gap:13px}.top-title{display:flex;gap:6px;align-items:center}.topbar h1{font-size:19px}.search{width:100%}.search-field{width:auto;flex:1}.cards{gap:11px;grid-template-columns:repeat(2,minmax(0,1fr))}.point-name{font-size:15px}.point-address{font-size:11px}.card-info{padding:8px}.subbar h2{font-size:14px}.subbar-right{gap:6px}#citySelect{max-width:108px}.footer{margin:0 15px;flex-wrap:wrap}.footer-links{gap:12px}.pager{flex-wrap:wrap}}
@@ -82,7 +88,7 @@
 <aside class="sidebar" id="sidebar" aria-label="지역 카테고리">
   <a class="brand" href="./index.html" aria-label="원투포인트 홈">
     <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 19c5 0 7-6 13-6 5 0 7 4 13 1M3 24c5 0 7-5 13-5 5 0 7 4 13 0M5 13c4-3 7-7 12-7 4 0 7 3 11 2" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-    원투포인트
+    낚시·차박 포인트
   </a>
   <div class="side-caption">지역 카테고리</div>
   <nav class="region-list" id="regionList" aria-label="지역 선택"></nav>
@@ -90,7 +96,7 @@
 <div class="layout">
   <main class="main">
     <div class="topbar">
-      <div class="top-title"><button id="menuButton" class="mobile-menu" aria-label="지역 메뉴 열기"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><h1>전국 원투낚시 포인트</h1></div>
+      <div class="top-title"><button id="menuButton" class="mobile-menu" aria-label="지역 메뉴 열기"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><h1>전국 차박·원투·워킹 낚시 포인트</h1></div>
       <form class="search" id="searchForm" role="search">
         <div class="search-field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg><input id="searchInput" type="search" placeholder="포인트명, 지역명으로 검색" aria-label="포인트명 또는 지역명 검색"></div>
         <button type="submit">검색</button>
@@ -114,9 +120,10 @@
     ['전북', '전북'], ['전남', '전남'], ['경북', '경북'], ['경남', '경남'],
     ['부산·울산', 'southeast'], ['제주', '제주']
   ];
+  const UPDATING = ['강원','경북','southeast','제주'];
   const cityAlias = {'인천':'인천','인천광역시':'인천','경기':'경기','경기도':'경기','강원특별자치도':'강원','강원도':'강원','강원':'강원','충청남도':'충남','충남':'충남','충청북도':'충북','충북':'충북','전북특별자치도':'전북','전라북도':'전북','전북':'전북','전라남도':'전남','전남':'전남','경상북도':'경북','경북':'경북','경상남도':'경남','경남':'경남','부산광역시':'부산','부산':'부산','울산광역시':'울산','울산':'울산','제주특별자치도':'제주','제주':'제주'};
   const el = id => document.getElementById(id);
-  let all = [], activeRegion = null, activeCity = '', keyword = '', page = 1;
+  let all = [], expanded = false, activeRegion = null, activeCity = '', keyword = '', page = 1;
   const normalize = text => String(text || '').replace(/\s+/g,'').toLowerCase();
   const regionOf = address => cityAlias[String(address || '').trim().split(/\s+/)[0]] || '';
   const groupOf = item => {
@@ -139,10 +146,16 @@
     for(const [name,region] of REGIONS){
       const count=all.filter(item=>region===null||groupOf(item)===region).length;
       const b=make('button','region-btn'+(activeRegion===region?' active':''));b.type='button';b.setAttribute('aria-pressed',String(activeRegion===region));
-      b.append(make('span','',name),make('span','region-count',String(count)));
-      b.addEventListener('click',()=>{activeRegion=region;activeCity='';clearSearch();page=1;render();if(region===null)closeMenu();});
+      const cnt=make('span','region-count');
+      if(UPDATING.includes(region)){cnt.append(make('small','upd','업데이트중'));}
+      cnt.append(String(count));
+      b.append(make('span','',name),cnt);
+      b.addEventListener('click',()=>{
+        if(activeRegion===region&&region!==null){expanded=!expanded;render();return;}
+        activeRegion=region;expanded=true;activeCity='';clearSearch();page=1;render();if(region===null)closeMenu();
+      });
       parent.append(b);
-      if(activeRegion===region&&region!==null){
+      if(activeRegion===region&&region!==null&&expanded){
         const box=make('div','city-list');
         const base=visibleRegion();
         const addCity=(label,city,n)=>{
@@ -210,7 +223,7 @@
   el('searchInput').addEventListener('input',e=>{keyword=e.target.value.trim();page=1;render();});
   const current=new URL(location.href);
   const presetRegion=current.searchParams.get('region');
-  if(REGIONS.some(([,v])=>v===presetRegion))activeRegion=presetRegion;
+  if(REGIONS.some(([,v])=>v===presetRegion)){activeRegion=presetRegion;expanded=presetRegion!==null;}
   activeCity=current.searchParams.get('city')||'';
   page=parseInt(current.searchParams.get('page'),10)||1;
   const presetQuery=current.searchParams.get('q');

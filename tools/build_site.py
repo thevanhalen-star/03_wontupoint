@@ -111,9 +111,9 @@ def build_static_pages():
 
     write("about.html", layout(
         "/about.html", f"사이트 소개 | {SITE}",
-        f"{SITE}는 전국 바다 원투낚시 포인트 {n}곳의 위치, 진입 동선, 차박 여건, 낚시 스타일을 지역별로 정리한 정보 사이트입니다.",
+        f"{SITE}는 전국 바다 원투낚시·워킹낚시·차박 포인트 {n}곳의 위치, 진입 동선, 차박 여건, 낚시 스타일을 지역별로 정리한 정보 사이트입니다.",
         "WONTUPOINT · ABOUT", "사이트 소개", f"""
-<p class="lead">{SITE}는 전국 바다 원투낚시 포인트 {n}곳을 지역별로 정리한 무료 정보 사이트입니다. 처음 가 보는 포구·방파제·선착장의 분위기와 진입 동선을 출발 전에 가늠할 수 있도록 돕는 것을 목표로 합니다.</p>
+<p class="lead">{SITE}는 전국 바다 원투낚시·워킹낚시·차박 포인트 {n}곳을 지역별로 정리한 무료 정보 사이트입니다. 처음 가 보는 포구·방파제·선착장의 분위기와 진입 동선을 출발 전에 가늠할 수 있도록 돕는 것을 목표로 합니다.</p>
 <h2>무엇을 볼 수 있나요</h2>
 <ul>
 <li>지역(시·도, 시·군)별 포인트 목록과 검색</li>
@@ -373,7 +373,7 @@ def process_point(path: Path):
             if lead and intro.startswith(lead):
                 intro = intro[len(lead):].strip()
     loc = f"{name}({addr}) " if addr else f"{name} "
-    desc = loc + intro if intro else loc + "원투낚시 포인트 — 진입 동선, 차박 여건, 편의시설, 지형과 어울리는 낚시 스타일 안내."
+    desc = loc + intro if intro else loc + "차박·원투·워킹 낚시 포인트 — 진입 동선, 차박 여건, 편의시설, 지형과 어울리는 낚시 스타일 안내."
     desc = desc.strip()
     if len(desc) > 155:
         desc = desc[:152].rstrip() + "…"
@@ -492,8 +492,8 @@ def build_home():
 # ---------------------------------------------------------------- 메타 파일
 def build_meta_files():
     write("manifest.webmanifest", json.dumps({
-        "name": f"{SITE} - 전국 원투낚시 포인트", "short_name": SITE,
-        "description": "전국 원투낚시 포인트의 위치, 진입 동선, 차박 여건을 지역별로 찾아보는 정보 사이트",
+        "name": "낚시·차박 포인트 - 전국 차박·원투·워킹 낚시 포인트", "short_name": SITE,
+        "description": "전국 차박·원투낚시·워킹낚시 포인트의 위치, 진입 동선, 차박 여건을 지역별로 찾아보는 정보 사이트",
         "id": "/", "start_url": "/?source=pwa", "scope": "/", "display": "standalone",
         "background_color": "#f6f8fb", "theme_color": "#10283c", "lang": "ko", "dir": "ltr",
         "categories": ["sports", "travel", "lifestyle"],

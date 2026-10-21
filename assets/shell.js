@@ -9,14 +9,15 @@
     if (r === '부산' || r === '울산') return 'southeast';
     return r;
   }
+  var UPDATING = ['강원', '경북', 'southeast', '제주'];
   function districtOf(addr) { var p = String(addr || '').trim().split(/\s+/); return p.length > 1 ? p[1] : ''; }
   function make(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text !== undefined) n.textContent = text; return n; }
 
   var css = ':root{--side:184px}'
     + 'body.wontu-shell{padding-left:var(--side)}'
     + '.ws-side{position:fixed;left:0;top:0;bottom:0;width:var(--side);background:#10283c;color:#c0d0de;overflow:auto;z-index:12;font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;font-size:14px;line-height:1.5}'
-    + '.ws-brand{height:77px;margin:0 11px;border-bottom:1px solid #30475a;display:flex;align-items:center;gap:9px;color:#f8fcff;text-decoration:none;font-size:19px;font-weight:700;white-space:nowrap}'
-    + '.ws-brand svg{width:29px;height:29px;flex:none;color:#65c6ed}'
+    + '.ws-brand{height:77px;margin:0 11px;border-bottom:1px solid #30475a;display:flex;align-items:center;gap:6px;color:#f8fcff;text-decoration:none;font-size:15px;font-weight:800;letter-spacing:-.4px;white-space:nowrap}'
+    + '.ws-brand svg{width:24px;height:24px;flex:none;color:#65c6ed}'
     + '.ws-cap{font-size:12px;color:#7f9caf;padding:21px 22px 10px}'
     + '.ws-list{padding:0 11px 22px;display:grid;gap:2px}'
     + '.ws-list a{display:flex;justify-content:space-between;align-items:center;color:#c3d2df;text-decoration:none;border-radius:5px;padding:12px 11px;font-weight:700;min-height:39px}'
@@ -28,6 +29,8 @@
     + '.ws-btn{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 16px;border:1px solid #cfdce7;background:#fff;color:#14629e;border-radius:6px;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap}'
     + '.ws-btn:hover{background:#e8f1f8}'
     + '.ws-menu{display:none;padding:0 10px}'
+    + '.ws-title{margin:0 0 0 6px;font-size:18px;font-weight:800;letter-spacing:-.6px;background:linear-gradient(90deg,#10283c,#1d7fc1);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.3}'
+    + '.ws-upd{font-size:9.5px;font-weight:400;color:#f2b765;margin-right:5px}'
     + '.ws-search{margin-left:auto;display:flex;gap:7px}'
     + '.ws-search input{width:240px;max-width:100%;height:38px;border:1px solid #cfdce7;border-radius:6px;padding:0 12px;font-size:13px;outline:0;font-family:inherit}'
     + '.ws-search input:focus{border-color:#3c83b4;box-shadow:0 0 0 3px #dceefb}'
@@ -36,6 +39,16 @@
     + '.ws-shade{display:none}'
     + '@media(max-width:600px){:root{--side:0px}.ws-side{width:230px;transform:translateX(-100%);transition:transform .2s}.ws-side.open{transform:none}'
     + '.ws-shade.open{display:block;position:fixed;inset:0;background:#101b2b80;z-index:11}.ws-menu{display:inline-flex}.ws-top{flex-wrap:wrap;padding:10px 14px 0}.ws-search{margin-left:0;width:100%}.ws-search input{flex:1;width:auto}}';
+  var fl = document.createElement('link'); fl.rel = 'stylesheet'; fl.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap'; document.head.appendChild(fl);
+  css += 'body.wontu-shell{font-family:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif}'
+    + 'body.wontu-shell .container h1.wontu-point-title{font-weight:800;letter-spacing:-.04em;line-height:1.45}'
+    + 'body.wontu-shell .container h2,body.wontu-shell main h2{display:block;font-weight:800;letter-spacing:-.03em;border-left:6px solid #336B46;padding-left:13px}'
+    + 'body.wontu-shell main h1{font-size:30px;font-weight:800;letter-spacing:-.04em;margin:18px 0 6px;background:linear-gradient(90deg,#10283c,#1d7fc1);-webkit-background-clip:text;background-clip:text;color:transparent}'
+    + 'body.wontu-shell main h2{border-left-color:#1d669f;color:#10283c;font-size:20px;margin:34px 0 10px}'
+    + 'body.wontu-shell .highlight{font-weight:700;background:linear-gradient(transparent 55%,#cfe9d4 55%)!important;padding:0 2px!important;border-radius:0!important}'
+    + 'body.wontu-shell main .lead{font-size:17px;font-weight:500;color:#2a4a63}'
+    + 'body.wontu-shell .point-name{letter-spacing:-.3px}';
+  css += '@media(max-width:600px){body.wontu-shell .ad-photo img{width:70%!important;max-width:70%!important;height:auto!important;aspect-ratio:1/1}.ws-title{width:100%;margin:2px 0 0;order:5}body.wontu-shell main h1{font-size:25px}}';
   var st = make('style'); st.textContent = css; document.head.appendChild(st);
   document.body.classList.add('wontu-shell');
 
@@ -48,7 +61,7 @@
 
   // 사이드바
   var side = make('aside', 'ws-side'); side.setAttribute('aria-label', '지역 카테고리');
-  side.innerHTML = '<a class="ws-brand" href="/index.html" aria-label="원투포인트 홈"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M3 19c5 0 7-6 13-6 5 0 7 4 13 1M3 24c5 0 7-5 13-5 5 0 7 4 13 0M5 13c4-3 7-7 12-7 4 0 7 3 11 2" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>원투포인트</a><div class="ws-cap">지역 카테고리</div>';
+  side.innerHTML = '<a class="ws-brand" href="/index.html" aria-label="원투포인트 홈"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M3 19c5 0 7-6 13-6 5 0 7 4 13 1M3 24c5 0 7-5 13-5 5 0 7 4 13 0M5 13c4-3 7-7 12-7 4 0 7 3 11 2" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>낚시·차박 포인트</a><div class="ws-cap">지역 카테고리</div>';
   var list = make('nav', 'ws-list'); list.setAttribute('aria-label', '지역 선택'); side.appendChild(list);
   var shade = make('div', 'ws-shade');
   document.body.prepend(shade); document.body.prepend(side);
@@ -60,8 +73,9 @@
   menu.addEventListener('click', function () { side.classList.toggle('open'); shade.classList.toggle('open'); });
   var form = make('form', 'ws-search'); form.setAttribute('role', 'search'); form.action = '/index.html';
   form.innerHTML = '<input type="search" name="q" placeholder="포인트명, 지역명으로 검색" aria-label="포인트명 또는 지역명 검색"><button type="submit">검색</button>';
-  top.append(menu, backBtn(), form);
-  var container = document.querySelector('.container');
+  var title = make('div', 'ws-title', '전국 차박·원투·워킹 낚시 포인트');
+  top.append(menu, backBtn(), title, form);
+  var container = document.querySelector('.container') || document.querySelector('main');
   document.body.insertBefore(top, container);
 
   // 하단 바
@@ -70,7 +84,7 @@
   up.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
   bottom.append(backBtn(), up);
   var foot = document.querySelector('.wontu-foot');
-  if (foot) foot.parentNode.insertBefore(bottom, foot); else document.body.appendChild(bottom);
+  if (foot) foot.parentNode.insertBefore(bottom, foot); else container.parentNode.insertBefore(bottom, container.nextSibling);
 
   // 카테고리 목록 (points.json → 현재 포인트의 지역/시군 펼침)
   var m = location.pathname.match(/\/points\/([^/]+)\//), id = m && m[1];
@@ -81,7 +95,8 @@
     REGIONS.forEach(function (r) {
       var items = all.filter(function (x) { return groupOf(x.address) === r[1]; });
       var link = make('a', curG === r[1] ? 'on' : ''); link.href = '/index.html?region=' + encodeURIComponent(r[1]);
-      link.append(make('span', '', r[0]), make('small', '', String(items.length))); list.appendChild(link);
+      var cn = make('small', ''); if (UPDATING.indexOf(r[1]) >= 0) cn.appendChild(make('span', 'ws-upd', '업데이트중')); cn.append(String(items.length));
+      link.append(make('span', '', r[0]), cn); list.appendChild(link);
       if (curG === r[1]) {
         var sub = make('div', 'ws-sub');
         var all0 = make('a', ''); all0.href = link.href; all0.append(make('span', '', '전체'), make('small', '', String(items.length))); sub.appendChild(all0);
@@ -91,6 +106,7 @@
           s.append(make('span', '', c), make('small', '', String(cities[c]))); sub.appendChild(s);
         });
         list.appendChild(sub);
+        link.addEventListener('click', function (e) { e.preventDefault(); sub.style.display = sub.style.display === 'none' ? '' : 'none'; });
       }
     });
   }).catch(function () {});
