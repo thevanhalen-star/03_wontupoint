@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /tools/
-Disallow: /SEARCH_ENGINE_SETUP.txt
-Disallow: /points/*/002.txt
 
 Sitemap: https://wontupoint.com/sitemap.xml

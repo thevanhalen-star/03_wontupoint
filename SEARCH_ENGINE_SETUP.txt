@@ -1,4 +1,4 @@
-원투포인트 검색엔진 등록 패키지
+﻿원투포인트 검색엔진 등록 패키지
 ======================================
 기준 도메인: https://wontupoint.com
 포인트 데이터: 533개
@@ -53,14 +53,3 @@ Bing Webmaster Tools https://www.bing.com/webmasters
 Cloudflare Pages에서 빌드 루트를 설정했다면 이 파일들이 배포 결과의 사이트 루트에 위치해야 합니다.
 URL 목록은 검색엔진에 수집 후보를 알려주는 것으로 색인 또는 검색 노출을 보장하지 않습니다.
 배포 전에 contact.html의 연락처, privacy.html의 실제 서비스 정보, 기존 포인트 본문의 정확성을 검토하세요.
-
-
-2026-10-21 추가 (사이트 공통 요소)
---------------------------------------
-- tools/build_site.py : 포인트 페이지를 새로 만들거나 교체한 뒤 저장소 루트에서
-  "python tools/build_site.py" 를 실행하면 아래 항목이 다시 적용됩니다(여러 번 실행해도 안전).
-  · 광고 표시 라벨·제휴 고지, 이미지 출처(카카오맵) 표기, 안전·법규 안내
-  · meta description / canonical / OG / JSON-LD / 파비콘 / 상단·하단 메뉴
-  · sitemap.xml(lastmod), robots.txt, _headers, manifest, 카카오맵 QR(image/qr.svg)
-- 새 페이지: terms.html(이용약관), legal.html(운영 및 법적 고지), 404.html
-- sitemap.xml URL: 540개 (안내 페이지 6개 + 홈 + 포인트 533개)
