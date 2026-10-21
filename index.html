@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="전국 원투낚시 포인트를 지역별로 살펴보세요. 포인트 사진, 이름, 지역 정보를 한눈에 확인할 수 있습니다.">
+  <meta name="theme-color" content="#10293d">
+  <title>원투포인트 | 전국 원투낚시 포인트</title>
+  <link rel="canonical" href="https://wontupoint.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="원투포인트">
+  <meta property="og:title" content="원투포인트 | 전국 원투낚시 포인트">
+  <meta property="og:description" content="전국 원투낚시 포인트 533곳의 사진과 위치 정보를 지역별로 찾아보세요.">
+  <meta property="og:url" content="https://wontupoint.com/">
+  <meta name="robots" content="index,follow">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <style>
+    :root{--navy:#10283c;--blue:#1d669f;--text:#213b53;--muted:#7990a5;--line:#dee6ed;--page:#f6f8fb;--side:184px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--page);color:var(--text);font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;font-size:14px;-webkit-font-smoothing:antialiased}
+    button,input,select{font:inherit}
+    button{cursor:pointer}
+    .sidebar{position:fixed;left:0;top:0;bottom:0;width:var(--side);background:var(--navy);color:#c0d0de;overflow:auto;z-index:12}
+    .brand{height:77px;margin:0 11px;border-bottom:1px solid #30475a;display:flex;align-items:center;gap:9px;color:#f8fcff;text-decoration:none;font-size:19px;font-weight:700;white-space:nowrap}
+    .brand svg{width:29px;height:29px;flex:none;color:#65c6ed}
+    .side-caption{font-size:12px;color:#7f9caf;padding:21px 22px 10px}
+    .region-list{padding:0 11px 22px;display:grid;gap:2px}
+    .region-btn{background:transparent;border:0;color:#c3d2df;display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;border-radius:5px;padding:12px 11px;font-size:14px;min-height:39px;transition:background .12s}
+    .region-btn:hover{background:#203f57}.region-btn.active{background:#2069a1;color:white}.region-count{font-size:11px;color:#92abc0}.region-btn.active .region-count{color:#deecfa}
+    .layout{margin-left:var(--side);min-height:100vh;display:flex;flex-direction:column}
+    .main{width:100%;max-width:1480px;margin:0 auto;padding:27px 35px 0;flex:1}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:19px}
+    .topbar h1{margin:0;font-size:23px;line-height:1.4;font-weight:500;letter-spacing:-.5px}
+    .search{display:flex;align-items:center;gap:7px}
+    .search-field{position:relative;width:280px}
+    .search-field svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:#87a0b6}
+    .search input{border:1px solid #cfdce7;border-radius:6px;background:#fff;width:100%;height:38px;padding:0 12px 0 35px;outline:0;color:#203a53;font-size:12px}
+    .search input:focus{border-color:#3c83b4;box-shadow:0 0 0 3px #dceefb}
+    .search input::placeholder{color:#94a9bb}
+    .search button{height:38px;background:#14629e;color:#fff;border:0;border-radius:5px;padding:0 19px;white-space:nowrap}
+    .search button:hover{background:#0b507f}
+    .subbar{border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;align-items:center;padding-bottom:10px;margin-bottom:15px}
+    .subbar h2{margin:0;font-size:16px;font-weight:500}
+    .subbar-right{display:flex;align-items:center;gap:13px}
+    #citySelect{height:30px;border:1px solid #dde6ed;background:#fbfdff;border-radius:5px;color:#8398aa;font-size:12px;max-width:165px;padding:0 9px;outline:none}
+    #count{font-size:12px;color:#879cad;white-space:nowrap}
+    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 16px}
+    .point-card{border:1px solid #e0e7ee;border-radius:5px;overflow:hidden;background:#fff;box-shadow:0 1px 2px #172e4810;text-decoration:none;color:inherit;min-width:0;transition:transform .15s,box-shadow .15s}
+    .point-card:hover{transform:translateY(-2px);box-shadow:0 5px 16px #172e4821}
+    .point-photo{width:100%;aspect-ratio:1.335/1;display:block;object-fit:cover;background:#e8eff4;color:transparent}
+    .card-info{padding:8px 10px 10px;min-height:60px}
+    .point-name{font-weight:500;font-size:15px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .point-address{font-size:12px;color:#7991a6;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .empty{grid-column:1/-1;text-align:center;padding:85px 16px;color:#7890a3;background:white;border:1px solid var(--line);border-radius:6px}
+    .pager{display:flex;justify-content:center;align-items:center;gap:5px;margin:28px 0 39px;min-height:34px}
+    .pager button{min-width:34px;height:34px;border:1px solid #d5e1ea;background:white;border-radius:5px;color:#365d7a;padding:0 9px;font-size:13px}
+    .pager button.active{background:#1b659e;color:#fff;border-color:#1b659e;font-weight:700}
+    .pager button:disabled{color:#adbfcc;cursor:default;background:#f9fbfd;border-color:#e8edf2}
+    .pager button:not(:disabled):hover:not(.active){background:#e8f1f8}
+    .footer{border-top:1px solid var(--line);padding:14px 0 20px;margin:0 35px;color:#9baebb;font-size:11px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+    .footer-links{display:flex;gap:16px}.footer a{color:inherit;text-decoration:none}.footer a:hover{text-decoration:underline}
+    .mobile-menu{display:none;background:none;border:0;padding:6px;color:var(--text)}
+    .shade{display:none}
+    @media(min-width:1500px){.main{padding-left:42px;padding-right:42px}.footer{margin-left:42px;margin-right:42px}}
+    @media(max-width:900px){:root{--side:165px}.main{padding:24px 23px 0}.footer{margin:0 23px}.topbar h1{font-size:21px}.search-field{width:220px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:600px){:root{--side:0px}.sidebar{transform:translateX(-100%);width:230px;transition:transform .2s}.sidebar.open{transform:translateX(0)}.shade.open{display:block;position:fixed;inset:0;background:#101b2b80;z-index:11}.mobile-menu{display:inline-flex}.main{padding:19px 15px 0}.topbar{flex-wrap:wrap;gap:13px}.top-title{display:flex;gap:6px;align-items:center}.topbar h1{font-size:19px}.search{width:100%}.search-field{width:auto;flex:1}.cards{gap:11px;grid-template-columns:repeat(2,minmax(0,1fr))}.point-name{font-size:13px}.point-address{font-size:11px}.card-info{padding:8px}.subbar h2{font-size:14px}.subbar-right{gap:6px}#citySelect{max-width:108px}.footer{margin:0 15px;flex-wrap:wrap}.footer-links{gap:12px}.pager{flex-wrap:wrap}}
+    @media(max-width:370px){.cards{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div id="shade" class="shade"></div>
+<aside class="sidebar" id="sidebar" aria-label="지역 카테고리">
+  <a class="brand" href="./index.html" aria-label="원투포인트 홈">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 19c5 0 7-6 13-6 5 0 7 4 13 1M3 24c5 0 7-5 13-5 5 0 7 4 13 0M5 13c4-3 7-7 12-7 4 0 7 3 11 2" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+    원투포인트
+  </a>
+  <div class="side-caption">지역 카테고리</div>
+  <nav class="region-list" id="regionList" aria-label="지역 선택"></nav>
+</aside>
+<div class="layout">
+  <main class="main">
+    <div class="topbar">
+      <div class="top-title"><button id="menuButton" class="mobile-menu" aria-label="지역 메뉴 열기"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><h1>전국 원투낚시 포인트</h1></div>
+      <form class="search" id="searchForm" role="search">
+        <div class="search-field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg><input id="searchInput" type="search" placeholder="포인트명, 지역명으로 검색" aria-label="포인트명 또는 지역명 검색"></div>
+        <button type="submit">검색</button>
+      </form>
+    </div>
+    <div class="subbar">
+      <h2 id="sectionTitle">전체 포인트</h2>
+      <div class="subbar-right"><select id="citySelect" aria-label="시군구 필터"><option value="">시·군 전체</option></select><span id="count">총 0개</span></div>
+    </div>
+    <div id="cards" class="cards" aria-live="polite"></div>
+    <nav class="pager" id="pagination" aria-label="페이지 선택"></nav>
+  </main>
+  <footer class="footer"><span>© 원투포인트</span><div class="footer-links"><a href="all-points.html">전체 포인트 목록</a><a href="about.html">사이트 소개</a><a href="privacy.html">개인정보처리방침</a><a href="contact.html">문의</a></div></footer>
+</div>
+<script>
+(() => {
+  'use strict';
+  const PAGE_SIZE = 9;
+  const REGIONS = [
+    ['전체', null], ['인천·경기', 'metro'], ['강원', '강원'], ['충남', '충남'],
+    ['전북', '전북'], ['전남', '전남'], ['경북', '경북'], ['경남', '경남'],
+    ['부산·울산', 'southeast'], ['제주', '제주']
+  ];
+  const cityAlias = {'인천':'인천','인천광역시':'인천','경기':'경기','경기도':'경기','강원특별자치도':'강원','강원도':'강원','강원':'강원','충청남도':'충남','충남':'충남','충청북도':'충북','충북':'충북','전북특별자치도':'전북','전라북도':'전북','전북':'전북','전라남도':'전남','전남':'전남','경상북도':'경북','경북':'경북','경상남도':'경남','경남':'경남','부산광역시':'부산','부산':'부산','울산광역시':'울산','울산':'울산','제주특별자치도':'제주','제주':'제주'};
+  const el = id => document.getElementById(id);
+  let all = [], activeRegion = null, activeCity = '', keyword = '', page = 1;
+  const normalize = text => String(text || '').replace(/\s+/g,'').toLowerCase();
+  const regionOf = address => cityAlias[String(address || '').trim().split(/\s+/)[0]] || '';
+  const groupOf = item => {
+    const r=regionOf(item.address);
+    if(r==='인천'||r==='경기')return 'metro';
+    if(r==='부산'||r==='울산')return 'southeast';
+    return r;
+  };
+  const districtOf = item => {
+    const parts=String(item.address || '').trim().split(/\s+/);
+    // Ex: 충남 태안군, 인천 중구, 경기 안산시 단원구
+    return parts.length>1 ? parts[1] : '';
+  };
+  const pointUrl = path => 'points/' + String(path || '').replace(/^\/+/, '');
+  function visibleRegion(){return all.filter(item => activeRegion===null || groupOf(item)===activeRegion);}
+  function filtered(){return visibleRegion().filter(item=> (!activeCity || districtOf(item)===activeCity) && (!keyword || normalize(item.name).includes(keyword) || normalize(item.address).includes(keyword)));}
+  function make(tag, klass, content){const n=document.createElement(tag);if(klass)n.className=klass;if(content!==undefined)n.textContent=content;return n;}
+  function renderRegions(){
+    const parent=el('regionList');parent.replaceChildren();
+    for(const [name,region] of REGIONS){
+      const count=all.filter(item=>region===null||groupOf(item)===region).length;
+      const b=make('button','region-btn'+(activeRegion===region?' active':''));b.type='button';b.setAttribute('aria-pressed',String(activeRegion===region));
+      b.append(make('span','',name),make('span','region-count',String(count)));
+      b.addEventListener('click',()=>{activeRegion=region;activeCity='';page=1;updateCities();render();closeMenu();});
+      parent.append(b);
+    }
+  }
+  function updateCities(){
+    const sel=el('citySelect');sel.replaceChildren(new Option('시·군 전체',''));
+    const cities=[...new Set(visibleRegion().map(districtOf).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ko'));
+    for(const city of cities) sel.add(new Option(city,city));
+    if(cities.includes(activeCity))sel.value=activeCity;else {activeCity='';sel.value='';}
+  }
+  function renderCards(items){
+    const parent=el('cards');parent.replaceChildren();
+    if(!items.length){parent.append(make('div','empty',all.length?'검색 조건에 맞는 포인트가 없습니다.':'포인트 데이터를 불러오지 못했습니다.'));return;}
+    for(const item of items){
+      const a=make('a','point-card');a.href=pointUrl(item.url);a.title=item.name+' — '+item.address;
+      const img=make('img','point-photo');img.src=pointUrl(item.image);img.alt=item.name+' 포인트 사진';img.loading='lazy';img.decoding='async';
+      img.addEventListener('error',()=>{img.style.background='#e8eff4';img.alt='이미지를 불러올 수 없습니다';},{once:true});
+      const info=make('div','card-info');info.append(make('div','point-name',item.name),make('div','point-address',item.address));
+      a.append(img,info);parent.append(a);
+    }
+  }
+  function renderPages(total){
+    const nav=el('pagination');nav.replaceChildren();
+    const pageCount=Math.max(1,Math.ceil(total/PAGE_SIZE));page=Math.max(1,Math.min(page,pageCount));
+    if(total===0)return;
+    const add=(label,n,disabled,active)=>{
+      const b=make('button',active?'active':'',label);b.type='button';b.disabled=disabled;
+      if(active)b.setAttribute('aria-current','page');
+      b.addEventListener('click',()=>{page=n;render();window.scrollTo({top:0,behavior:'smooth'});});nav.append(b);
+    };
+    add('이전',page-1,page===1,false);
+    let start=Math.max(1,page-2),end=Math.min(pageCount,start+4);start=Math.max(1,end-4);
+    if(start>1){add('1',1,false,page===1);if(start>2)nav.append(make('span','','…'));}
+    for(let p=start;p<=end;p++)add(String(p),p,false,p===page);
+    if(end<pageCount){if(end<pageCount-1)nav.append(make('span','','…'));add(String(pageCount),pageCount,false,page===pageCount);}
+    add('다음',page+1,page===pageCount,false);
+  }
+  function render(){
+    renderRegions();
+    const regionLabel=REGIONS.find(([,value])=>value===activeRegion)?.[0] || '전체';
+    el('sectionTitle').textContent=regionLabel==='전체'?'전체 포인트':regionLabel+' 포인트';
+    const data=filtered();
+    el('count').textContent='총 '+data.length.toLocaleString('ko-KR')+'개';
+    page=Math.max(1,Math.min(page,Math.max(1,Math.ceil(data.length/PAGE_SIZE))));
+    renderCards(data.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE));renderPages(data.length);
+  }
+  function closeMenu(){el('sidebar').classList.remove('open');el('shade').classList.remove('open');}
+  el('menuButton').addEventListener('click',()=>{el('sidebar').classList.toggle('open');el('shade').classList.toggle('open');});
+  el('shade').addEventListener('click',closeMenu);
+  el('searchForm').addEventListener('submit',e=>{e.preventDefault();keyword=el('searchInput').value.trim();page=1;render();});
+  el('searchInput').addEventListener('input',e=>{keyword=e.target.value.trim();page=1;render();});
+  el('citySelect').addEventListener('change',e=>{activeCity=e.target.value;page=1;render();});
+  const current=new URL(location.href);
+  const presetRegion=current.searchParams.get('region');
+  if(REGIONS.some(([,v])=>v===presetRegion))activeRegion=presetRegion;
+  const presetQuery=current.searchParams.get('q');
+  if(presetQuery){keyword=presetQuery;el('searchInput').value=presetQuery;}
+  fetch('./points.json',{cache:'no-cache'})
+    .then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();})
+    .then(data=>{
+      if(!Array.isArray(data))throw Error('JSON 배열이 아닙니다.');
+      all=data.filter(x=>x&&typeof x.id==='string'&&typeof x.name==='string'&&typeof x.address==='string'&&typeof x.url==='string'&&typeof x.image==='string');
+      updateCities();render();
+    })
+    .catch(e=>{console.error('points.json 불러오기 실패:',e);el('cards').replaceChildren(make('div','empty','points.json 파일을 불러올 수 없습니다. 로컬 서버 또는 웹사이트 주소로 열어 주세요.'));el('count').textContent='데이터 오류';});
+})();
+</script>
+</body>
+</html>

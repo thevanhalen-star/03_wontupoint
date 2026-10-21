@@ -1,0 +1,3733 @@
+[
+  {
+    "id": "C001",
+    "name": "황산포구",
+    "address": "인천 강화군 길상면 초지리",
+    "url": "/C001/001.html",
+    "image": "/C001/image/001.jpg"
+  },
+  {
+    "id": "C002",
+    "name": "초지진 공영주차장",
+    "address": "인천 강화군 길상면 초지리",
+    "url": "/C002/001.html",
+    "image": "/C002/image/001.jpg"
+  },
+  {
+    "id": "C003",
+    "name": "초지진선착장",
+    "address": "인천 강화군 길상면 초지리",
+    "url": "/C003/001.html",
+    "image": "/C003/image/001.jpg"
+  },
+  {
+    "id": "C004",
+    "name": "덕진진주차장",
+    "address": "인천 강화군 불은면 덕성리",
+    "url": "/C004/001.html",
+    "image": "/C004/image/001.jpg"
+  },
+  {
+    "id": "C005",
+    "name": "광성보 공영주차장",
+    "address": "인천 강화군 불은면 덕성리",
+    "url": "/C005/001.html",
+    "image": "/C005/image/001.jpg"
+  },
+  {
+    "id": "C006",
+    "name": "오두돈대",
+    "address": "인천 강화군 불은면 오두리",
+    "url": "/C006/001.html",
+    "image": "/C006/image/001.jpg"
+  },
+  {
+    "id": "C007",
+    "name": "화도돈대 주차장",
+    "address": "인천 강화군 불은면 고능리",
+    "url": "/C007/001.html",
+    "image": "/C007/image/001.jpg"
+  },
+  {
+    "id": "C008",
+    "name": "건평항",
+    "address": "인천 강화군 양도면 건평리",
+    "url": "/C008/001.html",
+    "image": "/C008/image/001.jpg"
+  },
+  {
+    "id": "C009",
+    "name": "내리쉼터(송강돈대 옆)",
+    "address": "인천 강화군 화도면 내리",
+    "url": "/C009/001.html",
+    "image": "/C009/image/001.jpg"
+  },
+  {
+    "id": "C010",
+    "name": "후포항",
+    "address": "인천 강화군 화도면 내리",
+    "url": "/C010/001.html",
+    "image": "/C010/image/001.jpg"
+  },
+  {
+    "id": "C011",
+    "name": "미루지항",
+    "address": "인천 강화군 화도면 여차리",
+    "url": "/C011/001.html",
+    "image": "/C011/image/001.jpg"
+  },
+  {
+    "id": "C012",
+    "name": "동막해수욕장",
+    "address": "인천 강화군 화도면 동막리",
+    "url": "/C012/001.html",
+    "image": "/C012/image/001.jpg"
+  },
+  {
+    "id": "C013",
+    "name": "분오항",
+    "address": "인천 강화군 화도면 사기리",
+    "url": "/C013/001.html",
+    "image": "/C013/image/001.jpg"
+  },
+  {
+    "id": "C014",
+    "name": "선두포구어판장, 선두4리선착장",
+    "address": "인천 강화군 길상면 선두리",
+    "url": "/C014/001.html",
+    "image": "/C014/image/001.jpg"
+  },
+  {
+    "id": "C015",
+    "name": "선두5리어시장",
+    "address": "인천 강화군 길상면 선두리",
+    "url": "/C015/001.html",
+    "image": "/C015/image/001.jpg"
+  },
+  {
+    "id": "C016",
+    "name": "동검선착장",
+    "address": "인천 강화군 길상면 동검리",
+    "url": "/C016/001.html",
+    "image": "/C016/image/001.jpg"
+  },
+  {
+    "id": "C017",
+    "name": "해안도시참숯불장어 건너편 주차장",
+    "address": "인천 강화군 길상면 초지리",
+    "url": "/C017/001.html",
+    "image": "/C017/image/001.jpg"
+  },
+  {
+    "id": "C018",
+    "name": "예단포항",
+    "address": "인천 중구 운북동",
+    "url": "/C018/001.html",
+    "image": "/C018/image/001.jpg"
+  },
+  {
+    "id": "C019",
+    "name": "삼목항방파제",
+    "address": "인천 중구 운서동",
+    "url": "/C019/001.html",
+    "image": "/C019/image/001.jpg"
+  },
+  {
+    "id": "C020",
+    "name": "왕산마리나항",
+    "address": "인천 중구 을왕동",
+    "url": "/C020/001.html",
+    "image": "/C020/image/001.jpg"
+  },
+  {
+    "id": "C021",
+    "name": "왕산해수욕장",
+    "address": "인천 중구 을왕동",
+    "url": "/C021/001.html",
+    "image": "/C021/image/001.jpg"
+  },
+  {
+    "id": "C022",
+    "name": "을왕리선착장",
+    "address": "인천 중구 을왕동",
+    "url": "/C022/001.html",
+    "image": "/C022/image/001.jpg"
+  },
+  {
+    "id": "C023",
+    "name": "을왕리해수욕장",
+    "address": "인천 중구 을왕동",
+    "url": "/C023/001.html",
+    "image": "/C023/image/001.jpg"
+  },
+  {
+    "id": "C024",
+    "name": "선녀바위해수욕장",
+    "address": "인천 중구 을왕동",
+    "url": "/C024/001.html",
+    "image": "/C024/image/001.jpg"
+  },
+  {
+    "id": "C026",
+    "name": "광명항",
+    "address": "인천 중구 무의동",
+    "url": "/C026/001.html",
+    "image": "/C026/image/001.jpg"
+  },
+  {
+    "id": "C027",
+    "name": "큰무리선착장",
+    "address": "인천 중구 무의동",
+    "url": "/C027/001.html",
+    "image": "/C027/image/001.jpg"
+  },
+  {
+    "id": "C028",
+    "name": "잠진도선착장",
+    "address": "인천 중구 덕교동",
+    "url": "/C028/001.html",
+    "image": "/C028/image/001.jpg"
+  },
+  {
+    "id": "C029",
+    "name": "거잠포선착장",
+    "address": "인천 중구 운서동",
+    "url": "/C029/001.html",
+    "image": "/C029/image/001.jpg"
+  },
+  {
+    "id": "C030",
+    "name": "방아머리항",
+    "address": "경기 안산시 단원구 대부북동",
+    "url": "/C030/001.html",
+    "image": "/C030/image/001.jpg"
+  },
+  {
+    "id": "C031",
+    "name": "뱃말항 공영주차장",
+    "address": "인천 옹진군 영흥면 선재리",
+    "url": "/C031/001.html",
+    "image": "/C031/image/001.jpg"
+  },
+  {
+    "id": "C032",
+    "name": "넛출선착장",
+    "address": "인천 옹진군 영흥면 선재리",
+    "url": "/C032/001.html",
+    "image": "/C032/image/001.jpg"
+  },
+  {
+    "id": "C033",
+    "name": "진두선착장",
+    "address": "인천 옹진군 영흥면 내리",
+    "url": "/C033/001.html",
+    "image": "/C033/image/001.jpg"
+  },
+  {
+    "id": "C034",
+    "name": "십리포해수욕장 공영주차장",
+    "address": "인천 옹진군 영흥면 내리",
+    "url": "/C034/001.html",
+    "image": "/C034/image/001.jpg"
+  },
+  {
+    "id": "C035",
+    "name": "장경리 제2 공영주차장",
+    "address": "인천 옹진군 영흥면 내리",
+    "url": "/C035/001.html",
+    "image": "/C035/image/001.jpg"
+  },
+  {
+    "id": "C036",
+    "name": "메추리섬",
+    "address": "경기 안산시 단원구 대부남동",
+    "url": "/C036/001.html",
+    "image": "/C036/image/001.jpg"
+  },
+  {
+    "id": "C037",
+    "name": "행낭곡항",
+    "address": "경기 안산시 단원구 대부남동",
+    "url": "/C037/001.html",
+    "image": "/C037/image/001.jpg"
+  },
+  {
+    "id": "C038",
+    "name": "탄도항",
+    "address": "경기 안산시 단원구 선감동",
+    "url": "/C038/001.html",
+    "image": "/C038/image/001.jpg"
+  },
+  {
+    "id": "C039",
+    "name": "전곡항",
+    "address": "경기 화성시 만세구 서신면 전곡리",
+    "url": "/C039/001.html",
+    "image": "/C039/image/001.jpg"
+  },
+  {
+    "id": "C040",
+    "name": "고렴산수변공원주차장",
+    "address": "경기 화성시 만세구 서신면 장외리",
+    "url": "/C040/001.html",
+    "image": "/C040/image/001.jpg"
+  },
+  {
+    "id": "C041",
+    "name": "백미항",
+    "address": "경기 화성시 만세구 서신면 백미리",
+    "url": "/C041/001.html",
+    "image": "/C041/image/001.jpg"
+  },
+  {
+    "id": "C042",
+    "name": "궁평항",
+    "address": "경기 화성시 만세구 서신면 궁평리",
+    "url": "/C042/001.html",
+    "image": "/C042/image/001.jpg"
+  },
+  {
+    "id": "C043",
+    "name": "매향항",
+    "address": "경기 화성시 만세구 우정읍 매향리",
+    "url": "/C043/001.html",
+    "image": "/C043/image/001.jpg"
+  },
+  {
+    "id": "C044",
+    "name": "고온항",
+    "address": "경기 화성시 만세구 우정읍 매향리",
+    "url": "/C044/001.html",
+    "image": "/C044/image/001.jpg"
+  },
+  {
+    "id": "C045",
+    "name": "석천항",
+    "address": "경기 화성시 만세구 우정읍 매향리",
+    "url": "/C045/001.html",
+    "image": "/C045/image/001.jpg"
+  },
+  {
+    "id": "C046",
+    "name": "한진포구",
+    "address": "충남 당진시 송악읍 한진리",
+    "url": "/C046/001.html",
+    "image": "/C046/image/001.jpg"
+  },
+  {
+    "id": "C047",
+    "name": "고대지구근린공원",
+    "address": "충남 당진시 송악읍 한진리",
+    "url": "/C047/001.html",
+    "image": "/C047/image/001.jpg"
+  },
+  {
+    "id": "C048",
+    "name": "안섬포구",
+    "address": "충남 당진시 송악읍 고대리",
+    "url": "/C048/001.html",
+    "image": "/C048/image/001.jpg"
+  },
+  {
+    "id": "C049",
+    "name": "성구미방파제(석문선착장)",
+    "address": "충남 당진시 송산면 가곡리",
+    "url": "/C049/001.html",
+    "image": "/C049/image/001.jpg"
+  },
+  {
+    "id": "C050",
+    "name": "석문방조제 주차장",
+    "address": "충남 당진시 송산면 가곡리",
+    "url": "/C050/001.html",
+    "image": "/C050/image/001.jpg"
+  },
+  {
+    "id": "C051",
+    "name": "석문방조제 중간 주차장 1",
+    "address": "충남 당진시 송산면 가곡리",
+    "url": "/C051/001.html",
+    "image": "/C051/image/001.jpg"
+  },
+  {
+    "id": "C052",
+    "name": "석문방조제 중간 주차장 2",
+    "address": "충남 당진시 석문면 삼화리",
+    "url": "/C052/001.html",
+    "image": "/C052/image/001.jpg"
+  },
+  {
+    "id": "C053",
+    "name": "마섬항",
+    "address": "충남 당진시 석문면 장고항리",
+    "url": "/C053/001.html",
+    "image": "/C053/image/001.jpg"
+  },
+  {
+    "id": "C054",
+    "name": "마섬포구",
+    "address": "충남 당진시 석문면 장고항리",
+    "url": "/C054/001.html",
+    "image": "/C054/image/001.jpg"
+  },
+  {
+    "id": "C055",
+    "name": "장고항",
+    "address": "충남 당진시 석문면 장고항리",
+    "url": "/C055/001.html",
+    "image": "/C055/image/001.jpg"
+  },
+  {
+    "id": "C056",
+    "name": "용무치항",
+    "address": "충남 당진시 석문면 장고항리",
+    "url": "/C056/001.html",
+    "image": "/C056/image/001.jpg"
+  },
+  {
+    "id": "C057",
+    "name": "왜목항",
+    "address": "충남 당진시 석문면 교로리",
+    "url": "/C057/001.html",
+    "image": "/C057/image/001.jpg"
+  },
+  {
+    "id": "C058",
+    "name": "도비도농어촌휴양지 주차장6",
+    "address": "충남 당진시 석문면 난지도리",
+    "url": "/C058/001.html",
+    "image": "/C058/image/001.jpg"
+  },
+  {
+    "id": "C059",
+    "name": "도비도항",
+    "address": "충남 당진시 석문면 난지도리",
+    "url": "/C059/001.html",
+    "image": "/C059/image/001.jpg"
+  },
+  {
+    "id": "C060",
+    "name": "삼길포항",
+    "address": "충남 서산시 대산읍 화곡리",
+    "url": "/C060/001.html",
+    "image": "/C060/image/001.jpg"
+  },
+  {
+    "id": "C061",
+    "name": "황금산 주차장",
+    "address": "충남 서산시 대산읍 독곶리",
+    "url": "/C061/001.html",
+    "image": "/C061/image/001.jpg"
+  },
+  {
+    "id": "C062",
+    "name": "벌말항",
+    "address": "충남 서산시 대산읍 오지리",
+    "url": "/C062/001.html",
+    "image": "/C062/image/001.jpg"
+  },
+  {
+    "id": "C063",
+    "name": "웅도선착장",
+    "address": "충남 서산시 대산읍 웅도리",
+    "url": "/C063/001.html",
+    "image": "/C063/image/001.jpg"
+  },
+  {
+    "id": "C064",
+    "name": "중리포구",
+    "address": "충남 서산시 지곡면 중왕리",
+    "url": "/C064/001.html",
+    "image": "/C064/image/001.jpg"
+  },
+  {
+    "id": "C065",
+    "name": "왕산포구",
+    "address": "충남 서산시 지곡면 중왕리",
+    "url": "/C065/001.html",
+    "image": "/C065/image/001.jpg"
+  },
+  {
+    "id": "C066",
+    "name": "호리 선착장",
+    "address": "충남 서산시 팔봉면 호리",
+    "url": "/C066/001.html",
+    "image": "/C066/image/001.jpg"
+  },
+  {
+    "id": "C067",
+    "name": "구도항",
+    "address": "충남 서산시 팔봉면 호리",
+    "url": "/C067/001.html",
+    "image": "/C067/image/001.jpg"
+  },
+  {
+    "id": "C068",
+    "name": "사창리 선착장",
+    "address": "충남 태안군 이원면 사창리",
+    "url": "/C068/001.html",
+    "image": "/C068/image/001.jpg"
+  },
+  {
+    "id": "C069",
+    "name": "만대항",
+    "address": "충남 태안군 이원면 내리",
+    "url": "/C069/001.html",
+    "image": "/C069/image/001.jpg"
+  },
+  {
+    "id": "C070",
+    "name": "이원방조제",
+    "address": "충남 태안군 이원면 포지리",
+    "url": "/C070/001.html",
+    "image": "/C070/image/001.jpg"
+  },
+  {
+    "id": "C071",
+    "name": "민어도 선착장",
+    "address": "충남 태안군 원북면 방갈리",
+    "url": "/C071/001.html",
+    "image": "/C071/image/001.jpg"
+  },
+  {
+    "id": "C072",
+    "name": "학암포항",
+    "address": "충남 태안군 원북면 방갈리",
+    "url": "/C072/001.html",
+    "image": "/C072/image/001.jpg"
+  },
+  {
+    "id": "C073",
+    "name": "개목항",
+    "address": "충남 태안군 소원면 의항리",
+    "url": "/C073/001.html",
+    "image": "/C073/image/001.jpg"
+  },
+  {
+    "id": "C074",
+    "name": "천리포항",
+    "address": "충남 태안군 소원면 의항리",
+    "url": "/C074/001.html",
+    "image": "/C074/image/001.jpg"
+  },
+  {
+    "id": "C075",
+    "name": "만리포 희망광장",
+    "address": "충남 태안군 소원면 의항리",
+    "url": "/C075/001.html",
+    "image": "/C075/image/001.jpg"
+  },
+  {
+    "id": "C076",
+    "name": "만리포",
+    "address": "충남 태안군 소원면 모항리",
+    "url": "/C076/001.html",
+    "image": "/C076/image/001.jpg"
+  },
+  {
+    "id": "C077",
+    "name": "모항항",
+    "address": "충남 태안군 소원면 모항리",
+    "url": "/C077/001.html",
+    "image": "/C077/image/001.jpg"
+  },
+  {
+    "id": "C078",
+    "name": "어은돌항",
+    "address": "충남 태안군 소원면 모항리",
+    "url": "/C078/001.html",
+    "image": "/C078/image/001.jpg"
+  },
+  {
+    "id": "C079",
+    "name": "통개항",
+    "address": "충남 태안군 소원면 파도리",
+    "url": "/C079/001.html",
+    "image": "/C079/image/001.jpg"
+  },
+  {
+    "id": "C080",
+    "name": "정산포",
+    "address": "충남 태안군 근흥면 정죽리",
+    "url": "/C080/001.html",
+    "image": "/C080/image/001.jpg"
+  },
+  {
+    "id": "C081",
+    "name": "신진도공영주차장",
+    "address": "충남 태안군 근흥면 신진도리",
+    "url": "/C081/001.html",
+    "image": "/C081/image/001.jpg"
+  },
+  {
+    "id": "C082",
+    "name": "마도 방파제",
+    "address": "충남 태안군 근흥면 신진도리",
+    "url": "/C082/001.html",
+    "image": "/C082/image/001.jpg"
+  },
+  {
+    "id": "C083",
+    "name": "안흥항",
+    "address": "충남 태안군 근흥면 정죽리",
+    "url": "/C083/001.html",
+    "image": "/C083/image/001.jpg"
+  },
+  {
+    "id": "C084",
+    "name": "연포항",
+    "address": "충남 태안군 근흥면 도황리",
+    "url": "/C084/001.html",
+    "image": "/C084/image/001.jpg"
+  },
+  {
+    "id": "C085",
+    "name": "채석포항",
+    "address": "충남 태안군 근흥면 도황리",
+    "url": "/C085/001.html",
+    "image": "/C085/image/001.jpg"
+  },
+  {
+    "id": "C086",
+    "name": "용신리 선착장",
+    "address": "충남 태안군 근흥면 용신리",
+    "url": "/C086/001.html",
+    "image": "/C086/image/001.jpg"
+  },
+  {
+    "id": "C087",
+    "name": "용신리 삼거리 주차장",
+    "address": "충남 태안군 근흥면 용신리",
+    "url": "/C087/001.html",
+    "image": "/C087/image/001.jpg"
+  },
+  {
+    "id": "C088",
+    "name": "몽산포항",
+    "address": "충남 태안군 남면 몽산리",
+    "url": "/C088/001.html",
+    "image": "/C088/image/001.jpg"
+  },
+  {
+    "id": "C089",
+    "name": "마검포항",
+    "address": "충남 태안군 남면 신온리",
+    "url": "/C089/001.html",
+    "image": "/C089/image/001.jpg"
+  },
+  {
+    "id": "C090",
+    "name": "드르니항",
+    "address": "충남 태안군 남면 신온리",
+    "url": "/C090/001.html",
+    "image": "/C090/image/001.jpg"
+  },
+  {
+    "id": "C091",
+    "name": "기지포해수욕장",
+    "address": "충남 태안군 안면읍 창기리",
+    "url": "/C091/001.html",
+    "image": "/C091/image/001.jpg"
+  },
+  {
+    "id": "C092",
+    "name": "방포방파제",
+    "address": "충남 태안군 안면읍 승언리",
+    "url": "/C092/001.html",
+    "image": "/C092/image/001.jpg"
+  },
+  {
+    "id": "C093",
+    "name": "옷점항",
+    "address": "충남 태안군 고남면 고남리",
+    "url": "/C093/001.html",
+    "image": "/C093/image/001.jpg"
+  },
+  {
+    "id": "C094",
+    "name": "가경주항",
+    "address": "충남 태안군 고남면 고남리",
+    "url": "/C094/001.html",
+    "image": "/C094/image/001.jpg"
+  },
+  {
+    "id": "C095",
+    "name": "영목항",
+    "address": "충남 태안군 고남면 고남리",
+    "url": "/C095/001.html",
+    "image": "/C095/image/001.jpg"
+  },
+  {
+    "id": "C096",
+    "name": "탄개포항",
+    "address": "충남 태안군 고남면 고남리",
+    "url": "/C096/001.html",
+    "image": "/C096/image/001.jpg"
+  },
+  {
+    "id": "C097",
+    "name": "구매항",
+    "address": "충남 태안군 고남면 고남리",
+    "url": "/C097/001.html",
+    "image": "/C097/image/001.jpg"
+  },
+  {
+    "id": "C098",
+    "name": "장곰항",
+    "address": "충남 태안군 고남면 누동리",
+    "url": "/C098/001.html",
+    "image": "/C098/image/001.jpg"
+  },
+  {
+    "id": "C099",
+    "name": "대야도 선착장",
+    "address": "충남 태안군 안면읍 중장리",
+    "url": "/C099/001.html",
+    "image": "/C099/image/001.jpg"
+  },
+  {
+    "id": "C100",
+    "name": "내포항",
+    "address": "충남 태안군 안면읍 중장리",
+    "url": "/C100/001.html",
+    "image": "/C100/image/001.jpg"
+  },
+  {
+    "id": "C101",
+    "name": "창리포구",
+    "address": "충남 서산시 부석면 창리",
+    "url": "/C101/001.html",
+    "image": "/C101/image/001.jpg"
+  },
+  {
+    "id": "C102",
+    "name": "간월도항",
+    "address": "충남 서산시 부석면 간월도리",
+    "url": "/C102/001.html",
+    "image": "/C102/image/001.jpg"
+  },
+  {
+    "id": "C103",
+    "name": "궁리항",
+    "address": "충남 홍성군 서부면 궁리",
+    "url": "/C103/001.html",
+    "image": "/C103/image/001.jpg"
+  },
+  {
+    "id": "C104",
+    "name": "속동해안공원",
+    "address": "충남 홍성군 서부면 상황리",
+    "url": "/C104/001.html",
+    "image": "/C104/image/001.jpg"
+  },
+  {
+    "id": "C105",
+    "name": "어사리 노을공원",
+    "address": "충남 홍성군 서부면 어사리",
+    "url": "/C105/001.html",
+    "image": "/C105/image/001.jpg"
+  },
+  {
+    "id": "C106",
+    "name": "남당노을전망대",
+    "address": "충남 홍성군 서부면 남당리",
+    "url": "/C106/001.html",
+    "image": "/C106/image/001.jpg"
+  },
+  {
+    "id": "C107",
+    "name": "남당항",
+    "address": "충남 홍성군 서부면 남당리",
+    "url": "/C107/001.html",
+    "image": "/C107/image/001.jpg"
+  },
+  {
+    "id": "C108",
+    "name": "모산도공원",
+    "address": "충남 홍성군 서부면 신리",
+    "url": "/C108/001.html",
+    "image": "/C108/image/001.jpg"
+  },
+  {
+    "id": "C109",
+    "name": "수룡항포구",
+    "address": "충남 홍성군 서부면 신리",
+    "url": "/C109/001.html",
+    "image": "/C109/image/001.jpg"
+  },
+  {
+    "id": "C110",
+    "name": "천북굴단지",
+    "address": "충남 보령시 천북면 장은리",
+    "url": "/C110/001.html",
+    "image": "/C110/image/001.jpg"
+  },
+  {
+    "id": "C111",
+    "name": "오천항",
+    "address": "충남 보령시 오천면 소성리",
+    "url": "/C111/001.html",
+    "image": "/C111/image/001.jpg"
+  },
+  {
+    "id": "C112",
+    "name": "대천항",
+    "address": "충남 보령시 신흑동",
+    "url": "/C112/001.html",
+    "image": "/C112/image/001.jpg"
+  },
+  {
+    "id": "C113",
+    "name": "무창포항",
+    "address": "충남 보령시 웅천읍 관당리",
+    "url": "/C113/001.html",
+    "image": "/C113/image/001.jpg"
+  },
+  {
+    "id": "C114",
+    "name": "홍원항",
+    "address": "충남 서천군 서면 도둔리",
+    "url": "/C114/001.html",
+    "image": "/C114/image/001.jpg"
+  },
+  {
+    "id": "C115",
+    "name": "마량진항",
+    "address": "충남 서천군 서면 마량리",
+    "url": "/C115/001.html",
+    "image": "/C115/image/001.jpg"
+  },
+  {
+    "id": "C116",
+    "name": "월하리선착장",
+    "address": "충남 서천군 서면 월호리",
+    "url": "/C116/001.html",
+    "image": "/C116/image/001.jpg"
+  },
+  {
+    "id": "C117",
+    "name": "다사항",
+    "address": "충남 서천군 비인면 다사리",
+    "url": "/C117/001.html",
+    "image": "/C117/image/001.jpg"
+  },
+  {
+    "id": "C118",
+    "name": "송석항",
+    "address": "충남 서천군 마서면 송석리",
+    "url": "/C118/001.html",
+    "image": "/C118/image/001.jpg"
+  },
+  {
+    "id": "C119",
+    "name": "매바위해변공원",
+    "address": "충남 서천군 마서면 죽산리",
+    "url": "/C119/001.html",
+    "image": "/C119/image/001.jpg"
+  },
+  {
+    "id": "C120",
+    "name": "송림 갯골",
+    "address": "충남 서천군 장항읍 송림리",
+    "url": "/C120/001.html",
+    "image": "/C120/image/001.jpg"
+  },
+  {
+    "id": "C121",
+    "name": "장항항",
+    "address": "충남 서천군 장항읍 장암리",
+    "url": "/C121/001.html",
+    "image": "/C121/image/001.jpg"
+  },
+  {
+    "id": "C122",
+    "name": "해넘이휴게소",
+    "address": "전북 군산시 비응도동",
+    "url": "/C122/001.html",
+    "image": "/C122/image/001.jpg"
+  },
+  {
+    "id": "C123",
+    "name": "돌고래쉼터",
+    "address": "전북 군산시 옥도면 야미도리",
+    "url": "/C123/001.html",
+    "image": "/C123/image/001.jpg"
+  },
+  {
+    "id": "C124",
+    "name": "야미도항",
+    "address": "전북 군산시 옥도면 야미도리",
+    "url": "/C124/001.html",
+    "image": "/C124/image/001.jpg"
+  },
+  {
+    "id": "C125",
+    "name": "신시도항",
+    "address": "전북 군산시 옥도면 신시도리",
+    "url": "/C125/001.html",
+    "image": "/C125/image/001.jpg"
+  },
+  {
+    "id": "C126",
+    "name": "신시도어촌체험마을",
+    "address": "전북 군산시 옥도면 신시도리",
+    "url": "/C126/001.html",
+    "image": "/C126/image/001.jpg"
+  },
+  {
+    "id": "C127",
+    "name": "선유도항",
+    "address": "전북 군산시 옥도면 선유도리",
+    "url": "/C127/001.html",
+    "image": "/C127/image/001.jpg"
+  },
+  {
+    "id": "C128",
+    "name": "선유도해수욕장 공영주차장",
+    "address": "전북 군산시 옥도면 선유도리",
+    "url": "/C128/001.html",
+    "image": "/C128/image/001.jpg"
+  },
+  {
+    "id": "C129",
+    "name": "선유도리 수원지 공영주차장",
+    "address": "전북 군산시 옥도면 선유도리",
+    "url": "/C129/001.html",
+    "image": "/C129/image/001.jpg"
+  },
+  {
+    "id": "C130",
+    "name": "장자도여객터미널",
+    "address": "전북 군산시 옥도면 장자도리",
+    "url": "/C130/001.html",
+    "image": "/C130/image/001.jpg"
+  },
+  {
+    "id": "C131",
+    "name": "선유도 물량장 공영주차장",
+    "address": "전북 군산시 옥도면 선유도리",
+    "url": "/C131/001.html",
+    "image": "/C131/image/001.jpg"
+  },
+  {
+    "id": "C132",
+    "name": "무녀도항",
+    "address": "전북 군산시 옥도면 무녀도리",
+    "url": "/C132/001.html",
+    "image": "/C132/image/001.jpg"
+  },
+  {
+    "id": "C133",
+    "name": "바람쉼터",
+    "address": "전북 김제시 진봉면 심포리",
+    "url": "/C133/001.html",
+    "image": "/C133/image/001.jpg"
+  },
+  {
+    "id": "C134",
+    "name": "소라쉼터",
+    "address": "전북 김제시 진봉면 심포리",
+    "url": "/C134/001.html",
+    "image": "/C134/image/001.jpg"
+  },
+  {
+    "id": "C135",
+    "name": "너울쉼터",
+    "address": "전북 김제시 진봉면 심포리",
+    "url": "/C135/001.html",
+    "image": "/C135/image/001.jpg"
+  },
+  {
+    "id": "C136",
+    "name": "가력도항",
+    "address": "전북 부안군 변산면 대항리",
+    "url": "/C136/001.html",
+    "image": "/C136/image/001.jpg"
+  },
+  {
+    "id": "C137",
+    "name": "송포항",
+    "address": "전북 부안군 변산면 대항리",
+    "url": "/C137/001.html",
+    "image": "/C137/image/001.jpg"
+  },
+  {
+    "id": "C138",
+    "name": "격포항",
+    "address": "전북 부안군 변산면 격포리",
+    "url": "/C138/001.html",
+    "image": "/C138/image/001.jpg"
+  },
+  {
+    "id": "C139",
+    "name": "궁항",
+    "address": "전북 부안군 변산면 격포리",
+    "url": "/C139/001.html",
+    "image": "/C139/image/001.jpg"
+  },
+  {
+    "id": "C140",
+    "name": "상록선착장",
+    "address": "전북 부안군 변산면 도청리",
+    "url": "/C140/001.html",
+    "image": "/C140/image/001.jpg"
+  },
+  {
+    "id": "C141",
+    "name": "모항방파제",
+    "address": "전북 부안군 변산면 도청리",
+    "url": "/C141/001.html",
+    "image": "/C141/image/001.jpg"
+  },
+  {
+    "id": "C142",
+    "name": "왕포항",
+    "address": "전북 부안군 진서면 운호리",
+    "url": "/C142/001.html",
+    "image": "/C142/image/001.jpg"
+  },
+  {
+    "id": "C143",
+    "name": "작당마을 선착장",
+    "address": "전북 부안군 진서면 운호리",
+    "url": "/C143/001.html",
+    "image": "/C143/image/001.jpg"
+  },
+  {
+    "id": "C144",
+    "name": "곰소항",
+    "address": "전북 부안군 진서면 곰소리",
+    "url": "/C144/001.html",
+    "image": "/C144/image/001.jpg"
+  },
+  {
+    "id": "C145",
+    "name": "동호항",
+    "address": "전북 고창군 해리면 동호리",
+    "url": "/C145/001.html",
+    "image": "/C145/image/001.jpg"
+  },
+  {
+    "id": "C146",
+    "name": "구시포항",
+    "address": "전북 고창군 상하면 자룡리",
+    "url": "/C146/001.html",
+    "image": "/C146/image/001.jpg"
+  },
+  {
+    "id": "C147",
+    "name": "계마항",
+    "address": "전남 영광군 홍농읍 계마리",
+    "url": "/C147/001.html",
+    "image": "/C147/image/001.jpg"
+  },
+  {
+    "id": "C148",
+    "name": "삼미랑어촌체험관",
+    "address": "전남 영광군 백수읍 대신리",
+    "url": "/C148/001.html",
+    "image": "/C148/image/001.jpg"
+  },
+  {
+    "id": "C149",
+    "name": "365계단",
+    "address": "전남 영광군 백수읍 대신리",
+    "url": "/C149/001.html",
+    "image": "/C149/image/001.jpg"
+  },
+  {
+    "id": "C150",
+    "name": "영광노을전시관",
+    "address": "전남 영광군 백수읍 대신리",
+    "url": "/C150/001.html",
+    "image": "/C150/image/001.jpg"
+  },
+  {
+    "id": "C151",
+    "name": "영광스카이워크",
+    "address": "전남 영광군 백수읍 대신리",
+    "url": "/C151/001.html",
+    "image": "/C151/image/001.jpg"
+  },
+  {
+    "id": "C152",
+    "name": "향화도항",
+    "address": "전남 영광군 염산면 옥실리",
+    "url": "/C152/001.html",
+    "image": "/C152/image/001.jpg"
+  },
+  {
+    "id": "C153",
+    "name": "함평항",
+    "address": "전남 함평군 손불면 학산리",
+    "url": "/C153/001.html",
+    "image": "/C153/image/001.jpg"
+  },
+  {
+    "id": "C154",
+    "name": "도리포",
+    "address": "전남 무안군 해제면 송석리",
+    "url": "/C154/001.html",
+    "image": "/C154/image/001.jpg"
+  },
+  {
+    "id": "C155",
+    "name": "점암항",
+    "address": "전남 신안군 지도읍 감정리",
+    "url": "/C155/001.html",
+    "image": "/C155/image/001.jpg"
+  },
+  {
+    "id": "C156",
+    "name": "전장포항",
+    "address": "전남 신안군 임자면 도찬리",
+    "url": "/C156/001.html",
+    "image": "/C156/image/001.jpg"
+  },
+  {
+    "id": "C157",
+    "name": "하우리항",
+    "address": "전남 신안군 임자면 광산리",
+    "url": "/C157/001.html",
+    "image": "/C157/image/001.jpg"
+  },
+  {
+    "id": "C158",
+    "name": "진리항",
+    "address": "전남 신안군 임자면 진리",
+    "url": "/C158/001.html",
+    "image": "/C158/image/001.jpg"
+  },
+  {
+    "id": "C159",
+    "name": "증도대교 하부",
+    "address": "전남 신안군 지도읍 당촌리",
+    "url": "/C159/001.html",
+    "image": "/C159/image/001.jpg"
+  },
+  {
+    "id": "C160",
+    "name": "송원대유물매장해역주차장",
+    "address": "전남 신안군 증도면 방축리",
+    "url": "/C160/001.html",
+    "image": "/C160/image/001.jpg"
+  },
+  {
+    "id": "C161",
+    "name": "검산항",
+    "address": "전남 신안군 증도면 방축리",
+    "url": "/C161/001.html",
+    "image": "/C161/image/001.jpg"
+  },
+  {
+    "id": "C162",
+    "name": "짱뚱어해수욕장",
+    "address": "전남 신안군 증도면 대초리",
+    "url": "/C162/001.html",
+    "image": "/C162/image/001.jpg"
+  },
+  {
+    "id": "C163",
+    "name": "증도왕바위선착장",
+    "address": "전남 신안군 증도면 우전리",
+    "url": "/C163/001.html",
+    "image": "/C163/image/001.jpg"
+  },
+  {
+    "id": "C164",
+    "name": "불치선착장",
+    "address": "전남 신안군 증도면 우전리",
+    "url": "/C164/001.html",
+    "image": "/C164/image/001.jpg"
+  },
+  {
+    "id": "C165",
+    "name": "증도항",
+    "address": "전남 신안군 증도면 대초리",
+    "url": "/C165/001.html",
+    "image": "/C165/image/001.jpg"
+  },
+  {
+    "id": "C166",
+    "name": "지신개선착장",
+    "address": "전남 신안군 지도읍 탄동리",
+    "url": "/C166/001.html",
+    "image": "/C166/image/001.jpg"
+  },
+  {
+    "id": "C167",
+    "name": "창매리 선착장",
+    "address": "전남 무안군 해제면 창매리",
+    "url": "/C167/001.html",
+    "image": "/C167/image/001.jpg"
+  },
+  {
+    "id": "C168",
+    "name": "마실항",
+    "address": "전남 무안군 해제면 천장리",
+    "url": "/C168/001.html",
+    "image": "/C168/image/001.jpg"
+  },
+  {
+    "id": "C169",
+    "name": "홀통선착장",
+    "address": "전남 무안군 현경면 오류리",
+    "url": "/C169/001.html",
+    "image": "/C169/image/001.jpg"
+  },
+  {
+    "id": "C170",
+    "name": "신월항",
+    "address": "전남 무안군 운남면 내리",
+    "url": "/C170/001.html",
+    "image": "/C170/image/001.jpg"
+  },
+  {
+    "id": "C171",
+    "name": "성내리 선착장",
+    "address": "전남 무안군 운남면 성내리",
+    "url": "/C171/001.html",
+    "image": "/C171/image/001.jpg"
+  },
+  {
+    "id": "C172",
+    "name": "도원선착장",
+    "address": "전남 무안군 운남면 성내리",
+    "url": "/C172/001.html",
+    "image": "/C172/image/001.jpg"
+  },
+  {
+    "id": "C173",
+    "name": "동암리 선착장",
+    "address": "전남 무안군 운남면 동암리",
+    "url": "/C173/001.html",
+    "image": "/C173/image/001.jpg"
+  },
+  {
+    "id": "C174",
+    "name": "톱머리항",
+    "address": "전남 무안군 망운면 피서리",
+    "url": "/C174/001.html",
+    "image": "/C174/image/001.jpg"
+  },
+  {
+    "id": "C175",
+    "name": "구로리항",
+    "address": "전남 무안군 청계면 구로리",
+    "url": "/C175/001.html",
+    "image": "/C175/image/001.jpg"
+  },
+  {
+    "id": "C176",
+    "name": "복길리 선착장",
+    "address": "전남 무안군 청계면 복길리",
+    "url": "/C176/001.html",
+    "image": "/C176/image/001.jpg"
+  },
+  {
+    "id": "C177",
+    "name": "복길항",
+    "address": "전남 무안군 청계면 복길리",
+    "url": "/C177/001.html",
+    "image": "/C177/image/001.jpg"
+  },
+  {
+    "id": "C178",
+    "name": "왕산리 선착장",
+    "address": "전남 무안군 삼향읍 왕산리",
+    "url": "/C178/001.html",
+    "image": "/C178/image/001.jpg"
+  },
+  {
+    "id": "C179",
+    "name": "숭의선착장",
+    "address": "전남 신안군 압해읍 분매리",
+    "url": "/C179/001.html",
+    "image": "/C179/image/001.jpg"
+  },
+  {
+    "id": "C180",
+    "name": "복룡리 선착장",
+    "address": "전남 신안군 압해읍 복룡리",
+    "url": "/C180/001.html",
+    "image": "/C180/image/001.jpg"
+  },
+  {
+    "id": "C181",
+    "name": "나룻가선착장",
+    "address": "전남 신안군 압해읍 복룡리",
+    "url": "/C181/001.html",
+    "image": "/C181/image/001.jpg"
+  },
+  {
+    "id": "C182",
+    "name": "압해 가룡항",
+    "address": "전남 신안군 압해읍 가룡리",
+    "url": "/C182/001.html",
+    "image": "/C182/image/001.jpg"
+  },
+  {
+    "id": "C183",
+    "name": "신석항",
+    "address": "전남 신안군 암태면 신석리",
+    "url": "/C183/001.html",
+    "image": "/C183/image/001.jpg"
+  },
+  {
+    "id": "C184",
+    "name": "생낌항",
+    "address": "전남 신안군 암태면 신석리",
+    "url": "/C184/001.html",
+    "image": "/C184/image/001.jpg"
+  },
+  {
+    "id": "C185",
+    "name": "자은고교선착장",
+    "address": "전남 신안군 자은면 한운리",
+    "url": "/C185/001.html",
+    "image": "/C185/image/001.jpg"
+  },
+  {
+    "id": "C186",
+    "name": "남진선착장",
+    "address": "전남 신안군 자은면 유각리",
+    "url": "/C186/001.html",
+    "image": "/C186/image/001.jpg"
+  },
+  {
+    "id": "C187",
+    "name": "추포항",
+    "address": "전남 신안군 암태면 수곡리",
+    "url": "/C187/001.html",
+    "image": "/C187/image/001.jpg"
+  },
+  {
+    "id": "C188",
+    "name": "원산리방파제",
+    "address": "전남 신안군 팔금면 원산리",
+    "url": "/C188/001.html",
+    "image": "/C188/image/001.jpg"
+  },
+  {
+    "id": "C189",
+    "name": "외우목 선착장(구대리 선착장)",
+    "address": "전남 신안군 안좌면 구대리",
+    "url": "/C189/001.html",
+    "image": "/C189/image/001.jpg"
+  },
+  {
+    "id": "C190",
+    "name": "퍼플섬",
+    "address": "전남 신안군 안좌면 소곡리",
+    "url": "/C190/001.html",
+    "image": "/C190/image/001.jpg"
+  },
+  {
+    "id": "C191",
+    "name": "두리선착장",
+    "address": "전남 신안군 안좌면 소곡리",
+    "url": "/C191/001.html",
+    "image": "/C191/image/001.jpg"
+  },
+  {
+    "id": "C192",
+    "name": "박지도 주차장",
+    "address": "전남 신안군 안좌면 소곡리",
+    "url": "/C192/001.html",
+    "image": "/C192/image/001.jpg"
+  },
+  {
+    "id": "C193",
+    "name": "복호항 (복호선착장)",
+    "address": "전남 신안군 안좌면 복호리",
+    "url": "/C193/001.html",
+    "image": "/C193/image/001.jpg"
+  },
+  {
+    "id": "C194",
+    "name": "자라항(자라도선착장)",
+    "address": "전남 신안군 안좌면 자라리",
+    "url": "/C194/001.html",
+    "image": "/C194/image/001.jpg"
+  },
+  {
+    "id": "C195",
+    "name": "금산항(금산선착장)",
+    "address": "전남 신안군 안좌면 금산리",
+    "url": "/C195/001.html",
+    "image": "/C195/image/001.jpg"
+  },
+  {
+    "id": "C196",
+    "name": "읍동선착장",
+    "address": "전남 신안군 안좌면 읍동리",
+    "url": "/C196/001.html",
+    "image": "/C196/image/001.jpg"
+  },
+  {
+    "id": "C197",
+    "name": "팔금도항(팔금선착장)",
+    "address": "전남 신안군 팔금면 장촌리",
+    "url": "/C197/001.html",
+    "image": "/C197/image/001.jpg"
+  },
+  {
+    "id": "C198",
+    "name": "고산항(고산방파제,고산선착장)",
+    "address": "전남 신안군 팔금면 당고리",
+    "url": "/C198/001.html",
+    "image": "/C198/image/001.jpg"
+  },
+  {
+    "id": "C199",
+    "name": "암태도 남강선착장",
+    "address": "전남 신안군 암태면 와촌리",
+    "url": "/C199/001.html",
+    "image": "/C199/image/001.jpg"
+  },
+  {
+    "id": "C200",
+    "name": "송공항(송공리선착장)",
+    "address": "전남 신안군 압해읍 송공리",
+    "url": "/C200/001.html",
+    "image": "/C200/image/001.jpg"
+  },
+  {
+    "id": "C201",
+    "name": "1004섬 분재정원",
+    "address": "전남 신안군 압해읍 송공리",
+    "url": "/C201/001.html",
+    "image": "/C201/image/001.jpg"
+  },
+  {
+    "id": "C202",
+    "name": "구도선착장",
+    "address": "전남 신안군 압해읍 장감리",
+    "url": "/C202/001.html",
+    "image": "/C202/image/001.jpg"
+  },
+  {
+    "id": "C203",
+    "name": "압해도선착장",
+    "address": "전남 신안군 압해읍 신장리",
+    "url": "/C203/001.html",
+    "image": "/C203/image/001.jpg"
+  },
+  {
+    "id": "C204",
+    "name": "목포북항",
+    "address": "전남 목포시 죽교동",
+    "url": "/C204/001.html",
+    "image": "/C204/image/001.jpg"
+  },
+  {
+    "id": "C205",
+    "name": "별암선착장",
+    "address": "전남 해남군 화원면 영호리",
+    "url": "/C205/001.html",
+    "image": "/C205/image/001.jpg"
+  },
+  {
+    "id": "C206",
+    "name": "임하도선착장",
+    "address": "전남 해남군 문내면 예락리",
+    "url": "/C206/001.html",
+    "image": "/C206/image/001.jpg"
+  },
+  {
+    "id": "C207",
+    "name": "우수영항",
+    "address": "전남 해남군 문내면 선두리",
+    "url": "/C207/001.html",
+    "image": "/C207/image/001.jpg"
+  },
+  {
+    "id": "C208",
+    "name": "신기항",
+    "address": "전남 진도군 군내면 나리",
+    "url": "/C208/001.html",
+    "image": "/C208/image/001.jpg"
+  },
+  {
+    "id": "C209",
+    "name": "나리 북 선착장",
+    "address": "전남 진도군 군내면 나리",
+    "url": "/C209/001.html",
+    "image": "/C209/image/001.jpg"
+  },
+  {
+    "id": "C210",
+    "name": "나리 남 선착장",
+    "address": "전남 진도군 군내면 나리",
+    "url": "/C210/001.html",
+    "image": "/C210/image/001.jpg"
+  },
+  {
+    "id": "C211",
+    "name": "가늠목선착장",
+    "address": "전남 진도군 군내면 나리",
+    "url": "/C211/001.html",
+    "image": "/C211/image/001.jpg"
+  },
+  {
+    "id": "C212",
+    "name": "전두리선착장",
+    "address": "전남 진도군 진도읍 수유리",
+    "url": "/C212/001.html",
+    "image": "/C212/image/001.jpg"
+  },
+  {
+    "id": "C213",
+    "name": "둔전방파제(수유리 선착장)",
+    "address": "전남 진도군 진도읍 수유리",
+    "url": "/C213/001.html",
+    "image": "/C213/image/001.jpg"
+  },
+  {
+    "id": "C214",
+    "name": "안방파제",
+    "address": "전남 진도군 진도읍 수유리",
+    "url": "/C214/001.html",
+    "image": "/C214/image/001.jpg"
+  },
+  {
+    "id": "C215",
+    "name": "쉬미항(쉬미선착장)",
+    "address": "전남 진도군 진도읍 산월리",
+    "url": "/C215/001.html",
+    "image": "/C215/image/001.jpg"
+  },
+  {
+    "id": "C216",
+    "name": "보전리 선착장",
+    "address": "전남 진도군 지산면 보전리",
+    "url": "/C216/001.html",
+    "image": "/C216/image/001.jpg"
+  },
+  {
+    "id": "C217",
+    "name": "가학선착장(가학방파제)",
+    "address": "전남 진도군 지산면 가학리",
+    "url": "/C217/001.html",
+    "image": "/C217/image/001.jpg"
+  },
+  {
+    "id": "C218",
+    "name": "세포항(세포방파제)",
+    "address": "전남 진도군 지산면 가학리",
+    "url": "/C218/001.html",
+    "image": "/C218/image/001.jpg"
+  },
+  {
+    "id": "C219",
+    "name": "심동리 선착장",
+    "address": "전남 진도군 지산면 심동리",
+    "url": "/C219/001.html",
+    "image": "/C219/image/001.jpg"
+  },
+  {
+    "id": "C220",
+    "name": "서망항(서망방파제)",
+    "address": "전남 진도군 임회면 남동리",
+    "url": "/C220/001.html",
+    "image": "/C220/image/001.jpg"
+  },
+  {
+    "id": "C221",
+    "name": "남동방파제(남동리선착장)",
+    "address": "전남 진도군 임회면 남동리",
+    "url": "/C221/001.html",
+    "image": "/C221/image/001.jpg"
+  },
+  {
+    "id": "C222",
+    "name": "굴포리 선착장",
+    "address": "전남 진도군 임회면 굴포리",
+    "url": "/C222/001.html",
+    "image": "/C222/image/001.jpg"
+  },
+  {
+    "id": "C223",
+    "name": "굴포항(굴포방파제)",
+    "address": "전남 진도군 임회면 굴포리",
+    "url": "/C223/001.html",
+    "image": "/C223/image/001.jpg"
+  },
+  {
+    "id": "C224",
+    "name": "상만리 선착장",
+    "address": "전남 진도군 임회면 상만리",
+    "url": "/C224/001.html",
+    "image": "/C224/image/001.jpg"
+  },
+  {
+    "id": "C225",
+    "name": "동헌항",
+    "address": "전남 진도군 임회면 죽림리",
+    "url": "/C225/001.html",
+    "image": "/C225/image/001.jpg"
+  },
+  {
+    "id": "C226",
+    "name": "죽림리 선착장",
+    "address": "전남 진도군 임회면 죽림리",
+    "url": "/C226/001.html",
+    "image": "/C226/image/001.jpg"
+  },
+  {
+    "id": "C227",
+    "name": "금갑 선착장",
+    "address": "전남 진도군 의신면 금갑리",
+    "url": "/C227/001.html",
+    "image": "/C227/image/001.jpg"
+  },
+  {
+    "id": "C228",
+    "name": "수품항",
+    "address": "전남 진도군 의신면 금갑리",
+    "url": "/C228/001.html",
+    "image": "/C228/image/001.jpg"
+  },
+  {
+    "id": "C229",
+    "name": "만길리 선착장",
+    "address": "전남 진도군 의신면 만길리",
+    "url": "/C229/001.html",
+    "image": "/C229/image/001.jpg"
+  },
+  {
+    "id": "C230",
+    "name": "도항 선착장",
+    "address": "전남 진도군 의신면 만길리",
+    "url": "/C230/001.html",
+    "image": "/C230/image/001.jpg"
+  },
+  {
+    "id": "C231",
+    "name": "초사리 선착장",
+    "address": "전남 진도군 의신면 초사리",
+    "url": "/C231/001.html",
+    "image": "/C231/image/001.jpg"
+  },
+  {
+    "id": "C232",
+    "name": "초평항(초평방파제)",
+    "address": "전남 진도군 의신면 초사리",
+    "url": "/C232/001.html",
+    "image": "/C232/image/001.jpg"
+  },
+  {
+    "id": "C233",
+    "name": "회동방파제",
+    "address": "전남 진도군 고군면 금계리",
+    "url": "/C233/001.html",
+    "image": "/C233/image/001.jpg"
+  },
+  {
+    "id": "C234",
+    "name": "용호항(용호방파제)",
+    "address": "전남 진도군 고군면 금계리",
+    "url": "/C234/001.html",
+    "image": "/C234/image/001.jpg"
+  },
+  {
+    "id": "C235",
+    "name": "벌포항(벌포방파제)",
+    "address": "전남 진도군 고군면 지막리",
+    "url": "/C235/001.html",
+    "image": "/C235/image/001.jpg"
+  },
+  {
+    "id": "C236",
+    "name": "원포리 방파제",
+    "address": "전남 진도군 고군면 원포리",
+    "url": "/C236/001.html",
+    "image": "/C236/image/001.jpg"
+  },
+  {
+    "id": "C237",
+    "name": "인성포구",
+    "address": "전남 진도군 고군면 내산리",
+    "url": "/C237/001.html",
+    "image": "/C237/image/001.jpg"
+  },
+  {
+    "id": "C238",
+    "name": "내산리 선착장",
+    "address": "전남 진도군 고군면 내산리",
+    "url": "/C238/001.html",
+    "image": "/C238/image/001.jpg"
+  },
+  {
+    "id": "C239",
+    "name": "벽파리 선착장",
+    "address": "전남 진도군 고군면 벽파리",
+    "url": "/C239/001.html",
+    "image": "/C239/image/001.jpg"
+  },
+  {
+    "id": "C240",
+    "name": "벽파항",
+    "address": "전남 진도군 고군면 벽파리",
+    "url": "/C240/001.html",
+    "image": "/C240/image/001.jpg"
+  },
+  {
+    "id": "C241",
+    "name": "삼정방파제(학동리선착장)",
+    "address": "전남 해남군 문내면 학동리",
+    "url": "/C241/001.html",
+    "image": "/C241/image/001.jpg"
+  },
+  {
+    "id": "C242",
+    "name": "옥동방파제(옥동리 선착장)",
+    "address": "전남 해남군 황산면 옥동리",
+    "url": "/C242/001.html",
+    "image": "/C242/image/001.jpg"
+  },
+  {
+    "id": "C243",
+    "name": "성산방파제",
+    "address": "전남 해남군 황산면 부곡리",
+    "url": "/C243/001.html",
+    "image": "/C243/image/001.jpg"
+  },
+  {
+    "id": "C244",
+    "name": "산소항",
+    "address": "전남 해남군 황산면 한자리",
+    "url": "/C244/001.html",
+    "image": "/C244/image/001.jpg"
+  },
+  {
+    "id": "C245",
+    "name": "징의항(징의도방파제)",
+    "address": "전남 해남군 황산면 한자리",
+    "url": "/C245/001.html",
+    "image": "/C245/image/001.jpg"
+  },
+  {
+    "id": "C246",
+    "name": "한자리 선착장",
+    "address": "전남 해남군 황산면 한자리",
+    "url": "/C246/001.html",
+    "image": "/C246/image/001.jpg"
+  },
+  {
+    "id": "C247",
+    "name": "삼마도 선착장",
+    "address": "전남 해남군 화산면 평호리",
+    "url": "/C247/001.html",
+    "image": "/C247/image/001.jpg"
+  },
+  {
+    "id": "C248",
+    "name": "송평항(송평선착장)",
+    "address": "전남 해남군 화산면 평호리",
+    "url": "/C248/001.html",
+    "image": "/C248/image/001.jpg"
+  },
+  {
+    "id": "C249",
+    "name": "두모선착장",
+    "address": "전남 해남군 현산면 백포리",
+    "url": "/C249/001.html",
+    "image": "/C249/image/001.jpg"
+  },
+  {
+    "id": "C250",
+    "name": "학가항",
+    "address": "전남 해남군 송지면 학가리",
+    "url": "/C250/001.html",
+    "image": "/C250/image/001.jpg"
+  },
+  {
+    "id": "C251",
+    "name": "학가리 선착장",
+    "address": "전남 해남군 송지면 학가리",
+    "url": "/C251/001.html",
+    "image": "/C251/image/001.jpg"
+  },
+  {
+    "id": "C252",
+    "name": "어란리 선착장",
+    "address": "전남 해남군 송지면 어란리",
+    "url": "/C252/001.html",
+    "image": "/C252/image/001.jpg"
+  },
+  {
+    "id": "C253",
+    "name": "어란진항",
+    "address": "전남 해남군 송지면 어란리",
+    "url": "/C253/001.html",
+    "image": "/C253/image/001.jpg"
+  },
+  {
+    "id": "C254",
+    "name": "중리제2방파제(송호리 선착장)",
+    "address": "전남 해남군 송지면 송호리",
+    "url": "/C254/001.html",
+    "image": "/C254/image/001.jpg"
+  },
+  {
+    "id": "C255",
+    "name": "송지갯벌체험 선착장",
+    "address": "전남 해남군 송지면 송호리",
+    "url": "/C255/001.html",
+    "image": "/C255/image/001.jpg"
+  },
+  {
+    "id": "C256",
+    "name": "송종방파제",
+    "address": "전남 해남군 송지면 송호리",
+    "url": "/C256/001.html",
+    "image": "/C256/image/001.jpg"
+  },
+  {
+    "id": "C257",
+    "name": "송호리방파제",
+    "address": "전남 해남군 송지면 송호리",
+    "url": "/C257/001.html",
+    "image": "/C257/image/001.jpg"
+  },
+  {
+    "id": "C258",
+    "name": "송호항(송호리선착장, 송호리방파제)",
+    "address": "전남 해남군 송지면 송호리",
+    "url": "/C258/001.html",
+    "image": "/C258/image/001.jpg"
+  },
+  {
+    "id": "C259",
+    "name": "갈산 선착장(갈산방파제)",
+    "address": "전남 해남군 송지면 송호리",
+    "url": "/C259/001.html",
+    "image": "/C259/image/001.jpg"
+  },
+  {
+    "id": "C260",
+    "name": "땅끝항(갈두항, 갈두방파제)",
+    "address": "전남 해남군 송지면 송호리",
+    "url": "/C260/001.html",
+    "image": "/C260/image/001.jpg"
+  },
+  {
+    "id": "C261",
+    "name": "남성방파제(남성항선착장, 영전리선착장)",
+    "address": "전남 해남군 북평면 영전리",
+    "url": "/C261/001.html",
+    "image": "/C261/image/001.jpg"
+  },
+  {
+    "id": "C262",
+    "name": "남성항",
+    "address": "전남 해남군 북평면 영전리",
+    "url": "/C262/001.html",
+    "image": "/C262/image/001.jpg"
+  },
+  {
+    "id": "C263",
+    "name": "안평방파제",
+    "address": "전남 해남군 북평면 평암리",
+    "url": "/C263/001.html",
+    "image": "/C263/image/001.jpg"
+  },
+  {
+    "id": "C264",
+    "name": "원동리 선착장",
+    "address": "전남 완도군 군외면 원동리",
+    "url": "/C264/001.html",
+    "image": "/C264/image/001.jpg"
+  },
+  {
+    "id": "C265",
+    "name": "원동선착장",
+    "address": "전남 완도군 군외면 원동리",
+    "url": "/C265/001.html",
+    "image": "/C265/image/001.jpg"
+  },
+  {
+    "id": "C266",
+    "name": "원동 방파제",
+    "address": "전남 완도군 군외면 원동리",
+    "url": "/C266/001.html",
+    "image": "/C266/image/001.jpg"
+  },
+  {
+    "id": "C267",
+    "name": "갈문리방파제(대문리선착장)",
+    "address": "전남 완도군 군외면 대문리",
+    "url": "/C267/001.html",
+    "image": "/C267/image/001.jpg"
+  },
+  {
+    "id": "C268",
+    "name": "삼두리방파제",
+    "address": "전남 완도군 군외면 삼두리",
+    "url": "/C268/001.html",
+    "image": "/C268/image/001.jpg"
+  },
+  {
+    "id": "C269",
+    "name": "당인항(당인리방파제)",
+    "address": "전남 완도군 군외면 당인리",
+    "url": "/C269/001.html",
+    "image": "/C269/image/001.jpg"
+  },
+  {
+    "id": "C270",
+    "name": "신정방파제",
+    "address": "전남 완도군 완도읍 대신리",
+    "url": "/C270/001.html",
+    "image": "/C270/image/001.jpg"
+  },
+  {
+    "id": "C271",
+    "name": "화흥포항",
+    "address": "전남 완도군 완도읍 정도리",
+    "url": "/C271/001.html",
+    "image": "/C271/image/001.jpg"
+  },
+  {
+    "id": "C273",
+    "name": "대야방파제",
+    "address": "전남 완도군 완도읍 대야리",
+    "url": "/C273/001.html",
+    "image": "/C273/image/001.jpg"
+  },
+  {
+    "id": "C274",
+    "name": "대야리선착장",
+    "address": "전남 완도군 완도읍 대야리",
+    "url": "/C274/001.html",
+    "image": "/C274/image/001.jpg"
+  },
+  {
+    "id": "C275",
+    "name": "영풍리 방파제",
+    "address": "전남 완도군 군외면 영풍리",
+    "url": "/C275/001.html",
+    "image": "/C275/image/001.jpg"
+  },
+  {
+    "id": "C276",
+    "name": "불목리선착장",
+    "address": "전남 완도군 군외면 불목리",
+    "url": "/C276/001.html",
+    "image": "/C276/image/001.jpg"
+  },
+  {
+    "id": "C277",
+    "name": "영풍방파제",
+    "address": "전남 완도군 군외면 불목리",
+    "url": "/C277/001.html",
+    "image": "/C277/image/001.jpg"
+  },
+  {
+    "id": "C278",
+    "name": "강독선착장",
+    "address": "전남 완도군 신지면 송곡리",
+    "url": "/C278/001.html",
+    "image": "/C278/image/001.jpg"
+  },
+  {
+    "id": "C279",
+    "name": "물하태선착장",
+    "address": "전남 완도군 신지면 송곡리",
+    "url": "/C279/001.html",
+    "image": "/C279/image/001.jpg"
+  },
+  {
+    "id": "C280",
+    "name": "명사항(명사방파제)",
+    "address": "전남 완도군 신지면 신리",
+    "url": "/C280/001.html",
+    "image": "/C280/image/001.jpg"
+  },
+  {
+    "id": "C281",
+    "name": "울물방파제",
+    "address": "전남 완도군 신지면 대곡리",
+    "url": "/C281/001.html",
+    "image": "/C281/image/001.jpg"
+  },
+  {
+    "id": "C282",
+    "name": "석화포방파제",
+    "address": "전남 완도군 신지면 월양리",
+    "url": "/C282/001.html",
+    "image": "/C282/image/001.jpg"
+  },
+  {
+    "id": "C283",
+    "name": "월양리방파제",
+    "address": "전남 완도군 신지면 월양리",
+    "url": "/C283/001.html",
+    "image": "/C283/image/001.jpg"
+  },
+  {
+    "id": "C284",
+    "name": "방죽포방파제",
+    "address": "전남 완도군 신지면 월양리",
+    "url": "/C284/001.html",
+    "image": "/C284/image/001.jpg"
+  },
+  {
+    "id": "C285",
+    "name": "동고리방파제",
+    "address": "전남 완도군 신지면 동고리",
+    "url": "/C285/001.html",
+    "image": "/C285/image/001.jpg"
+  },
+  {
+    "id": "C286",
+    "name": "송곡항(송곡선착장)",
+    "address": "전남 완도군 신지면 송곡리",
+    "url": "/C286/001.html",
+    "image": "/C286/image/001.jpg"
+  },
+  {
+    "id": "C287",
+    "name": "득암항(득암방파제)",
+    "address": "전남 완도군 약산면 득암리",
+    "url": "/C287/001.html",
+    "image": "/C287/image/001.jpg"
+  },
+  {
+    "id": "C288",
+    "name": "가사동백숲해변",
+    "address": "전남 완도군 약산면 해동리",
+    "url": "/C288/001.html",
+    "image": "/C288/image/001.jpg"
+  },
+  {
+    "id": "C289",
+    "name": "당목항(당목항선착장)",
+    "address": "전남 완도군 약산면 해동리",
+    "url": "/C289/001.html",
+    "image": "/C289/image/001.jpg"
+  },
+  {
+    "id": "C290",
+    "name": "해동항(해동선착장, 해동방파제)",
+    "address": "전남 완도군 약산면 해동리",
+    "url": "/C290/001.html",
+    "image": "/C290/image/001.jpg"
+  },
+  {
+    "id": "C291",
+    "name": "가래방파제",
+    "address": "전남 완도군 약산면 장용리",
+    "url": "/C291/001.html",
+    "image": "/C291/image/001.jpg"
+  },
+  {
+    "id": "C292",
+    "name": "죽선리방파제",
+    "address": "전남 완도군 약산면 장용리",
+    "url": "/C292/001.html",
+    "image": "/C292/image/001.jpg"
+  },
+  {
+    "id": "C293",
+    "name": "구성방파제",
+    "address": "전남 완도군 약산면 장용리",
+    "url": "/C293/001.html",
+    "image": "/C293/image/001.jpg"
+  },
+  {
+    "id": "C294",
+    "name": "장용항(장용방파제)",
+    "address": "전남 완도군 약산면 장용리",
+    "url": "/C294/001.html",
+    "image": "/C294/image/001.jpg"
+  },
+  {
+    "id": "C295",
+    "name": "섬목방파제",
+    "address": "전남 완도군 약산면 우두리",
+    "url": "/C295/001.html",
+    "image": "/C295/image/001.jpg"
+  },
+  {
+    "id": "C296",
+    "name": "봉명리방파제",
+    "address": "전남 완도군 고금면 봉명리",
+    "url": "/C296/001.html",
+    "image": "/C296/image/001.jpg"
+  },
+  {
+    "id": "C297",
+    "name": "상정선착장",
+    "address": "전남 완도군 고금면 상정리",
+    "url": "/C297/001.html",
+    "image": "/C297/image/001.jpg"
+  },
+  {
+    "id": "C298",
+    "name": "연동방파제",
+    "address": "전남 완도군 고금면 농상리",
+    "url": "/C298/001.html",
+    "image": "/C298/image/001.jpg"
+  },
+  {
+    "id": "C299",
+    "name": "도남리방파제",
+    "address": "전남 완도군 고금면 도남리",
+    "url": "/C299/001.html",
+    "image": "/C299/image/001.jpg"
+  },
+  {
+    "id": "C300",
+    "name": "덕동리방파제",
+    "address": "전남 완도군 고금면 덕동리",
+    "url": "/C300/001.html",
+    "image": "/C300/image/001.jpg"
+  },
+  {
+    "id": "C301",
+    "name": "만수리방파제",
+    "address": "전남 해남군 북일면 만수리",
+    "url": "/C301/001.html",
+    "image": "/C301/image/001.jpg"
+  },
+  {
+    "id": "C302",
+    "name": "금당리방파제",
+    "address": "전남 해남군 북일면 금당리",
+    "url": "/C302/001.html",
+    "image": "/C302/image/001.jpg"
+  },
+  {
+    "id": "C303",
+    "name": "내동리방파제",
+    "address": "전남 해남군 북일면 내동리",
+    "url": "/C303/001.html",
+    "image": "/C303/image/001.jpg"
+  },
+  {
+    "id": "C304",
+    "name": "내동항",
+    "address": "전남 해남군 북일면 내동리",
+    "url": "/C304/001.html",
+    "image": "/C304/image/001.jpg"
+  },
+  {
+    "id": "C305",
+    "name": "사초항",
+    "address": "전남 강진군 신전면 사초리",
+    "url": "/C305/001.html",
+    "image": "/C305/image/001.jpg"
+  },
+  {
+    "id": "C306",
+    "name": "망호선착장",
+    "address": "전남 강진군 도암면 신기리",
+    "url": "/C306/001.html",
+    "image": "/C306/image/001.jpg"
+  },
+  {
+    "id": "C307",
+    "name": "망호출렁다리 주차장",
+    "address": "전남 강진군 도암면 신기리",
+    "url": "/C307/001.html",
+    "image": "/C307/image/001.jpg"
+  },
+  {
+    "id": "C308",
+    "name": "봉황항",
+    "address": "전남 강진군 칠량면 봉황리",
+    "url": "/C308/001.html",
+    "image": "/C308/image/001.jpg"
+  },
+  {
+    "id": "C309",
+    "name": "가우도청자다리 주차장",
+    "address": "전남 강진군 대구면 저두리",
+    "url": "/C309/001.html",
+    "image": "/C309/image/001.jpg"
+  },
+  {
+    "id": "C310",
+    "name": "마량리방파제",
+    "address": "전남 강진군 마량면 마량리",
+    "url": "/C310/001.html",
+    "image": "/C310/image/001.jpg"
+  },
+  {
+    "id": "C311",
+    "name": "내저선착장",
+    "address": "전남 장흥군 대덕읍 옹암리",
+    "url": "/C311/001.html",
+    "image": "/C311/image/001.jpg"
+  },
+  {
+    "id": "C312",
+    "name": "덕촌항",
+    "address": "전남 장흥군 대덕읍 잠두리",
+    "url": "/C312/001.html",
+    "image": "/C312/image/001.jpg"
+  },
+  {
+    "id": "C313",
+    "name": "회진항",
+    "address": "전남 장흥군 회진면 회진리",
+    "url": "/C313/001.html",
+    "image": "/C313/image/001.jpg"
+  },
+  {
+    "id": "C314",
+    "name": "노력항",
+    "address": "전남 장흥군 회진면 덕산리",
+    "url": "/C314/001.html",
+    "image": "/C314/image/001.jpg"
+  },
+  {
+    "id": "C315",
+    "name": "노력도선착장",
+    "address": "전남 장흥군 회진면 덕산리",
+    "url": "/C315/001.html",
+    "image": "/C315/image/001.jpg"
+  },
+  {
+    "id": "C316",
+    "name": "정남진해양낚시공원",
+    "address": "전남 장흥군 회진면 대리",
+    "url": "/C316/001.html",
+    "image": "/C316/image/001.jpg"
+  },
+  {
+    "id": "C317",
+    "name": "대리방파제",
+    "address": "전남 장흥군 회진면 대리",
+    "url": "/C317/001.html",
+    "image": "/C317/image/001.jpg"
+  },
+  {
+    "id": "C318",
+    "name": "우산항",
+    "address": "전남 장흥군 관산읍 삼산리",
+    "url": "/C318/001.html",
+    "image": "/C318/image/001.jpg"
+  },
+  {
+    "id": "C319",
+    "name": "동두항",
+    "address": "전남 장흥군 관산읍 신동리",
+    "url": "/C319/001.html",
+    "image": "/C319/image/001.jpg"
+  },
+  {
+    "id": "C320",
+    "name": "신동리방파제",
+    "address": "전남 장흥군 관산읍 신동리",
+    "url": "/C320/001.html",
+    "image": "/C320/image/001.jpg"
+  },
+  {
+    "id": "C321",
+    "name": "장환항",
+    "address": "전남 장흥군 관산읍 고마리",
+    "url": "/C321/001.html",
+    "image": "/C321/image/001.jpg"
+  },
+  {
+    "id": "C322",
+    "name": "고마리선착장",
+    "address": "전남 장흥군 관산읍 고마리",
+    "url": "/C322/001.html",
+    "image": "/C322/image/001.jpg"
+  },
+  {
+    "id": "C323",
+    "name": "죽청선착장",
+    "address": "전남 장흥군 관산읍 죽청리",
+    "url": "/C323/001.html",
+    "image": "/C323/image/001.jpg"
+  },
+  {
+    "id": "C324",
+    "name": "수문항",
+    "address": "전남 장흥군 안양면 수문리",
+    "url": "/C324/001.html",
+    "image": "/C324/image/001.jpg"
+  },
+  {
+    "id": "C325",
+    "name": "수문리방파제",
+    "address": "전남 장흥군 안양면 수문리",
+    "url": "/C325/001.html",
+    "image": "/C325/image/001.jpg"
+  },
+  {
+    "id": "C326",
+    "name": "군학항(전일리방파제)",
+    "address": "전남 보성군 회천면 전일리",
+    "url": "/C326/001.html",
+    "image": "/C326/image/001.jpg"
+  },
+  {
+    "id": "C327",
+    "name": "율포항",
+    "address": "전남 보성군 회천면 율포리",
+    "url": "/C327/001.html",
+    "image": "/C327/image/001.jpg"
+  },
+  {
+    "id": "C328",
+    "name": "동율항(우암선착장)",
+    "address": "전남 보성군 회천면 동율리",
+    "url": "/C328/001.html",
+    "image": "/C328/image/001.jpg"
+  },
+  {
+    "id": "C329",
+    "name": "선소항(득량만바다낚시공원)",
+    "address": "전남 보성군 득량면 비봉리",
+    "url": "/C329/001.html",
+    "image": "/C329/image/001.jpg"
+  },
+  {
+    "id": "C330",
+    "name": "청암선착장",
+    "address": "전남 보성군 득량면 비봉리",
+    "url": "/C330/001.html",
+    "image": "/C330/image/001.jpg"
+  },
+  {
+    "id": "C331",
+    "name": "해평항",
+    "address": "전남 보성군 득량면 해평리",
+    "url": "/C331/001.html",
+    "image": "/C331/image/001.jpg"
+  },
+  {
+    "id": "C332",
+    "name": "장선포",
+    "address": "전남 고흥군 대서면 안남리",
+    "url": "/C332/001.html",
+    "image": "/C332/image/001.jpg"
+  },
+  {
+    "id": "C333",
+    "name": "수문동나루터",
+    "address": "전남 고흥군 대서면 안남리",
+    "url": "/C333/001.html",
+    "image": "/C333/image/001.jpg"
+  },
+  {
+    "id": "C334",
+    "name": "송림리방파제",
+    "address": "전남 고흥군 대서면 송림리",
+    "url": "/C334/001.html",
+    "image": "/C334/image/001.jpg"
+  },
+  {
+    "id": "C335",
+    "name": "송림리선착장",
+    "address": "전남 고흥군 대서면 송림리",
+    "url": "/C335/001.html",
+    "image": "/C335/image/001.jpg"
+  },
+  {
+    "id": "C336",
+    "name": "송림리 2선착장",
+    "address": "전남 고흥군 대서면 송림리",
+    "url": "/C336/001.html",
+    "image": "/C336/image/001.jpg"
+  },
+  {
+    "id": "C337",
+    "name": "우도레인보우교 주차장",
+    "address": "전남 고흥군 남양면 중산리",
+    "url": "/C337/001.html",
+    "image": "/C337/image/001.jpg"
+  },
+  {
+    "id": "C338",
+    "name": "대전리방파제",
+    "address": "전남 고흥군 두원면 대전리",
+    "url": "/C338/001.html",
+    "image": "/C338/image/001.jpg"
+  },
+  {
+    "id": "C339",
+    "name": "대금리방파제",
+    "address": "전남 고흥군 두원면 대금리",
+    "url": "/C339/001.html",
+    "image": "/C339/image/001.jpg"
+  },
+  {
+    "id": "C340",
+    "name": "풍류리방파제",
+    "address": "전남 고흥군 두원면 풍류리",
+    "url": "/C340/001.html",
+    "image": "/C340/image/001.jpg"
+  },
+  {
+    "id": "C341",
+    "name": "풍류리선착장",
+    "address": "전남 고흥군 두원면 풍류리",
+    "url": "/C341/001.html",
+    "image": "/C341/image/001.jpg"
+  },
+  {
+    "id": "C342",
+    "name": "용동항(고흥만방조제 선착장)",
+    "address": "전남 고흥군 도덕면 용동리",
+    "url": "/C342/001.html",
+    "image": "/C342/image/001.jpg"
+  },
+  {
+    "id": "C343",
+    "name": "용동리방파제",
+    "address": "전남 고흥군 도덕면 용동리",
+    "url": "/C343/001.html",
+    "image": "/C343/image/001.jpg"
+  },
+  {
+    "id": "C344",
+    "name": "가야리방파제",
+    "address": "전남 고흥군 도덕면 가야리",
+    "url": "/C344/001.html",
+    "image": "/C344/image/001.jpg"
+  },
+  {
+    "id": "C345",
+    "name": "가야리선착장",
+    "address": "전남 고흥군 도덕면 가야리",
+    "url": "/C345/001.html",
+    "image": "/C345/image/001.jpg"
+  },
+  {
+    "id": "C346",
+    "name": "장계리방파제",
+    "address": "전남 고흥군 도양읍 장계리",
+    "url": "/C346/001.html",
+    "image": "/C346/image/001.jpg"
+  },
+  {
+    "id": "C347",
+    "name": "장계리선착장",
+    "address": "전남 고흥군 도양읍 장계리",
+    "url": "/C347/001.html",
+    "image": "/C347/image/001.jpg"
+  },
+  {
+    "id": "C348",
+    "name": "장수항",
+    "address": "전남 고흥군 도양읍 장계리",
+    "url": "/C348/001.html",
+    "image": "/C348/image/001.jpg"
+  },
+  {
+    "id": "C349",
+    "name": "고흥방파제",
+    "address": "전남 고흥군 도양읍 장계리",
+    "url": "/C349/001.html",
+    "image": "/C349/image/001.jpg"
+  },
+  {
+    "id": "C350",
+    "name": "잠두항",
+    "address": "전남 고흥군 도양읍 용정리",
+    "url": "/C350/001.html",
+    "image": "/C350/image/001.jpg"
+  },
+  {
+    "id": "C351",
+    "name": "금진항",
+    "address": "전남 고흥군 금산면 신촌리",
+    "url": "/C351/001.html",
+    "image": "/C351/image/001.jpg"
+  },
+  {
+    "id": "C352",
+    "name": "중동방파제",
+    "address": "전남 고흥군 금산면 신촌리",
+    "url": "/C352/001.html",
+    "image": "/C352/image/001.jpg"
+  },
+  {
+    "id": "C353",
+    "name": "신촌리방파제",
+    "address": "전남 고흥군 금산면 신촌리",
+    "url": "/C353/001.html",
+    "image": "/C353/image/001.jpg"
+  },
+  {
+    "id": "C354",
+    "name": "신양선착장",
+    "address": "전남 고흥군 금산면 신촌리",
+    "url": "/C354/001.html",
+    "image": "/C354/image/001.jpg"
+  },
+  {
+    "id": "C355",
+    "name": "우두항(진몰방파제)",
+    "address": "전남 고흥군 금산면 신전리",
+    "url": "/C355/001.html",
+    "image": "/C355/image/001.jpg"
+  },
+  {
+    "id": "C356",
+    "name": "어전리방파제",
+    "address": "전남 고흥군 금산면 어전리",
+    "url": "/C356/001.html",
+    "image": "/C356/image/001.jpg"
+  },
+  {
+    "id": "C357",
+    "name": "익금방파제(익금선착장)",
+    "address": "전남 고흥군 금산면 어전리",
+    "url": "/C357/001.html",
+    "image": "/C357/image/001.jpg"
+  },
+  {
+    "id": "C358",
+    "name": "금장방파제(금장선착장)",
+    "address": "전남 고흥군 금산면 어전리",
+    "url": "/C358/001.html",
+    "image": "/C358/image/001.jpg"
+  },
+  {
+    "id": "C359",
+    "name": "오천항(오천리선착장, 동촌방파제)",
+    "address": "전남 고흥군 금산면 오천리",
+    "url": "/C359/001.html",
+    "image": "/C359/image/001.jpg"
+  },
+  {
+    "id": "C360",
+    "name": "오천방파제",
+    "address": "전남 고흥군 금산면 오천리",
+    "url": "/C360/001.html",
+    "image": "/C360/image/001.jpg"
+  },
+  {
+    "id": "C361",
+    "name": "명천항",
+    "address": "전남 고흥군 금산면 신평리",
+    "url": "/C361/001.html",
+    "image": "/C361/image/001.jpg"
+  },
+  {
+    "id": "C362",
+    "name": "석정리방파제",
+    "address": "전남 고흥군 금산면 석정리",
+    "url": "/C362/001.html",
+    "image": "/C362/image/001.jpg"
+  },
+  {
+    "id": "C363",
+    "name": "소록도선착장",
+    "address": "전남 고흥군 도양읍 소록리",
+    "url": "/C363/001.html",
+    "image": "/C363/image/001.jpg"
+  },
+  {
+    "id": "C364",
+    "name": "녹동방파제",
+    "address": "전남 고흥군 도양읍 봉암리",
+    "url": "/C364/001.html",
+    "image": "/C364/image/001.jpg"
+  },
+  {
+    "id": "C365",
+    "name": "동봉항(동봉방파제)",
+    "address": "전남 고흥군 도양읍 봉암리",
+    "url": "/C365/001.html",
+    "image": "/C365/image/001.jpg"
+  },
+  {
+    "id": "C366",
+    "name": "대통항",
+    "address": "전남 고흥군 도화면 가화리",
+    "url": "/C366/001.html",
+    "image": "/C366/image/001.jpg"
+  },
+  {
+    "id": "C367",
+    "name": "가화리방파제",
+    "address": "전남 고흥군 도화면 가화리",
+    "url": "/C367/001.html",
+    "image": "/C367/image/001.jpg"
+  },
+  {
+    "id": "C368",
+    "name": "하도방파제",
+    "address": "전남 고흥군 도화면 사덕리",
+    "url": "/C368/001.html",
+    "image": "/C368/image/001.jpg"
+  },
+  {
+    "id": "C369",
+    "name": "사덕항(사덕리방파제)",
+    "address": "전남 고흥군 도화면 사덕리",
+    "url": "/C369/001.html",
+    "image": "/C369/image/001.jpg"
+  },
+  {
+    "id": "C370",
+    "name": "덕중리방파제",
+    "address": "전남 고흥군 도화면 덕중리",
+    "url": "/C370/001.html",
+    "image": "/C370/image/001.jpg"
+  },
+  {
+    "id": "C371",
+    "name": "남성항(연신목방파제)",
+    "address": "전남 고흥군 포두면 남성리",
+    "url": "/C371/001.html",
+    "image": "/C371/image/001.jpg"
+  },
+  {
+    "id": "C372",
+    "name": "백양리방파제",
+    "address": "전남 고흥군 동일면 백양리",
+    "url": "/C372/001.html",
+    "image": "/C372/image/001.jpg"
+  },
+  {
+    "id": "C373",
+    "name": "사양리방파제",
+    "address": "전남 고흥군 봉래면 사양리",
+    "url": "/C373/001.html",
+    "image": "/C373/image/001.jpg"
+  },
+  {
+    "id": "C374",
+    "name": "사양도방파제",
+    "address": "전남 고흥군 봉래면 사양리",
+    "url": "/C374/001.html",
+    "image": "/C374/image/001.jpg"
+  },
+  {
+    "id": "C375",
+    "name": "신금리방파제",
+    "address": "전남 고흥군 봉래면 신금리",
+    "url": "/C375/001.html",
+    "image": "/C375/image/001.jpg"
+  },
+  {
+    "id": "C376",
+    "name": "외초리방파제",
+    "address": "전남 고흥군 봉래면 외초리",
+    "url": "/C376/001.html",
+    "image": "/C376/image/001.jpg"
+  },
+  {
+    "id": "C377",
+    "name": "염포항(중촌방파제)",
+    "address": "전남 고흥군 봉래면 외초리",
+    "url": "/C377/001.html",
+    "image": "/C377/image/001.jpg"
+  },
+  {
+    "id": "C378",
+    "name": "외초리선착장",
+    "address": "전남 고흥군 봉래면 외초리",
+    "url": "/C378/001.html",
+    "image": "/C378/image/001.jpg"
+  },
+  {
+    "id": "C379",
+    "name": "소영선착장",
+    "address": "전남 고흥군 동일면 봉영리",
+    "url": "/C379/001.html",
+    "image": "/C379/image/001.jpg"
+  },
+  {
+    "id": "C380",
+    "name": "봉남항",
+    "address": "전남 고흥군 동일면 봉영리",
+    "url": "/C380/001.html",
+    "image": "/C380/image/001.jpg"
+  },
+  {
+    "id": "C381",
+    "name": "대영항",
+    "address": "전남 고흥군 동일면 봉영리",
+    "url": "/C381/001.html",
+    "image": "/C381/image/001.jpg"
+  },
+  {
+    "id": "C382",
+    "name": "백양방파제",
+    "address": "전남 고흥군 동일면 백양리",
+    "url": "/C382/001.html",
+    "image": "/C382/image/001.jpg"
+  },
+  {
+    "id": "C383",
+    "name": "덕흥방파제",
+    "address": "전남 고흥군 동일면 덕흥리",
+    "url": "/C383/001.html",
+    "image": "/C383/image/001.jpg"
+  },
+  {
+    "id": "C384",
+    "name": "덕흥항",
+    "address": "전남 고흥군 동일면 덕흥리",
+    "url": "/C384/001.html",
+    "image": "/C384/image/001.jpg"
+  },
+  {
+    "id": "C385",
+    "name": "신오방파제",
+    "address": "전남 고흥군 포두면 오취리",
+    "url": "/C385/001.html",
+    "image": "/C385/image/001.jpg"
+  },
+  {
+    "id": "C386",
+    "name": "우천방파제",
+    "address": "전남 고흥군 영남면 우천리",
+    "url": "/C386/001.html",
+    "image": "/C386/image/001.jpg"
+  },
+  {
+    "id": "C387",
+    "name": "우암방파제",
+    "address": "전남 고흥군 영남면 우천리",
+    "url": "/C387/001.html",
+    "image": "/C387/image/001.jpg"
+  },
+  {
+    "id": "C388",
+    "name": "우두해수욕장",
+    "address": "전남 고흥군 영남면 우천리",
+    "url": "/C388/001.html",
+    "image": "/C388/image/001.jpg"
+  },
+  {
+    "id": "C389",
+    "name": "우천우두항",
+    "address": "전남 고흥군 영남면 우천리",
+    "url": "/C389/001.html",
+    "image": "/C389/image/001.jpg"
+  },
+  {
+    "id": "C390",
+    "name": "원주항",
+    "address": "전남 고흥군 과역면 백일리",
+    "url": "/C390/001.html",
+    "image": "/C390/image/001.jpg"
+  },
+  {
+    "id": "C391",
+    "name": "호덕방파제",
+    "address": "전남 고흥군 과역면 호덕리",
+    "url": "/C391/001.html",
+    "image": "/C391/image/001.jpg"
+  },
+  {
+    "id": "C392",
+    "name": "백일항",
+    "address": "전남 고흥군 과역면 백일리",
+    "url": "/C392/001.html",
+    "image": "/C392/image/001.jpg"
+  },
+  {
+    "id": "C393",
+    "name": "백일선착장",
+    "address": "전남 고흥군 과역면 백일리",
+    "url": "/C393/001.html",
+    "image": "/C393/image/001.jpg"
+  },
+  {
+    "id": "C394",
+    "name": "오도2방조제(연등선착장)",
+    "address": "전남 고흥군 과역면 연등리",
+    "url": "/C394/001.html",
+    "image": "/C394/image/001.jpg"
+  },
+  {
+    "id": "C395",
+    "name": "월정방파제",
+    "address": "전남 고흥군 남양면 월정리",
+    "url": "/C395/001.html",
+    "image": "/C395/image/001.jpg"
+  },
+  {
+    "id": "C396",
+    "name": "월정선착장",
+    "address": "전남 고흥군 남양면 월정리",
+    "url": "/C396/001.html",
+    "image": "/C396/image/001.jpg"
+  },
+  {
+    "id": "C397",
+    "name": "대포항",
+    "address": "전남 보성군 벌교읍 대포리",
+    "url": "/C397/001.html",
+    "image": "/C397/image/001.jpg"
+  },
+  {
+    "id": "C398",
+    "name": "상진항",
+    "address": "전남 보성군 벌교읍 장암리",
+    "url": "/C398/001.html",
+    "image": "/C398/image/001.jpg"
+  },
+  {
+    "id": "C399",
+    "name": "화포항",
+    "address": "전남 순천시 별량면 학산리",
+    "url": "/C399/001.html",
+    "image": "/C399/image/001.jpg"
+  },
+  {
+    "id": "C400",
+    "name": "와온항",
+    "address": "전남 순천시 해룡면 상내리",
+    "url": "/C400/001.html",
+    "image": "/C400/image/001.jpg"
+  },
+  {
+    "id": "C401",
+    "name": "봉전선착장",
+    "address": "전남 여수시 율촌면 봉전리",
+    "url": "/C401/001.html",
+    "image": "/C401/image/001.jpg"
+  },
+  {
+    "id": "C402",
+    "name": "봉전방파제",
+    "address": "전남 여수시 율촌면 봉전리",
+    "url": "/C402/001.html",
+    "image": "/C402/image/001.jpg"
+  },
+  {
+    "id": "C403",
+    "name": "해넘이방파제",
+    "address": "전남 여수시 소라면 사곡리",
+    "url": "/C403/001.html",
+    "image": "/C403/image/001.jpg"
+  },
+  {
+    "id": "C404",
+    "name": "사곡선착장",
+    "address": "전남 여수시 소라면 사곡리",
+    "url": "/C404/001.html",
+    "image": "/C404/image/001.jpg"
+  },
+  {
+    "id": "C405",
+    "name": "섬달여자도도선선착장",
+    "address": "전남 여수시 소라면 복산리",
+    "url": "/C405/001.html",
+    "image": "/C405/image/001.jpg"
+  },
+  {
+    "id": "C406",
+    "name": "이천선착장",
+    "address": "전남 여수시 화양면 이천리",
+    "url": "/C406/001.html",
+    "image": "/C406/image/001.jpg"
+  },
+  {
+    "id": "C407",
+    "name": "감도항",
+    "address": "전남 여수시 화양면 이천리",
+    "url": "/C407/001.html",
+    "image": "/C407/image/001.jpg"
+  },
+  {
+    "id": "C408",
+    "name": "이목선착장",
+    "address": "전남 여수시 화양면 이목리",
+    "url": "/C408/001.html",
+    "image": "/C408/image/001.jpg"
+  },
+  {
+    "id": "C409",
+    "name": "벌구방파제",
+    "address": "전남 여수시 화양면 이목리",
+    "url": "/C409/001.html",
+    "image": "/C409/image/001.jpg"
+  },
+  {
+    "id": "C410",
+    "name": "이목항",
+    "address": "전남 여수시 화양면 이목리",
+    "url": "/C410/001.html",
+    "image": "/C410/image/001.jpg"
+  },
+  {
+    "id": "C411",
+    "name": "화백리방파제",
+    "address": "전남 여수시 화정면 백야리",
+    "url": "/C411/001.html",
+    "image": "/C411/image/001.jpg"
+  },
+  {
+    "id": "C412",
+    "name": "신기항",
+    "address": "전남 여수시 화정면 백야리",
+    "url": "/C412/001.html",
+    "image": "/C412/image/001.jpg"
+  },
+  {
+    "id": "C413",
+    "name": "송소항",
+    "address": "전남 여수시 소호동",
+    "url": "/C413/001.html",
+    "image": "/C413/image/001.jpg"
+  },
+  {
+    "id": "C414",
+    "name": "묘두선착장",
+    "address": "전남 여수시 남면 화태리",
+    "url": "/C414/001.html",
+    "image": "/C414/image/001.jpg"
+  },
+  {
+    "id": "C415",
+    "name": "독정항(독정이방파제, 독정이선착장)",
+    "address": "전남 여수시 남면 화태리",
+    "url": "/C415/001.html",
+    "image": "/C415/image/001.jpg"
+  },
+  {
+    "id": "C416",
+    "name": "월전항(월전선착장)",
+    "address": "전남 여수시 남면 화태리",
+    "url": "/C416/001.html",
+    "image": "/C416/image/001.jpg"
+  },
+  {
+    "id": "C417",
+    "name": "문여",
+    "address": "전남 여수시 남면 화태리",
+    "url": "/C417/001.html",
+    "image": "/C417/image/001.jpg"
+  },
+  {
+    "id": "C418",
+    "name": "개머리방파제",
+    "address": "전남 여수시 남면 화태리",
+    "url": "/C418/001.html",
+    "image": "/C418/image/001.jpg"
+  },
+  {
+    "id": "C419",
+    "name": "신기항(신기방파제)",
+    "address": "전남 여수시 돌산읍 신복리",
+    "url": "/C419/001.html",
+    "image": "/C419/image/001.jpg"
+  },
+  {
+    "id": "C420",
+    "name": "작금항",
+    "address": "전남 여수시 돌산읍 금성리",
+    "url": "/C420/001.html",
+    "image": "/C420/image/001.jpg"
+  },
+  {
+    "id": "C421",
+    "name": "작금방파제",
+    "address": "전남 여수시 돌산읍 금성리",
+    "url": "/C421/001.html",
+    "image": "/C421/image/001.jpg"
+  },
+  {
+    "id": "C422",
+    "name": "성두항",
+    "address": "전남 여수시 돌산읍 금성리",
+    "url": "/C422/001.html",
+    "image": "/C422/image/001.jpg"
+  },
+  {
+    "id": "C423",
+    "name": "우두리선착장",
+    "address": "전남 여수시 돌산읍 우두리",
+    "url": "/C423/001.html",
+    "image": "/C423/image/001.jpg"
+  },
+  {
+    "id": "C424",
+    "name": "월전방파제",
+    "address": "전남 여수시 돌산읍 우두리",
+    "url": "/C424/001.html",
+    "image": "/C424/image/001.jpg"
+  },
+  {
+    "id": "C425",
+    "name": "상하동방파제",
+    "address": "전남 여수시 돌산읍 우두리",
+    "url": "/C425/001.html",
+    "image": "/C425/image/001.jpg"
+  },
+  {
+    "id": "C426",
+    "name": "신덕방파제",
+    "address": "전남 여수시 신덕동",
+    "url": "/C426/001.html",
+    "image": "/C426/image/001.jpg"
+  },
+  {
+    "id": "C427",
+    "name": "송문선착장",
+    "address": "경남 하동군 금남면 송문리",
+    "url": "/C427/001.html",
+    "image": "/C427/image/001.jpg"
+  },
+  {
+    "id": "C428",
+    "name": "덕신선착장",
+    "address": "경남 남해군 설천면 덕신리",
+    "url": "/C428/001.html",
+    "image": "/C428/image/001.jpg"
+  },
+  {
+    "id": "C429",
+    "name": "차면방파제",
+    "address": "경남 남해군 고현면 차면리",
+    "url": "/C429/001.html",
+    "image": "/C429/image/001.jpg"
+  },
+  {
+    "id": "C430",
+    "name": "동갈화항(죽강방파제, 갈화방파제)",
+    "address": "경남 남해군 고현면 갈화리",
+    "url": "/C430/001.html",
+    "image": "/C430/image/001.jpg"
+  },
+  {
+    "id": "C431",
+    "name": "갈화리방파제",
+    "address": "경남 남해군 고현면 갈화리",
+    "url": "/C431/001.html",
+    "image": "/C431/image/001.jpg"
+  },
+  {
+    "id": "C432",
+    "name": "유포선착장",
+    "address": "경남 남해군 서면 노구리",
+    "url": "/C432/001.html",
+    "image": "/C432/image/001.jpg"
+  },
+  {
+    "id": "C433",
+    "name": "작장리방파제",
+    "address": "경남 남해군 서면 작장리",
+    "url": "/C433/001.html",
+    "image": "/C433/image/001.jpg"
+  },
+  {
+    "id": "C434",
+    "name": "서상항(서상방파제)",
+    "address": "경남 남해군 서면 서상리",
+    "url": "/C434/001.html",
+    "image": "/C434/image/001.jpg"
+  },
+  {
+    "id": "C435",
+    "name": "덕월리방파제",
+    "address": "경남 남해군 남면 덕월리",
+    "url": "/C435/001.html",
+    "image": "/C435/image/001.jpg"
+  },
+  {
+    "id": "C436",
+    "name": "유구방파제",
+    "address": "경남 남해군 남면 평산리",
+    "url": "/C436/001.html",
+    "image": "/C436/image/001.jpg"
+  },
+  {
+    "id": "C437",
+    "name": "사촌방파제",
+    "address": "경남 남해군 남면 임포리",
+    "url": "/C437/001.html",
+    "image": "/C437/image/001.jpg"
+  },
+  {
+    "id": "C438",
+    "name": "항촌항(항촌방파제)",
+    "address": "경남 남해군 남면 선구리",
+    "url": "/C438/001.html",
+    "image": "/C438/image/001.jpg"
+  },
+  {
+    "id": "C439",
+    "name": "홍현방파제",
+    "address": "경남 남해군 남면 홍현리",
+    "url": "/C439/001.html",
+    "image": "/C439/image/001.jpg"
+  },
+  {
+    "id": "C440",
+    "name": "화계방파제",
+    "address": "경남 남해군 이동면 화계리",
+    "url": "/C440/001.html",
+    "image": "/C440/image/001.jpg"
+  },
+  {
+    "id": "C441",
+    "name": "원천항(원천방파제)",
+    "address": "경남 남해군 이동면 신전리",
+    "url": "/C441/001.html",
+    "image": "/C441/image/001.jpg"
+  },
+  {
+    "id": "C442",
+    "name": "금전항",
+    "address": "경남 남해군 상주면 상주리",
+    "url": "/C442/001.html",
+    "image": "/C442/image/001.jpg"
+  },
+  {
+    "id": "C443",
+    "name": "상주리방파제",
+    "address": "경남 남해군 상주면 상주리",
+    "url": "/C443/001.html",
+    "image": "/C443/image/001.jpg"
+  },
+  {
+    "id": "C444",
+    "name": "미송방파제",
+    "address": "경남 남해군 미조면 미조리",
+    "url": "/C444/001.html",
+    "image": "/C444/image/001.jpg"
+  },
+  {
+    "id": "C445",
+    "name": "항도항(항도방파제)",
+    "address": "경남 남해군 미조면 송정리",
+    "url": "/C445/001.html",
+    "image": "/C445/image/001.jpg"
+  },
+  {
+    "id": "C446",
+    "name": "가인포방파제",
+    "address": "경남 남해군 미조면 송정리",
+    "url": "/C446/001.html",
+    "image": "/C446/image/001.jpg"
+  },
+  {
+    "id": "C447",
+    "name": "노구방파제",
+    "address": "경남 남해군 미조면 송정리",
+    "url": "/C447/001.html",
+    "image": "/C447/image/001.jpg"
+  },
+  {
+    "id": "C448",
+    "name": "대지포방파제",
+    "address": "경남 남해군 삼동면 물건리",
+    "url": "/C448/001.html",
+    "image": "/C448/image/001.jpg"
+  },
+  {
+    "id": "C449",
+    "name": "양화금방파제(청사포)",
+    "address": "경남 남해군 삼동면 동천리",
+    "url": "/C449/001.html",
+    "image": "/C449/image/001.jpg"
+  },
+  {
+    "id": "C450",
+    "name": "노루목방파제",
+    "address": "경남 남해군 삼동면 동천리",
+    "url": "/C450/001.html",
+    "image": "/C450/image/001.jpg"
+  },
+  {
+    "id": "C451",
+    "name": "둔촌방파제",
+    "address": "경남 남해군 삼동면 금송리",
+    "url": "/C451/001.html",
+    "image": "/C451/image/001.jpg"
+  },
+  {
+    "id": "C452",
+    "name": "금송방파제",
+    "address": "경남 남해군 삼동면 금송리",
+    "url": "/C452/001.html",
+    "image": "/C452/image/001.jpg"
+  },
+  {
+    "id": "C453",
+    "name": "흥선선착장",
+    "address": "경남 남해군 창선면 부윤리",
+    "url": "/C453/001.html",
+    "image": "/C453/image/001.jpg"
+  },
+  {
+    "id": "C454",
+    "name": "여튼계방파제",
+    "address": "경남 남해군 창선면 가인리",
+    "url": "/C454/001.html",
+    "image": "/C454/image/001.jpg"
+  },
+  {
+    "id": "C455",
+    "name": "가인선착장",
+    "address": "경남 남해군 창선면 가인리",
+    "url": "/C455/001.html",
+    "image": "/C455/image/001.jpg"
+  },
+  {
+    "id": "C456",
+    "name": "동대리선착장",
+    "address": "경남 남해군 창선면 동대리",
+    "url": "/C456/001.html",
+    "image": "/C456/image/001.jpg"
+  },
+  {
+    "id": "C457",
+    "name": "대벽리방파제",
+    "address": "경남 남해군 창선면 대벽리",
+    "url": "/C457/001.html",
+    "image": "/C457/image/001.jpg"
+  },
+  {
+    "id": "C458",
+    "name": "광천항(광천방파제)",
+    "address": "경남 남해군 창선면 광천리",
+    "url": "/C458/001.html",
+    "image": "/C458/image/001.jpg"
+  },
+  {
+    "id": "C459",
+    "name": "신흥항(신흥방파제)",
+    "address": "경남 남해군 창선면 지족리",
+    "url": "/C459/001.html",
+    "image": "/C459/image/001.jpg"
+  },
+  {
+    "id": "C460",
+    "name": "와현방파제",
+    "address": "경남 남해군 삼동면 지족리",
+    "url": "/C460/001.html",
+    "image": "/C460/image/001.jpg"
+  },
+  {
+    "id": "C461",
+    "name": "수장포방파제",
+    "address": "경남 남해군 삼동면 영지리",
+    "url": "/C461/001.html",
+    "image": "/C461/image/001.jpg"
+  },
+  {
+    "id": "C462",
+    "name": "비란방파제",
+    "address": "경남 남해군 설천면 진목리",
+    "url": "/C462/001.html",
+    "image": "/C462/image/001.jpg"
+  },
+  {
+    "id": "C463",
+    "name": "봉우방파제",
+    "address": "경남 남해군 설천면 금음리",
+    "url": "/C463/001.html",
+    "image": "/C463/image/001.jpg"
+  },
+  {
+    "id": "C464",
+    "name": "대치선착장",
+    "address": "경남 하동군 금남면 대치리",
+    "url": "/C464/001.html",
+    "image": "/C464/image/001.jpg"
+  },
+  {
+    "id": "C465",
+    "name": "장황방파제",
+    "address": "경남 하동군 금남면 대치리",
+    "url": "/C465/001.html",
+    "image": "/C465/image/001.jpg"
+  },
+  {
+    "id": "C466",
+    "name": "중평항",
+    "address": "경남 하동군 금남면 중평리",
+    "url": "/C466/001.html",
+    "image": "/C466/image/001.jpg"
+  },
+  {
+    "id": "C467",
+    "name": "술상항",
+    "address": "경남 하동군 진교면 술상리",
+    "url": "/C467/001.html",
+    "image": "/C467/image/001.jpg"
+  },
+  {
+    "id": "C468",
+    "name": "비토선착장",
+    "address": "경남 사천시 서포면 비토리",
+    "url": "/C468/001.html",
+    "image": "/C468/image/001.jpg"
+  },
+  {
+    "id": "C469",
+    "name": "검도항",
+    "address": "경남 사천시 서포면 선전리",
+    "url": "/C469/001.html",
+    "image": "/C469/image/001.jpg"
+  },
+  {
+    "id": "C470",
+    "name": "중촌항",
+    "address": "경남 사천시 서포면 자혜리",
+    "url": "/C470/001.html",
+    "image": "/C470/image/001.jpg"
+  },
+  {
+    "id": "C471",
+    "name": "구포항",
+    "address": "경남 사천시 서포면 자혜리",
+    "url": "/C471/001.html",
+    "image": "/C471/image/001.jpg"
+  },
+  {
+    "id": "C472",
+    "name": "안도항",
+    "address": "경남 사천시 곤양면 중항리",
+    "url": "/C472/001.html",
+    "image": "/C472/image/001.jpg"
+  },
+  {
+    "id": "C473",
+    "name": "중항리선착장",
+    "address": "경남 사천시 곤양면 중항리",
+    "url": "/C473/001.html",
+    "image": "/C473/image/001.jpg"
+  },
+  {
+    "id": "C474",
+    "name": "산분령항(산분령방조제)",
+    "address": "경남 사천시 실안동",
+    "url": "/C474/001.html",
+    "image": "/C474/image/001.jpg"
+  },
+  {
+    "id": "C475",
+    "name": "덕명항",
+    "address": "경남 고성군 하이면 덕명리",
+    "url": "/C475/001.html",
+    "image": "/C475/image/001.jpg"
+  },
+  {
+    "id": "C476",
+    "name": "상족암선착장",
+    "address": "경남 고성군 하이면 덕명리",
+    "url": "/C476/001.html",
+    "image": "/C476/image/001.jpg"
+  },
+  {
+    "id": "C477",
+    "name": "솔섬선착장",
+    "address": "경남 고성군 하일면 송천리",
+    "url": "/C477/001.html",
+    "image": "/C477/image/001.jpg"
+  },
+  {
+    "id": "C478",
+    "name": "가룡항",
+    "address": "경남 고성군 하일면 용태리",
+    "url": "/C478/001.html",
+    "image": "/C478/image/001.jpg"
+  },
+  {
+    "id": "C479",
+    "name": "삼태선착장",
+    "address": "경남 고성군 하일면 용태리",
+    "url": "/C479/001.html",
+    "image": "/C479/image/001.jpg"
+  },
+  {
+    "id": "C480",
+    "name": "두포선착장",
+    "address": "경남 고성군 삼산면 두포리",
+    "url": "/C480/001.html",
+    "image": "/C480/image/001.jpg"
+  },
+  {
+    "id": "C481",
+    "name": "두포방파제",
+    "address": "경남 고성군 삼산면 두포리",
+    "url": "/C481/001.html",
+    "image": "/C481/image/001.jpg"
+  },
+  {
+    "id": "C482",
+    "name": "인평항",
+    "address": "경남 통영시 인평동",
+    "url": "/C482/001.html",
+    "image": "/C482/image/001.jpg"
+  },
+  {
+    "id": "C483",
+    "name": "명지항",
+    "address": "경남 통영시 산양읍 풍화리",
+    "url": "/C483/001.html",
+    "image": "/C483/image/001.jpg"
+  },
+  {
+    "id": "C484",
+    "name": "장촌선착장",
+    "address": "경남 통영시 산양읍 풍화리",
+    "url": "/C484/001.html",
+    "image": "/C484/image/001.jpg"
+  },
+  {
+    "id": "C485",
+    "name": "궁항",
+    "address": "경남 통영시 산양읍 당포리",
+    "url": "/C485/001.html",
+    "image": "/C485/image/001.jpg"
+  },
+  {
+    "id": "C486",
+    "name": "답하항",
+    "address": "경남 통영시 산양읍 신전리",
+    "url": "/C486/001.html",
+    "image": "/C486/image/001.jpg"
+  },
+  {
+    "id": "C487",
+    "name": "해간도항(해간도방파제)",
+    "address": "경남 통영시 용남면 장평리",
+    "url": "/C487/001.html",
+    "image": "/C487/image/001.jpg"
+  },
+  {
+    "id": "C488",
+    "name": "연기항",
+    "address": "경남 통영시 용남면 장평리",
+    "url": "/C488/001.html",
+    "image": "/C488/image/001.jpg"
+  },
+  {
+    "id": "C489",
+    "name": "적촌선착장",
+    "address": "경남 통영시 용남면 원평리",
+    "url": "/C489/001.html",
+    "image": "/C489/image/001.jpg"
+  },
+  {
+    "id": "C490",
+    "name": "승방방파제",
+    "address": "경남 통영시 용남면 원평리",
+    "url": "/C490/001.html",
+    "image": "/C490/image/001.jpg"
+  },
+  {
+    "id": "C491",
+    "name": "다구리선착장",
+    "address": "경남 창원시 마산합포구 진동면 다구리",
+    "url": "/C491/001.html",
+    "image": "/C491/image/001.jpg"
+  },
+  {
+    "id": "C492",
+    "name": "명주항",
+    "address": "경남 창원시 마산합포구 구산면 석곡리",
+    "url": "/C492/001.html",
+    "image": "/C492/image/001.jpg"
+  },
+  {
+    "id": "C493",
+    "name": "설진방파제",
+    "address": "경남 창원시 마산합포구 구산면 심리",
+    "url": "/C493/001.html",
+    "image": "/C493/image/001.jpg"
+  },
+  {
+    "id": "C494",
+    "name": "상유방파제",
+    "address": "경남 거제시 장목면 유호리",
+    "url": "/C494/001.html",
+    "image": "/C494/image/001.jpg"
+  },
+  {
+    "id": "C495",
+    "name": "구영방파제(구영카페리선착장)",
+    "address": "경남 거제시 장목면 구영리",
+    "url": "/C495/001.html",
+    "image": "/C495/image/001.jpg"
+  },
+  {
+    "id": "C496",
+    "name": "어온방파제",
+    "address": "경남 거제시 하청면 어온리",
+    "url": "/C496/001.html",
+    "image": "/C496/image/001.jpg"
+  },
+  {
+    "id": "C497",
+    "name": "송포방파제",
+    "address": "경남 거제시 하청면 대곡리",
+    "url": "/C497/001.html",
+    "image": "/C497/image/001.jpg"
+  },
+  {
+    "id": "C498",
+    "name": "연구방파제",
+    "address": "경남 거제시 하청면 연구리",
+    "url": "/C498/001.html",
+    "image": "/C498/image/001.jpg"
+  },
+  {
+    "id": "C499",
+    "name": "금곡방파제",
+    "address": "경남 거제시 하청면 연구리",
+    "url": "/C499/001.html",
+    "image": "/C499/image/001.jpg"
+  },
+  {
+    "id": "C500",
+    "name": "하청부두",
+    "address": "경남 거제시 하청면 하청리",
+    "url": "/C500/001.html",
+    "image": "/C500/image/001.jpg"
+  },
+  {
+    "id": "C501",
+    "name": "유계항",
+    "address": "경남 거제시 하청면 유계리",
+    "url": "/C501/001.html",
+    "image": "/C501/image/001.jpg"
+  },
+  {
+    "id": "C502",
+    "name": "덕곡리선착장",
+    "address": "경남 거제시 하청면 덕곡리",
+    "url": "/C502/001.html",
+    "image": "/C502/image/001.jpg"
+  },
+  {
+    "id": "C503",
+    "name": "덕곡리방파제",
+    "address": "경남 거제시 하청면 덕곡리",
+    "url": "/C503/001.html",
+    "image": "/C503/image/001.jpg"
+  },
+  {
+    "id": "C504",
+    "name": "사곡해수욕장",
+    "address": "경남 거제시 사등면 사곡리",
+    "url": "/C504/001.html",
+    "image": "/C504/image/001.jpg"
+  },
+  {
+    "id": "C505",
+    "name": "창외항",
+    "address": "경남 거제시 사등면 창호리",
+    "url": "/C505/001.html",
+    "image": "/C505/image/001.jpg"
+  },
+  {
+    "id": "C506",
+    "name": "실전방파제",
+    "address": "경남 거제시 사등면 창호리",
+    "url": "/C506/001.html",
+    "image": "/C506/image/001.jpg"
+  },
+  {
+    "id": "C507",
+    "name": "신교항(신교방파제)",
+    "address": "경남 거제시 사등면 창호리",
+    "url": "/C507/001.html",
+    "image": "/C507/image/001.jpg"
+  },
+  {
+    "id": "C508",
+    "name": "계도항(계도선착장)",
+    "address": "경남 거제시 사등면 창호리",
+    "url": "/C508/001.html",
+    "image": "/C508/image/001.jpg"
+  },
+  {
+    "id": "C509",
+    "name": "가조항(가조도선착장)",
+    "address": "경남 거제시 사등면 창호리",
+    "url": "/C509/001.html",
+    "image": "/C509/image/001.jpg"
+  },
+  {
+    "id": "C510",
+    "name": "청곡리선착장",
+    "address": "경남 거제시 사등면 청곡리",
+    "url": "/C510/001.html",
+    "image": "/C510/image/001.jpg"
+  },
+  {
+    "id": "C511",
+    "name": "술역리선착장",
+    "address": "경남 거제시 둔덕면 술역리",
+    "url": "/C511/001.html",
+    "image": "/C511/image/001.jpg"
+  },
+  {
+    "id": "C512",
+    "name": "거제 법동복합낚시공원",
+    "address": "경남 거제시 거제면 법동리",
+    "url": "/C512/001.html",
+    "image": "/C512/image/001.jpg"
+  },
+  {
+    "id": "C513",
+    "name": "고당선착장",
+    "address": "경남 거제시 거제면 법동리",
+    "url": "/C513/001.html",
+    "image": "/C513/image/001.jpg"
+  },
+  {
+    "id": "C514",
+    "name": "죽림항",
+    "address": "경남 거제시 거제면 오수리",
+    "url": "/C514/001.html",
+    "image": "/C514/image/001.jpg"
+  },
+  {
+    "id": "C515",
+    "name": "오송리선착장",
+    "address": "경남 거제시 동부면 오송리",
+    "url": "/C515/001.html",
+    "image": "/C515/image/001.jpg"
+  },
+  {
+    "id": "C516",
+    "name": "영북선착장",
+    "address": "경남 거제시 동부면 오송리",
+    "url": "/C516/001.html",
+    "image": "/C516/image/001.jpg"
+  },
+  {
+    "id": "C517",
+    "name": "쪽박항(함박금방파제)",
+    "address": "경남 거제시 동부면 가배리",
+    "url": "/C517/001.html",
+    "image": "/C517/image/001.jpg"
+  },
+  {
+    "id": "C518",
+    "name": "함박금선착장",
+    "address": "경남 거제시 동부면 가배리",
+    "url": "/C518/001.html",
+    "image": "/C518/image/001.jpg"
+  },
+  {
+    "id": "C519",
+    "name": "율포항",
+    "address": "경남 거제시 동부면 율포리",
+    "url": "/C519/001.html",
+    "image": "/C519/image/001.jpg"
+  },
+  {
+    "id": "C520",
+    "name": "율포리선착장",
+    "address": "경남 거제시 동부면 율포리",
+    "url": "/C520/001.html",
+    "image": "/C520/image/001.jpg"
+  },
+  {
+    "id": "C521",
+    "name": "탑포리방파제",
+    "address": "경남 거제시 남부면 탑포리",
+    "url": "/C521/001.html",
+    "image": "/C521/image/001.jpg"
+  },
+  {
+    "id": "C522",
+    "name": "명사항(명사해수욕장)",
+    "address": "경남 거제시 남부면 저구리",
+    "url": "/C522/001.html",
+    "image": "/C522/image/001.jpg"
+  },
+  {
+    "id": "C523",
+    "name": "홍포선착장",
+    "address": "경남 거제시 남부면 저구리",
+    "url": "/C523/001.html",
+    "image": "/C523/image/001.jpg"
+  },
+  {
+    "id": "C524",
+    "name": "여차방파제",
+    "address": "경남 거제시 남부면 다포리",
+    "url": "/C524/001.html",
+    "image": "/C524/image/001.jpg"
+  },
+  {
+    "id": "C525",
+    "name": "고촌방파제",
+    "address": "경남 거제시 동부면 학동리",
+    "url": "/C525/001.html",
+    "image": "/C525/image/001.jpg"
+  },
+  {
+    "id": "C526",
+    "name": "양화방파제",
+    "address": "경남 거제시 일운면 망치리",
+    "url": "/C526/001.html",
+    "image": "/C526/image/001.jpg"
+  },
+  {
+    "id": "C527",
+    "name": "망치항",
+    "address": "경남 거제시 일운면 망치리",
+    "url": "/C527/001.html",
+    "image": "/C527/image/001.jpg"
+  },
+  {
+    "id": "C528",
+    "name": "대계항(대계방파제)",
+    "address": "경남 거제시 장목면 외포리",
+    "url": "/C528/001.html",
+    "image": "/C528/image/001.jpg"
+  },
+  {
+    "id": "C529",
+    "name": "흥남방파제",
+    "address": "경남 거제시 장목면 시방리",
+    "url": "/C529/001.html",
+    "image": "/C529/image/001.jpg"
+  },
+  {
+    "id": "C530",
+    "name": "중리항(중리방파제)",
+    "address": "부산 영도구 동삼동",
+    "url": "/C530/001.html",
+    "image": "/C530/image/001.jpg"
+  },
+  {
+    "id": "C531",
+    "name": "동암항(동암방파제)",
+    "address": "부산 기장군 기장읍 시랑리",
+    "url": "/C531/001.html",
+    "image": "/C531/image/001.jpg"
+  },
+  {
+    "id": "C532",
+    "name": "두호해변",
+    "address": "부산 기장군 기장읍 죽성리",
+    "url": "/C532/001.html",
+    "image": "/C532/image/001.jpg"
+  },
+  {
+    "id": "C533",
+    "name": "이동항(이동방파제)",
+    "address": "부산 기장군 일광읍 이천리",
+    "url": "/C533/001.html",
+    "image": "/C533/image/001.jpg"
+  },
+  {
+    "id": "C534",
+    "name": "칠포항(칠포방파제)",
+    "address": "경북 포항시 북구 흥해읍 칠포리",
+    "url": "/C534/001.html",
+    "image": "/C534/image/001.jpg"
+  },
+  {
+    "id": "C535",
+    "name": "오도리간이해수욕장 방파제",
+    "address": "경북 포항시 북구 흥해읍 오도리",
+    "url": "/C535/001.html",
+    "image": "/C535/image/001.jpg"
+  }
+]
