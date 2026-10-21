@@ -32,7 +32,10 @@
     .brand svg{width:29px;height:29px;flex:none;color:#65c6ed}
     .side-caption{font-size:12px;color:#7f9caf;padding:21px 22px 10px}
     .region-list{padding:0 11px 22px;display:grid;gap:2px}
-    .region-btn{background:transparent;border:0;color:#c3d2df;display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;border-radius:5px;padding:12px 11px;font-size:14px;min-height:39px;transition:background .12s}
+    .region-btn{background:transparent;border:0;color:#c3d2df;display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;border-radius:5px;padding:12px 11px;font-size:14px;font-weight:700;min-height:39px;transition:background .12s}
+    .city-list{display:grid;gap:1px;margin:1px 0 6px 10px;padding-left:8px;border-left:1px solid #30475a}
+    .city-btn{background:transparent;border:0;color:#a9bccc;display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;border-radius:4px;padding:7px 9px;font-size:13px;font-weight:400;min-height:30px}
+    .city-btn:hover{background:#203f57}.city-btn.active{background:#1a4f7a;color:#fff;font-weight:700}.city-btn .region-count{font-size:11px}
     .region-btn:hover{background:#203f57}.region-btn.active{background:#2069a1;color:white}.region-count{font-size:11px;color:#92abc0}.region-btn.active .region-count{color:#deecfa}
     .layout{margin-left:var(--side);min-height:100vh;display:flex;flex-direction:column}
     .main{width:100%;max-width:1480px;margin:0 auto;padding:27px 35px 0;flex:1}
@@ -56,7 +59,7 @@
     .point-card:hover{transform:translateY(-2px);box-shadow:0 5px 16px #172e4821}
     .point-photo{width:100%;aspect-ratio:1.335/1;display:block;object-fit:cover;background:#e8eff4;color:transparent}
     .card-info{padding:8px 10px 10px;min-height:60px}
-    .point-name{font-weight:500;font-size:15px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .point-name{font-weight:700;font-size:17px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .point-address{font-size:12px;color:#7991a6;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .empty{grid-column:1/-1;text-align:center;padding:85px 16px;color:#7890a3;background:white;border:1px solid var(--line);border-radius:6px}
     .pager{display:flex;justify-content:center;align-items:center;gap:5px;margin:28px 0 39px;min-height:34px}
@@ -70,7 +73,7 @@
     .shade{display:none}
     @media(min-width:1500px){.main{padding-left:42px;padding-right:42px}.footer{margin-left:42px;margin-right:42px}}
     @media(max-width:900px){:root{--side:165px}.main{padding:24px 23px 0}.footer{margin:0 23px}.topbar h1{font-size:21px}.search-field{width:220px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:600px){:root{--side:0px}.sidebar{transform:translateX(-100%);width:230px;transition:transform .2s}.sidebar.open{transform:translateX(0)}.shade.open{display:block;position:fixed;inset:0;background:#101b2b80;z-index:11}.mobile-menu{display:inline-flex}.main{padding:19px 15px 0}.topbar{flex-wrap:wrap;gap:13px}.top-title{display:flex;gap:6px;align-items:center}.topbar h1{font-size:19px}.search{width:100%}.search-field{width:auto;flex:1}.cards{gap:11px;grid-template-columns:repeat(2,minmax(0,1fr))}.point-name{font-size:13px}.point-address{font-size:11px}.card-info{padding:8px}.subbar h2{font-size:14px}.subbar-right{gap:6px}#citySelect{max-width:108px}.footer{margin:0 15px;flex-wrap:wrap}.footer-links{gap:12px}.pager{flex-wrap:wrap}}
+    @media(max-width:600px){:root{--side:0px}.sidebar{transform:translateX(-100%);width:230px;transition:transform .2s}.sidebar.open{transform:translateX(0)}.shade.open{display:block;position:fixed;inset:0;background:#101b2b80;z-index:11}.mobile-menu{display:inline-flex}.main{padding:19px 15px 0}.topbar{flex-wrap:wrap;gap:13px}.top-title{display:flex;gap:6px;align-items:center}.topbar h1{font-size:19px}.search{width:100%}.search-field{width:auto;flex:1}.cards{gap:11px;grid-template-columns:repeat(2,minmax(0,1fr))}.point-name{font-size:15px}.point-address{font-size:11px}.card-info{padding:8px}.subbar h2{font-size:14px}.subbar-right{gap:6px}#citySelect{max-width:108px}.footer{margin:0 15px;flex-wrap:wrap}.footer-links{gap:12px}.pager{flex-wrap:wrap}}
     @media(max-width:370px){.cards{grid-template-columns:1fr}}
   </style>
 </head>
@@ -95,7 +98,7 @@
     </div>
     <div class="subbar">
       <h2 id="sectionTitle">전체 포인트</h2>
-      <div class="subbar-right"><select id="citySelect" aria-label="시군구 필터"><option value="">시·군 전체</option></select><span id="count">총 0개</span></div>
+      <div class="subbar-right"><span id="count">총 0개</span></div>
     </div>
     <div id="cards" class="cards" aria-live="polite"></div>
     <nav class="pager" id="pagination" aria-label="페이지 선택"></nav>
@@ -137,15 +140,32 @@
       const count=all.filter(item=>region===null||groupOf(item)===region).length;
       const b=make('button','region-btn'+(activeRegion===region?' active':''));b.type='button';b.setAttribute('aria-pressed',String(activeRegion===region));
       b.append(make('span','',name),make('span','region-count',String(count)));
-      b.addEventListener('click',()=>{activeRegion=region;activeCity='';page=1;updateCities();render();closeMenu();});
+      b.addEventListener('click',()=>{activeRegion=region;activeCity='';clearSearch();page=1;render();if(region===null)closeMenu();});
       parent.append(b);
+      if(activeRegion===region&&region!==null){
+        const box=make('div','city-list');
+        const base=visibleRegion();
+        const addCity=(label,city,n)=>{
+          const c=make('button','city-btn'+(activeCity===city?' active':''));c.type='button';
+          c.append(make('span','',label),make('span','region-count',String(n)));
+          c.addEventListener('click',()=>{activeCity=city;clearSearch();page=1;render();closeMenu();});
+          box.append(c);
+        };
+        addCity('전체',''  ,base.length);
+        const cities=[...new Set(base.map(districtOf).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ko'));
+        for(const city of cities)addCity(city,city,base.filter(i=>districtOf(i)===city).length);
+        parent.append(box);
+      }
     }
   }
-  function updateCities(){
-    const sel=el('citySelect');sel.replaceChildren(new Option('시·군 전체',''));
-    const cities=[...new Set(visibleRegion().map(districtOf).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ko'));
-    for(const city of cities) sel.add(new Option(city,city));
-    if(cities.includes(activeCity))sel.value=activeCity;else {activeCity='';sel.value='';}
+  function clearSearch(){keyword='';el('searchInput').value='';}
+  function syncUrl(){
+    const u=new URL(location.href);u.search='';
+    if(activeRegion)u.searchParams.set('region',activeRegion);
+    if(activeCity)u.searchParams.set('city',activeCity);
+    if(keyword)u.searchParams.set('q',keyword);
+    if(page>1)u.searchParams.set('page',String(page));
+    history.replaceState(null,'',u);
   }
   function renderCards(items){
     const parent=el('cards');parent.replaceChildren();
@@ -177,21 +197,22 @@
   function render(){
     renderRegions();
     const regionLabel=REGIONS.find(([,value])=>value===activeRegion)?.[0] || '전체';
-    el('sectionTitle').textContent=regionLabel==='전체'?'전체 포인트':regionLabel+' 포인트';
+    el('sectionTitle').textContent=(regionLabel==='전체'?'전체':regionLabel+(activeCity?' '+activeCity:''))+' 포인트';
     const data=filtered();
     el('count').textContent='총 '+data.length.toLocaleString('ko-KR')+'개';
     page=Math.max(1,Math.min(page,Math.max(1,Math.ceil(data.length/PAGE_SIZE))));
-    renderCards(data.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE));renderPages(data.length);
+    renderCards(data.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE));renderPages(data.length);syncUrl();
   }
   function closeMenu(){el('sidebar').classList.remove('open');el('shade').classList.remove('open');}
   el('menuButton').addEventListener('click',()=>{el('sidebar').classList.toggle('open');el('shade').classList.toggle('open');});
   el('shade').addEventListener('click',closeMenu);
   el('searchForm').addEventListener('submit',e=>{e.preventDefault();keyword=el('searchInput').value.trim();page=1;render();});
   el('searchInput').addEventListener('input',e=>{keyword=e.target.value.trim();page=1;render();});
-  el('citySelect').addEventListener('change',e=>{activeCity=e.target.value;page=1;render();});
   const current=new URL(location.href);
   const presetRegion=current.searchParams.get('region');
   if(REGIONS.some(([,v])=>v===presetRegion))activeRegion=presetRegion;
+  activeCity=current.searchParams.get('city')||'';
+  page=parseInt(current.searchParams.get('page'),10)||1;
   const presetQuery=current.searchParams.get('q');
   if(presetQuery){keyword=presetQuery;el('searchInput').value=presetQuery;}
   fetch('./points.json',{cache:'no-cache'})
@@ -199,7 +220,7 @@
     .then(data=>{
       if(!Array.isArray(data))throw Error('JSON 배열이 아닙니다.');
       all=data.filter(x=>x&&typeof x.id==='string'&&typeof x.name==='string'&&typeof x.address==='string'&&typeof x.url==='string'&&typeof x.image==='string');
-      updateCities();render();
+      render();
     })
     .catch(e=>{console.error('points.json 불러오기 실패:',e);el('cards').replaceChildren(make('div','empty','points.json 파일을 불러올 수 없습니다. 로컬 서버 또는 웹사이트 주소로 열어 주세요.'));el('count').textContent='데이터 오류';});
 })();
