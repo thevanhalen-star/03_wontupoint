@@ -88,7 +88,7 @@ def layout(path, title, desc, eyebrow, h1, body, robots="index,follow", extra_he
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><meta name="robots" content="{robots}"><link rel="canonical" href="{url}">{ICON_LINKS}
 <meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg"><meta name="twitter:card" content="summary_large_image">{crumbs}<style>{LEGACY_CSS}</style></head><body><main><nav class="nav">{nav}</nav><h1>{h1}</h1>
 {body}
-<div class="foot-links">{footer_links()}<span>© 2026 {SITE}</span></div></main></body></html>
+<div class="foot-links">{footer_links()}<span>© 2026 차박·원투·워킹 낚시 포인트</span></div></main></body></html>
 ''')
 
 
@@ -457,7 +457,7 @@ def process_point(path: Path):
         t = replace_block(t, "WONTU_SAFETY", safety, r"</div>\s*</body>")
 
     # 7) 페이지 하단 푸터
-    foot = f'<footer class="wontu-foot"><nav aria-label="사이트 정보">{footer_links()}</nav><span>© 2026 {SITE}</span></footer>'
+    foot = f'<footer class="wontu-foot"><nav aria-label="사이트 정보">{footer_links()}</nav><span>© 2026 차박·원투·워킹 낚시 포인트</span></footer>'
     t = replace_block(t, "WONTU_FOOT", foot, r"</body>")
 
     if t != orig:

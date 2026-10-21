@@ -34,7 +34,8 @@
     .side-caption{font-size:12px;color:#7f9caf;padding:21px 22px 10px}
     .region-list{padding:0 11px 22px;display:grid;gap:2px}
     .region-btn{background:transparent;border:0;color:#c3d2df;display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;border-radius:5px;padding:12px 11px;font-size:14px;font-weight:700;min-height:39px;transition:background .12s}
-    .city-list{display:grid;gap:1px;margin:1px 0 6px 10px;padding-left:8px;border-left:1px solid #30475a}
+    .city-wrap{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .28s ease,opacity .28s ease}.city-wrap.open{grid-template-rows:1fr;opacity:1}
+    .city-list{min-height:0;overflow:hidden;display:grid;gap:1px;margin:0 0 0 10px;padding-left:8px;border-left:1px solid #30475a}.city-wrap.open .city-list{margin:1px 0 6px 10px}
     .city-btn{background:transparent;border:0;color:#a9bccc;display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;border-radius:4px;padding:7px 9px;font-size:13px;font-weight:400;min-height:30px}
     .city-btn:hover{background:#203f57}.city-btn.active{background:#1a4f7a;color:#fff;font-weight:700}.city-btn .region-count{font-size:11px}
     .region-btn:hover{background:#203f57}.region-btn.active{background:#2069a1;color:white}.region-count{font-size:11px;color:#92abc0}.region-btn.active .region-count{color:#deecfa}
@@ -57,6 +58,7 @@
     #count{font-size:12px;color:#879cad;white-space:nowrap}
     .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 16px}
     .point-card{border:1px solid #e0e7ee;border-radius:5px;overflow:hidden;background:#fff;box-shadow:0 1px 2px #172e4810;text-decoration:none;color:inherit;min-width:0;transition:transform .15s,box-shadow .15s}
+    .point-card.last{border-color:#1d7fc1;box-shadow:0 0 0 3px #1d7fc1,0 5px 16px #172e4821}
     .point-card:hover{transform:translateY(-2px);box-shadow:0 5px 16px #172e4821}
     .point-photo{width:100%;aspect-ratio:1.335/1;display:block;object-fit:cover;background:#e8eff4;color:transparent}
     .card-info{padding:8px 10px 10px;min-height:60px}
@@ -109,7 +111,7 @@
     <div id="cards" class="cards" aria-live="polite"></div>
     <nav class="pager" id="pagination" aria-label="페이지 선택"></nav>
   </main>
-  <footer class="footer"><span>© 원투포인트</span><div class="footer-links"><a href="all-points.html">전체 포인트 목록</a><a href="about.html">사이트 소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="legal.html">운영 및 법적 고지</a><a href="contact.html">문의</a></div></footer>
+  <footer class="footer"><span>© 차박·원투·워킹 낚시 포인트</span><div class="footer-links"><a href="all-points.html">전체 포인트 목록</a><a href="about.html">사이트 소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="legal.html">운영 및 법적 고지</a><a href="contact.html">문의</a></div></footer>
 </div>
 <script>
 (() => {
@@ -122,6 +124,7 @@
   ];
   const UPDATING = ['강원','경북','southeast','제주'];
   const cityAlias = {'인천':'인천','인천광역시':'인천','경기':'경기','경기도':'경기','강원특별자치도':'강원','강원도':'강원','강원':'강원','충청남도':'충남','충남':'충남','충청북도':'충북','충북':'충북','전북특별자치도':'전북','전라북도':'전북','전북':'전북','전라남도':'전남','전남':'전남','경상북도':'경북','경북':'경북','경상남도':'경남','경남':'경남','부산광역시':'부산','부산':'부산','울산광역시':'울산','울산':'울산','제주특별자치도':'제주','제주':'제주'};
+  let lastId='';try{lastId=sessionStorage.getItem('wontu-last')||'';}catch(e){}
   const el = id => document.getElementById(id);
   let all = [], expanded = false, activeRegion = null, activeCity = '', keyword = '', page = 1;
   const normalize = text => String(text || '').replace(/\s+/g,'').toLowerCase();
@@ -141,33 +144,46 @@
   function visibleRegion(){return all.filter(item => activeRegion===null || groupOf(item)===activeRegion);}
   function filtered(){return visibleRegion().filter(item=> (!activeCity || districtOf(item)===activeCity) && (!keyword || normalize(item.name).includes(keyword) || normalize(item.address).includes(keyword)));}
   function make(tag, klass, content){const n=document.createElement(tag);if(klass)n.className=klass;if(content!==undefined)n.textContent=content;return n;}
-  function renderRegions(){
+  const regionEls=new Map();
+  function buildRegions(){
     const parent=el('regionList');parent.replaceChildren();
     for(const [name,region] of REGIONS){
-      const count=all.filter(item=>region===null||groupOf(item)===region).length;
-      const b=make('button','region-btn'+(activeRegion===region?' active':''));b.type='button';b.setAttribute('aria-pressed',String(activeRegion===region));
+      const items=all.filter(item=>region===null||groupOf(item)===region);
+      const b=make('button','region-btn');b.type='button';
       const cnt=make('span','region-count');
       if(UPDATING.includes(region)){cnt.append(make('small','upd','업데이트중'));}
-      cnt.append(String(count));
+      cnt.append(String(items.length));
       b.append(make('span','',name),cnt);
       b.addEventListener('click',()=>{
         if(activeRegion===region&&region!==null){expanded=!expanded;render();return;}
         activeRegion=region;expanded=true;activeCity='';clearSearch();page=1;render();if(region===null)closeMenu();
       });
       parent.append(b);
-      if(activeRegion===region&&region!==null&&expanded){
-        const box=make('div','city-list');
-        const base=visibleRegion();
+      const rec={btn:b,wrap:null,cities:new Map()};
+      if(region!==null){
+        const wrap=make('div','city-wrap'),box=make('div','city-list');
         const addCity=(label,city,n)=>{
-          const c=make('button','city-btn'+(activeCity===city?' active':''));c.type='button';
+          const c=make('button','city-btn');c.type='button';
           c.append(make('span','',label),make('span','region-count',String(n)));
           c.addEventListener('click',()=>{activeCity=city;clearSearch();page=1;render();closeMenu();});
-          box.append(c);
+          box.append(c);rec.cities.set(city,c);
         };
-        addCity('전체',''  ,base.length);
-        const cities=[...new Set(base.map(districtOf).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ko'));
-        for(const city of cities)addCity(city,city,base.filter(i=>districtOf(i)===city).length);
-        parent.append(box);
+        addCity('전체','',items.length);
+        const cities=[...new Set(items.map(districtOf).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ko'));
+        for(const city of cities)addCity(city,city,items.filter(i=>districtOf(i)===city).length);
+        wrap.append(box);parent.append(wrap);rec.wrap=wrap;
+      }
+      regionEls.set(region,rec);
+    }
+  }
+  function renderRegions(){
+    if(!regionEls.size)buildRegions();
+    for(const [region,rec] of regionEls){
+      const on=activeRegion===region;
+      rec.btn.classList.toggle('active',on);rec.btn.setAttribute('aria-pressed',String(on));
+      if(rec.wrap){
+        rec.wrap.classList.toggle('open',on&&expanded);
+        for(const [city,c] of rec.cities)c.classList.toggle('active',on&&activeCity===city);
       }
     }
   }
@@ -184,7 +200,8 @@
     const parent=el('cards');parent.replaceChildren();
     if(!items.length){parent.append(make('div','empty',all.length?'검색 조건에 맞는 포인트가 없습니다.':'포인트 데이터를 불러오지 못했습니다.'));return;}
     for(const item of items){
-      const a=make('a','point-card');a.href=pointUrl(item.url);a.title=item.name+' — '+item.address;
+      const a=make('a','point-card'+(item.id===lastId?' last':''));a.href=pointUrl(item.url);
+      a.addEventListener('click',()=>{try{sessionStorage.setItem('wontu-last',item.id);}catch(e){}});a.title=item.name+' — '+item.address;
       const img=make('img','point-photo');img.src=pointUrl(item.image);img.alt=item.name+' 포인트 사진';img.loading='lazy';img.decoding='async';
       img.addEventListener('error',()=>{img.style.background='#e8eff4';img.alt='이미지를 불러올 수 없습니다';},{once:true});
       const info=make('div','card-info');info.append(make('div','point-name',item.name),make('div','point-address',item.address));
@@ -234,6 +251,7 @@
       if(!Array.isArray(data))throw Error('JSON 배열이 아닙니다.');
       all=data.filter(x=>x&&typeof x.id==='string'&&typeof x.name==='string'&&typeof x.address==='string'&&typeof x.url==='string'&&typeof x.image==='string');
       render();
+      const lc=document.querySelector('.point-card.last');if(lc)lc.scrollIntoView({block:'center'});
     })
     .catch(e=>{console.error('points.json 불러오기 실패:',e);el('cards').replaceChildren(make('div','empty','points.json 파일을 불러올 수 없습니다. 로컬 서버 또는 웹사이트 주소로 열어 주세요.'));el('count').textContent='데이터 오류';});
 })();
