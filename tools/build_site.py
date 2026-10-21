@@ -6,7 +6,6 @@
 상단·하단 메뉴가 다시 붙습니다.
 
 실행:  python tools/build_site.py          (저장소 루트에서)
-옵션:  --no-thumbs   썸네일 생성 생략
 """
 import html
 import json
@@ -65,38 +64,32 @@ def footer_links():
 
 
 # ---------------------------------------------------------------- 공통 문서 페이지
-def head(title, desc, path, robots="index,follow", og_image=None):
-    url = DOMAIN + path
-    og_image = og_image or DOMAIN + "/assets/og-image.jpg"
-    return f"""<!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><meta name="robots" content="{robots}">
-<meta name="theme-color" content="#10283c"><link rel="canonical" href="{url}">{ICON_LINKS}
-<meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}">
-<meta property="og:image" content="{og_image}"><meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/site.css">"""
+LEGACY_CSS = ('body{font-family:"Malgun Gothic",system-ui,sans-serif;margin:0;background:#f6f8fb;color:#233d52;line-height:1.85}'
+ 'main{background:white;max-width:920px;margin:35px auto;padding:30px 38px;border-radius:10px}a{color:#17679c}h1{font-size:26px}'
+ '.nav{display:flex;gap:14px;flex-wrap:wrap}h2{font-size:19px;margin:30px 0 8px}.lead{font-size:16px}'
+ '.box{background:#f2f7fb;border:1px solid #d9e7f1;border-radius:8px;padding:12px 16px;margin:14px 0}.warn{background:#fff8ec;border-color:#f3dcb2}'
+ 'table{border-collapse:collapse;width:100%;font-size:14px;margin:10px 0;display:block;overflow-x:auto}th,td{border:1px solid #dee6ed;padding:7px 9px;text-align:left;vertical-align:top}th{background:#f2f6f9;white-space:nowrap}'
+ '.updated{color:#6f879b;font-size:13px;margin-top:28px}.foot-links{margin-top:34px;padding-top:14px;border-top:1px solid #e6ecf1;font-size:13px;display:flex;gap:14px;flex-wrap:wrap}.foot-links a{color:#6f879b}'
+ '@media(max-width:700px){main{margin:0;padding:22px}}')
+NAV_LEGACY = [("/", "홈"), ("/all-points.html", "전체 포인트"), ("/about.html", "소개"),
+              ("/privacy.html", "개인정보처리방침"), ("/terms.html", "이용약관"), ("/contact.html", "문의")]
 
 
 def layout(path, title, desc, eyebrow, h1, body, robots="index,follow", extra_head=""):
-    nav = "".join(
-        f'<a href="{h}"{" aria-current=page" if h == path else ""}>{t}</a>' for h, t in NAV
-    )
+    url = DOMAIN + path
+    nav = "".join(f'<a href="{h}">{t}</a>' for h, t in NAV_LEGACY)
     crumbs = jsonld({
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": SITE, "item": DOMAIN + "/"},
-            {"@type": "ListItem", "position": 2, "name": h1, "item": DOMAIN + path},
-        ]})
-    return (head(title, desc, path, robots) + (crumbs if robots.startswith("index") else "") + extra_head +
-            f"""</head><body>
-<header class="site-head"><div class="site-head-in"><a class="brand" href="/" aria-label="{SITE} 홈"><img src="/assets/favicon.svg" alt="" width="28" height="28">{SITE}</a><nav class="site-nav" aria-label="주요 메뉴">{nav}</nav></div></header>
-<main class="doc"><span class="eyebrow">{eyebrow}</span><h1>{h1}</h1>
+            {"@type": "ListItem", "position": 2, "name": h1, "item": url},
+        ]}) if robots.startswith("index") else ""
+    return (f'''<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><meta name="robots" content="{robots}"><link rel="canonical" href="{url}">{ICON_LINKS}
+<meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg"><meta name="twitter:card" content="summary_large_image">{crumbs}<style>{LEGACY_CSS}</style></head><body><main><nav class="nav">{nav}</nav><h1>{h1}</h1>
 {body}
-</main>
-<footer class="site-foot"><nav aria-label="사이트 정보">{footer_links()}</nav><span>© 2026 {SITE}</span></footer>
-</body></html>
-""")
+<div class="foot-links">{footer_links()}<span>© 2026 {SITE}</span></div></main></body></html>
+''')
 
 
 def write(rel, text):
@@ -301,29 +294,17 @@ def build_static_pages():
 
 
 def build_all_points():
+    """all-points.html은 기존 모양을 그대로 두고 <head>에 파비콘·OG만 추가한다."""
     p = ROOT / "all-points.html"
-    src = p.read_text(encoding="utf-8-sig")
-    m = re.search(r"</h1>(.*?)</main>", src, re.S)
-    if not m:
-        print("all-points.html 구조를 찾지 못해 건너뜀")
-        return
-    inner = m.group(1).strip()
-    inner = re.sub(r'^\s*<div class="point-list">|</div>\s*$', "", inner).strip()
-    n = point_count()
-    write("all-points.html", layout(
-        "/all-points.html", f"전체 포인트 목록 | {SITE}",
-        f"전국 원투낚시 포인트 {n}곳을 지역별로 모은 전체 목록입니다. 포인트를 선택하면 진입 동선, 차박 여건, 낚시 스타일을 볼 수 있습니다.",
-        "WONTUPOINT · ALL POINTS", "전체 포인트 목록",
-        f'<div class="point-list">{inner}</div>'))
+    t = p.read_text(encoding="utf-8-sig")
+    extra = (f'{ICON_LINKS}<meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR">'
+             f'<meta property="og:title" content="전체 포인트 목록 | {SITE}"><meta property="og:url" content="{DOMAIN}/all-points.html"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg">')
+    t = replace_block(t, "WONTU_HEAD", extra, r"</head>")
+    p.write_text(t, encoding="utf-8", newline="\n")
 
 
 # ---------------------------------------------------------------- 포인트 페이지
 POINT_CSS = """
-.wontu-topnav{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:-6px 0 18px;padding-bottom:12px;border-bottom:1px solid #e6ecf1;font-size:14px}
-.wontu-topnav a{color:#1d669f;text-decoration:none}.wontu-topnav a:hover{text-decoration:underline}
-.wontu-topnav .wontu-brand{display:flex;align-items:center;gap:7px;font-weight:700;color:#10283c}
-.wontu-topnav .wontu-brand img{width:22px;height:22px;border-radius:5px}
-.wontu-topnav nav{display:flex;gap:14px}
 .wontu-disclosure{font-size:13px!important;line-height:1.7;color:#5b6b78;background:#f4f7fa;border-radius:6px;padding:8px 12px;margin:0 0 6px!important}
 .wontu-ad-label{display:inline-block;font-size:12px;font-weight:700;line-height:1;color:#fff;background:#56626d;border-radius:3px;padding:4px 7px;margin:0 0 6px;letter-spacing:.05em}
 .ad-photo{position:relative}
@@ -440,8 +421,6 @@ def process_point(path: Path):
 
     # 5) 본문 상단: 내비 + 광고 고지
     top = (
-        f'<div class="wontu-topnav"><a class="wontu-brand" href="/"><img src="/assets/favicon.svg" alt="" width="22" height="22">{SITE}</a>'
-        f'<nav aria-label="사이트 메뉴"><a href="/">홈</a><a href="/all-points.html">전체 포인트</a></nav></div>\n'
         f'<p class="wontu-disclosure">이 페이지에는 <strong>광고</strong>(제휴 링크 포함)가 있으며, 광고 링크를 통해 구매하면 운영자가 판매 수익 또는 수수료를 받을 수 있습니다. '
         f'포인트 사진: {IMAGE_CREDIT_LONG}. {IMAGE_DIFF_NOTE}</p>'
     )
@@ -500,33 +479,11 @@ def build_home():
         {"@context": "https://schema.org", "@type": "Organization", "name": SITE, "url": DOMAIN + "/", "logo": DOMAIN + "/assets/icon-512.png", "email": EMAIL},
     ])
     t = replace_block(t, "WONTU_HEAD", HOME_HEAD.replace("{LD}", ld), r"\s*<style>", before=True)
-    # 푸터
-    t = re.sub(r'<footer class="footer">.*?</footer>',
-               f'<footer class="footer"><span>© 2026 {SITE}</span><div class="footer-links">{footer_links()}</div></footer>', t, flags=re.S)
-    # 썸네일 사용 (없으면 원본으로 대체)
-    t = t.replace("const img=make('img','point-photo');img.src=pointUrl(item.image);",
-                  "const img=make('img','point-photo');const full=pointUrl(item.image);img.src=full.replace(/\\/001\\.jpg$/,'/thumb.jpg');img.width=640;img.height=480;")
-    t = t.replace("img.addEventListener('error',()=>{img.style.background='#e8eff4';img.alt='이미지를 불러올 수 없습니다';},{once:true});",
-                  "img.addEventListener('error',function onErr(){if(img.src.endsWith('/thumb.jpg')){img.src=full;return;}img.removeEventListener('error',onErr);img.style.background='#e8eff4';img.alt='이미지를 불러올 수 없습니다';});")
-    t = t.replace('<a class="brand" href="./index.html"', '<a class="brand" href="/"')
+    # 푸터: 기존 링크는 그대로 두고 이용약관·법적 고지 링크만 추가
+    if 'href="terms.html"' not in t:
+        t = t.replace('<a href="privacy.html">개인정보처리방침</a>',
+                      '<a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="legal.html">운영 및 법적 고지</a>', 1)
     p.write_text(t, encoding="utf-8", newline="\n")
-
-
-def build_thumbs():
-    from PIL import Image
-    made = 0
-    for src in sorted((ROOT / "points").glob("*/image/001.jpg")):
-        dst = src.with_name("thumb.jpg")
-        if dst.exists() and dst.stat().st_mtime >= src.stat().st_mtime:
-            continue
-        im = Image.open(src).convert("RGB")
-        tw, th = 640, 480
-        r = max(tw / im.width, th / im.height)
-        im = im.resize((round(im.width * r), round(im.height * r)), Image.LANCZOS)
-        l, tp = (im.width - tw) // 2, (im.height - th) // 2
-        im.crop((l, tp, l + tw, tp + th)).save(dst, "JPEG", quality=72, optimize=True, progressive=True)
-        made += 1
-    print(f"썸네일 {made}개 생성")
 
 
 # ---------------------------------------------------------------- 메타 파일
@@ -604,8 +561,6 @@ def main():
         except ValueError as e:
             print("건너뜀:", f, e)
     print(f"포인트 페이지 {changed}개 갱신")
-    if "--no-thumbs" not in sys.argv:
-        build_thumbs()
     build_meta_files()
     import shutil
     shutil.copyfile(ROOT / "assets" / "favicon.ico", ROOT / "favicon.ico")
