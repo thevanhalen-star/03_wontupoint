@@ -25,7 +25,7 @@
     + '.ws-sub{display:grid;gap:1px;margin:1px 0 6px 10px;padding-left:8px;border-left:1px solid #30475a}'
     + '.ws-list .ws-sub a{font-size:13px;font-weight:400;color:#a9bccc;padding:7px 9px;min-height:30px;border-radius:4px}'
     + '.ws-list .ws-sub a.on{background:#1a4f7a;color:#fff;font-weight:700}'
-    + '.ws-top{max-width:1104px;margin:0 auto;padding:14px 20px 0;display:flex;align-items:center;gap:10px;font-family:"Malgun Gothic",system-ui,sans-serif}'
+    + '.ws-top{position:fixed;top:0;left:var(--side);right:0;z-index:10;background:#f6f8fb;border-bottom:1px solid #dee6ed;padding:10px max(20px,calc((100% - 1064px)/2));display:flex;align-items:center;gap:10px;font-family:"Malgun Gothic",system-ui,sans-serif}'
     + '.ws-btn{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 16px;border:1px solid #cfdce7;background:#fff;color:#14629e;border-radius:6px;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap}'
     + '.ws-btn:hover{background:#e8f1f8}'
     + '.ws-menu{display:none;padding:0 10px}'
@@ -35,10 +35,13 @@
     + '.ws-search input{width:240px;max-width:100%;height:38px;border:1px solid #cfdce7;border-radius:6px;padding:0 12px;font-size:13px;outline:0;font-family:inherit}'
     + '.ws-search input:focus{border-color:#3c83b4;box-shadow:0 0 0 3px #dceefb}'
     + '.ws-search button{height:38px;background:#14629e;color:#fff;border:0;border-radius:5px;padding:0 17px;cursor:pointer;font-family:inherit}'
-    + '.ws-bottom{max-width:1104px;margin:0 auto 18px;padding:0 20px;display:flex;justify-content:center;gap:10px;font-family:"Malgun Gothic",system-ui,sans-serif}'
+    + '.ws-fix{position:fixed;bottom:0;left:var(--side);right:0;z-index:10;background:#f6f8fb;border-top:1px solid #dee6ed;font-family:"Malgun Gothic",system-ui,sans-serif}'
+    + '.ws-bottom{display:flex;justify-content:center;gap:10px;padding:8px 20px 4px}.ws-bottom .ws-btn{height:34px}'
+    + '.ws-fix .wontu-foot,.ws-fix .foot-links{max-width:1104px;margin:0 auto;padding:2px 20px 8px;border:0;font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#8aa0b1}'
+    + '.ws-fix .wontu-foot nav,.ws-fix .foot-links{gap:14px}.ws-fix a{color:inherit;text-decoration:none}'
     + '.ws-shade{display:none}'
     + '@media(max-width:600px){:root{--side:0px}.ws-side{width:230px;transform:translateX(-100%);transition:transform .2s}.ws-side.open{transform:none}'
-    + '.ws-shade.open{display:block;position:fixed;inset:0;background:#101b2b80;z-index:11}.ws-menu{display:inline-flex}.ws-top{flex-wrap:wrap;padding:10px 14px 0}.ws-search{margin-left:0;width:100%}.ws-search input{flex:1;width:auto}}';
+    + '.ws-shade.open{display:block;position:fixed;inset:0;background:#101b2b80;z-index:11}.ws-menu{display:inline-flex}.ws-top{left:0;padding:8px 12px;gap:8px}.ws-fix{left:0}.ws-title,.ws-search button{display:none}.ws-search{margin:0;flex:1}.ws-search input{width:100%}.ws-btn{padding:0 12px}.ws-bottom{padding:6px 12px}}';
   var fl = document.createElement('link'); fl.rel = 'stylesheet'; fl.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap'; document.head.appendChild(fl);
   css += 'body.wontu-shell{font-family:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif}'
     + 'body.wontu-shell .container h1.wontu-point-title{font-weight:800;letter-spacing:-.04em;line-height:1.45}'
@@ -48,7 +51,7 @@
     + 'body.wontu-shell .highlight{font-weight:700;background:linear-gradient(transparent 55%,#cfe9d4 55%)!important;padding:0 2px!important;border-radius:0!important}'
     + 'body.wontu-shell main .lead{font-size:17px;font-weight:500;color:#2a4a63}'
     + 'body.wontu-shell .point-name{letter-spacing:-.3px}';
-  css += '@media(max-width:600px){.ws-title{width:100%;margin:2px 0 0;order:5}body.wontu-shell main h1{font-size:25px}}';
+  css += '@media(max-width:600px){body.wontu-shell main h1{font-size:25px}}';
   var st = make('style'); st.textContent = css; document.head.appendChild(st);
   document.body.classList.add('wontu-shell');
 
@@ -78,13 +81,18 @@
   var container = document.querySelector('.container') || document.querySelector('main');
   document.body.insertBefore(top, container);
 
-  // 하단 바
+  // 하단 바 (뒤로가기·맨위로 + 사이트 링크) — 상단 바와 함께 스크롤해도 고정
+  var fix = make('div', 'ws-fix');
   var bottom = make('div', 'ws-bottom');
   var up = make('button', 'ws-btn', '↑ 맨위로'); up.type = 'button';
   up.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
   bottom.append(backBtn(), up);
-  var foot = document.querySelector('.wontu-foot');
-  if (foot) foot.parentNode.insertBefore(bottom, foot); else container.parentNode.insertBefore(bottom, container.nextSibling);
+  fix.appendChild(bottom);
+  var foot = document.querySelector('.wontu-foot') || document.querySelector('.foot-links');
+  if (foot && !window.matchMedia('(max-width:600px)').matches) fix.appendChild(foot);  // 모바일은 공간이 좁아 사이트 링크는 본문 끝에 둠
+  document.body.appendChild(fix);
+  function pad() { document.body.style.paddingTop = top.offsetHeight + 'px'; document.body.style.paddingBottom = fix.offsetHeight + 'px'; }
+  pad(); addEventListener('resize', pad); addEventListener('load', pad);
 
   // 포인트 사진 클릭 → 팝업 확대 (광고 이미지는 제외). ←/→ 로 이전·다음, Esc 또는 바깥 클릭으로 닫기
   var photos = [].slice.call(document.querySelectorAll('.point-photo img'));
