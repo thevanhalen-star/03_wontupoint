@@ -88,7 +88,7 @@ def layout(path, title, desc, eyebrow, h1, body, robots="index,follow", extra_he
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><meta name="robots" content="{robots}"><link rel="canonical" href="{url}">{ICON_LINKS}
 <meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg"><meta name="twitter:card" content="summary_large_image">{crumbs}<style>{LEGACY_CSS}</style></head><body><main><nav class="nav">{nav}</nav><h1>{h1}</h1>
 {body}
-<div class="foot-links">{footer_links()}<span>© 2026 차박·원투·워킹 낚시 포인트</span></div></main><script src="/assets/shell.js?v=4" defer></script></body></html>
+<div class="foot-links">{footer_links()}<span>© 2026 차박·원투·워킹 낚시 포인트</span></div></main><script src="/assets/shell.js?v=5" defer></script></body></html>
 ''')
 
 
@@ -309,7 +309,9 @@ POINT_CSS = """
 .ad-photo a{position:relative;display:inline-block;width:400px;max-width:100%;line-height:0;vertical-align:top}
 .ad-photo img{aspect-ratio:1/1;object-fit:cover}
 .wontu-ad-label{position:absolute;top:8px;left:8px;z-index:1;font-size:11px;font-weight:700;line-height:1;color:#fff;background:rgba(0,0,0,.62);border-radius:3px;padding:4px 6px;letter-spacing:.04em;pointer-events:none}
-.wontu-img-credit{font-size:13px;color:#5b6b78;text-align:right;margin-top:4px;line-height:1.5}.wontu-img-credit a{color:inherit}
+.point-photo{position:relative}.point-photo img{display:block!important}
+.wontu-img-credit{position:absolute;right:8px;bottom:8px;max-width:calc(100% - 16px);font-size:11px;line-height:1.3;color:#fff;background:rgba(0,0,0,.55);border-radius:3px;padding:3px 7px;text-align:right}.wontu-img-credit a{color:inherit;text-decoration:none}
+@media(max-width:700px){.wontu-img-credit{font-size:9.5px;right:5px;bottom:5px;padding:2px 5px}}
 .wontu-kakao{margin:34px 0 0;padding:16px 18px;border:1px solid #dde6ed;border-radius:8px;display:flex;gap:18px;align-items:center;font-size:14px;line-height:1.7}
 .wontu-kakao img.qr{width:120px;height:120px;flex:none;border:1px solid #e6ecf1;border-radius:4px;background:#fff}
 .wontu-kakao p{font-size:14px!important;margin:0 0 6px!important}.wontu-kakao .src{display:block}
@@ -463,7 +465,7 @@ def process_point(path: Path):
     t = replace_block(t, "WONTU_FOOT", foot, r"</body>")
 
     # 8) 공통 스크립트: 광고 랜덤 이미지(ad-random.js), 좌측 카테고리·상하단 버튼(shell.js)
-    for src, ver in (("ad-random.js", 2), ("shell.js", 4)):  # 스크립트를 고치면 ver 을 올려 캐시를 갱신
+    for src, ver in (("ad-random.js", 2), ("shell.js", 5)):  # 스크립트를 고치면 ver 을 올려 캐시를 갱신
         tag = f'<script src="/assets/{src}?v={ver}" defer></script>'
         if tag not in t:
             t = re.sub(r'<script src="/assets/' + re.escape(src) + r'[^"]*" defer></script>\s*', "", t)

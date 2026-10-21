@@ -111,7 +111,7 @@
     function show(i) {
       cur = (i + photos.length) % photos.length;
       lbImg.src = photos[cur].currentSrc || photos[cur].src; lbImg.alt = photos[cur].alt;
-      lbCount.textContent = (cur + 1) + ' / ' + photos.length;
+      lbCount.textContent = (cur + 1) + ' / ' + photos.length + '  ·  출처 : 카카오맵 (https://map.kakao.com)';
       bp.style.display = bn.style.display = photos.length > 1 ? '' : 'none';
     }
     function close() { lb.classList.remove('on'); document.body.style.overflow = ''; }
