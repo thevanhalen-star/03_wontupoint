@@ -24,7 +24,7 @@ POLICY_DATE = "2026년 10월 21일"
 # 포인트 사진 출처 표기 (실제 출처와 다르면 여기만 바꾸고 다시 실행)
 KAKAO_URL = "https://map.kakao.com"
 # 카카오맵 이미지 활용 가이드(2023.01) 표기법: "출처 : 카카오맵 (https://map.kakao.com)"
-IMAGE_CREDIT = f'출처 : 카카오맵 (<a href="{KAKAO_URL}" target="_blank" rel="noopener noreferrer">{KAKAO_URL}</a>)'
+IMAGE_CREDIT = "출처 : 카카오맵"  # 링크 없이 문구만 표기
 IMAGE_CREDIT_LONG = "카카오맵 스카이뷰·로드뷰"
 IMAGE_DIFF_NOTE = "이 페이지의 지도·사진 이미지는 카카오맵의 실제 서비스 이미지와 다를 수 있습니다."
 
@@ -88,7 +88,7 @@ def layout(path, title, desc, eyebrow, h1, body, robots="index,follow", extra_he
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><meta name="robots" content="{robots}"><link rel="canonical" href="{url}">{ICON_LINKS}
 <meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg"><meta name="twitter:card" content="summary_large_image">{crumbs}<style>{LEGACY_CSS}</style><link rel="stylesheet" href="/assets/theme.css?v=2"></head><body><main><nav class="nav">{nav}</nav><h1>{h1}</h1>
 {body}
-<div class="foot-links">{footer_links()}<span>© 2026 차박·원투·워킹 낚시 포인트</span></div></main><script src="/assets/shell.js?v=7" defer></script></body></html>
+<div class="foot-links">{footer_links()}<span>© 2026 차박·원투·워킹 낚시 포인트</span></div></main><script src="/assets/shell.js?v=8" defer></script></body></html>
 ''')
 
 
@@ -466,7 +466,7 @@ def process_point(path: Path):
     t = replace_block(t, "WONTU_FOOT", foot, r"</body>")
 
     # 8) 공통 스크립트: 광고 랜덤 이미지(ad-random.js), 좌측 카테고리·상하단 버튼(shell.js)
-    for src, ver in (("ad-random.js", 2), ("shell.js", 7)):  # 스크립트를 고치면 ver 을 올려 캐시를 갱신
+    for src, ver in (("ad-random.js", 2), ("shell.js", 8)):  # 스크립트를 고치면 ver 을 올려 캐시를 갱신
         tag = f'<script src="/assets/{src}?v={ver}" defer></script>'
         if tag not in t:
             t = re.sub(r'<script src="/assets/' + re.escape(src) + r'[^"]*" defer></script>\s*', "", t)
