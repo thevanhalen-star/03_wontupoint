@@ -97,8 +97,8 @@
       + '.lb button{position:absolute;background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:22px;cursor:pointer;line-height:1}'
       + '.lb .x:hover{background:rgba(255,255,255,.3)}.lb .x{top:14px;right:14px;z-index:2}'
       // 좌·우 가장자리 영역에 마우스를 올리면 희미한 화살표가 나타나고, 눌러서 이전/다음으로 이동
-      + '.lb .p,.lb .n{top:0;bottom:0;width:22%;height:auto;border-radius:0;background:transparent;font-size:54px;font-weight:300;display:flex;align-items:center;color:rgba(255,255,255,0);transition:color .2s,background .2s}'
-      + '.lb .p{left:0;justify-content:flex-start;padding-left:26px}.lb .n{right:0;justify-content:flex-end;padding-right:26px}'
+      + '.lb .p,.lb .n{top:0;bottom:0;width:22%;height:auto;border-radius:0;background:transparent;font-size:88px;font-weight:300;display:flex;align-items:center;color:rgba(255,255,255,0);transition:color .2s,background .2s}'
+      + '.lb .p{left:0;justify-content:flex-start;padding-left:60px}.lb .n{right:0;justify-content:flex-end;padding-right:60px}'
       + '.lb .p:hover,.lb .n:hover{color:rgba(255,255,255,.55);background:linear-gradient(90deg,rgba(255,255,255,.06),transparent)}.lb .n:hover{background:linear-gradient(270deg,rgba(255,255,255,.06),transparent)}'
       + '@media(hover:none){.lb .p,.lb .n{color:rgba(255,255,255,.35);width:16%}}'
       + '.lb .c{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#c9d6e2;font-size:13px;font-family:"Malgun Gothic",system-ui,sans-serif}';
