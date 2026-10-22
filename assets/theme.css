@@ -1,0 +1,60 @@
+html{color-scheme:dark}
+/* 나이트 다크 테마 — 포인트 상세·소개/약관 등 정적 페이지 공통 (목록 index.html 은 자체 CSS 에 같은 값 사용)
+   색 토큰: 배경 #0b131e / 카드 #101a28 / 선 #1f2f45 / 글자 #cdd9e6 / 포인트 청록 #38e1ff / 강조 주황 #ffb454 */
+body.wontu-shell{background:#0b131e!important;color:#cdd9e6!important;font-family:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif}
+body.wontu-shell a{color:#5fd8f2}
+
+/* 본문 종이(카드) */
+body.wontu-shell .container,body.wontu-shell main{background:#101a28!important;border:1px solid #1f2f45!important;border-radius:16px;box-shadow:0 10px 40px #0008!important;color:#c3d1e0}
+body.wontu-shell main{padding:30px 38px}
+body.wontu-shell .container p,body.wontu-shell main p,body.wontu-shell main li,body.wontu-shell main td{color:#c3d1e0}
+
+/* 제목 */
+body.wontu-shell .container h1,body.wontu-shell .container h1.wontu-point-title{color:#fff!important;font-weight:800;letter-spacing:-.04em;line-height:1.45}
+body.wontu-shell main h1{font-size:30px;font-weight:800;letter-spacing:-.04em;margin:8px 0 6px;background:linear-gradient(90deg,#fff,#38e1ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+body.wontu-shell .container h2,body.wontu-shell main h2{color:#fff!important;font-weight:800;letter-spacing:-.03em;border-left:4px solid #38e1ff!important;padding-left:13px;box-shadow:-10px 0 24px -14px #38e1ff}
+body.wontu-shell main h2{font-size:20px;margin:34px 0 10px}
+body.wontu-shell .container h3{color:#fff!important;font-weight:800;border-left:4px solid #38e1ff!important;border-bottom:1px solid #1f2f45!important;padding:0 0 9px 15px!important;box-shadow:-10px 0 24px -14px #38e1ff}
+body.wontu-shell .container .conclusion-heading{border-top:1px solid #1f2f45!important}
+.wontu-title-divider{background:linear-gradient(90deg,#38e1ff,#2563eb,transparent)!important}
+body.wontu-shell .container h1.wontu-point-title{padding:34px 0 30px!important}
+
+/* 강조·안내 */
+body.wontu-shell .highlight{color:#ffb454!important;background:none!important;font-weight:700;padding:0!important;border-bottom:1px dashed #ffb45488;border-radius:0!important}
+body.wontu-shell main .lead{color:#d7e3ef;font-size:17px;font-weight:500}
+.wontu-disclosure{color:#8fa3b8!important;background:#0c1522!important;border:1px solid #1a2a40}
+.wontu-point-info .point-name{color:#fff!important}.wontu-point-info .point-address{color:#7f93aa!important}
+
+/* 사진·광고 */
+.point-photo{border-radius:12px;overflow:hidden;border:1px solid #223249;box-shadow:0 10px 30px #000a;background:#0c1522}
+.point-photo img{border-radius:12px}
+.ad-photo a{border-radius:12px;overflow:hidden;border:1px solid #223249}
+.wontu-img-credit{background:rgba(0,0,0,.6)!important;color:#fff!important}
+
+/* 카카오맵·안전 안내 */
+.wontu-kakao{background:#0c1522!important;border:1px solid #1f2f45!important;border-radius:12px!important;color:#c3d1e0}
+.wontu-kakao a{color:#5fd8f2}.wontu-kakao img.qr{background:#fff!important;border-color:#fff!important;padding:3px}
+.wontu-kakao .src img{background:#fff;border-radius:3px;padding:2px 5px;box-sizing:content-box}
+.wontu-safety{background:#1b1508!important;border:1px solid #5a4417!important;color:#d6c49a!important;border-radius:12px!important}
+.wontu-safety strong{color:#ffb454!important}.wontu-safety a{color:#ffd28a}
+
+/* 해시태그 */
+.wontu-hashtags{gap:8px!important}
+.wontu-hashtag{color:#7fe3f8;background:#0c2230;border:1px solid #1d4a5e;padding:2px 13px;border-radius:99px;font-size:13.5px}
+
+/* 상세 하단 사이트 링크 */
+.wontu-foot,.wontu-foot a{color:#7f93aa!important}
+
+/* 소개·약관·문의 등 정적 페이지 */
+body.wontu-shell main a{color:#5fd8f2}
+body.wontu-shell main .box{background:#0c1522!important;border-color:#1f2f45!important;color:#c3d1e0}
+body.wontu-shell main .box.warn{background:#1b1508!important;border-color:#5a4417!important;color:#d6c49a}
+body.wontu-shell main table{border-color:#1f2f45}
+body.wontu-shell main th,body.wontu-shell main td{border-color:#1f2f45!important}
+body.wontu-shell main th{background:#0c1522!important;color:#e6eef7}
+body.wontu-shell main .updated,body.wontu-shell main .nav a{color:#7f93aa}
+body.wontu-shell main .foot-links{border-top-color:#1f2f45}
+body.wontu-shell main .foot-links a{color:#7f93aa}
+body.wontu-shell main strong,body.wontu-shell main b{color:#e6eef7}
+body.wontu-shell main code{background:#0c1522;color:#9be7f8}
+@media(max-width:700px){body.wontu-shell main{padding:22px 18px}}

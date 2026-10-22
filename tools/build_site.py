@@ -86,9 +86,9 @@ def layout(path, title, desc, eyebrow, h1, body, robots="index,follow", extra_he
         ]}) if robots.startswith("index") else ""
     return (f'''<!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><meta name="robots" content="{robots}"><link rel="canonical" href="{url}">{ICON_LINKS}
-<meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg"><meta name="twitter:card" content="summary_large_image">{crumbs}<style>{LEGACY_CSS}</style></head><body><main><nav class="nav">{nav}</nav><h1>{h1}</h1>
+<meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg"><meta name="twitter:card" content="summary_large_image">{crumbs}<style>{LEGACY_CSS}</style><link rel="stylesheet" href="/assets/theme.css?v=2"></head><body><main><nav class="nav">{nav}</nav><h1>{h1}</h1>
 {body}
-<div class="foot-links">{footer_links()}<span>© 2026 차박·원투·워킹 낚시 포인트</span></div></main><script src="/assets/shell.js?v=6" defer></script></body></html>
+<div class="foot-links">{footer_links()}<span>© 2026 차박·원투·워킹 낚시 포인트</span></div></main><script src="/assets/shell.js?v=7" defer></script></body></html>
 ''')
 
 
@@ -298,7 +298,7 @@ def build_all_points():
     p = ROOT / "all-points.html"
     t = p.read_text(encoding="utf-8-sig")
     extra = (f'{ICON_LINKS}<meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR">'
-             f'<meta property="og:title" content="전체 포인트 목록 | {SITE}"><meta property="og:url" content="{DOMAIN}/all-points.html"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg">')
+             f'<meta property="og:title" content="전체 포인트 목록 | {SITE}"><meta property="og:url" content="{DOMAIN}/all-points.html"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg"><link rel="stylesheet" href="/assets/theme.css?v=2">')
     t = replace_block(t, "WONTU_HEAD", extra, r"</head>")
     p.write_text(t, encoding="utf-8", newline="\n")
 
@@ -417,11 +417,11 @@ def process_point(path: Path):
     ]
     head_block = (
         f'<meta name="description" content="{esc(desc)}">\n<meta name="robots" content="index,follow">\n'
-        f'<meta name="theme-color" content="#10283c">\n<link rel="canonical" href="{url}">\n{ICON_LINKS}\n'
+        f'<meta name="theme-color" content="#070d16">\n<link rel="canonical" href="{url}">\n{ICON_LINKS}\n'
         f'<meta property="og:type" content="article"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR">\n'
         f'<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">\n'
         f'<meta property="og:url" content="{url}"><meta property="og:image" content="{img_abs}"><meta name="twitter:card" content="summary_large_image">\n'
-        f"{jsonld(ld)}\n<style id=\"wontu-chrome\">{POINT_CSS}</style>"
+        f"{jsonld(ld)}\n<style id=\"wontu-chrome\">{POINT_CSS}</style>\n<link rel=\"stylesheet\" href=\"/assets/theme.css?v=2\">"
     )
     t = replace_block(t, "WONTU_HEAD", head_block, r"</head>")
 
@@ -466,7 +466,7 @@ def process_point(path: Path):
     t = replace_block(t, "WONTU_FOOT", foot, r"</body>")
 
     # 8) 공통 스크립트: 광고 랜덤 이미지(ad-random.js), 좌측 카테고리·상하단 버튼(shell.js)
-    for src, ver in (("ad-random.js", 2), ("shell.js", 6)):  # 스크립트를 고치면 ver 을 올려 캐시를 갱신
+    for src, ver in (("ad-random.js", 2), ("shell.js", 7)):  # 스크립트를 고치면 ver 을 올려 캐시를 갱신
         tag = f'<script src="/assets/{src}?v={ver}" defer></script>'
         if tag not in t:
             t = re.sub(r'<script src="/assets/' + re.escape(src) + r'[^"]*" defer></script>\s*', "", t)
@@ -507,7 +507,7 @@ def build_meta_files():
         "name": "낚시·차박 포인트 - 전국 차박·원투·워킹 낚시 포인트", "short_name": SITE,
         "description": "전국 차박·원투낚시·워킹낚시 포인트의 위치, 진입 동선, 차박 여건을 지역별로 찾아보는 정보 사이트",
         "id": "/", "start_url": "/?source=pwa", "scope": "/", "display": "standalone",
-        "background_color": "#f6f8fb", "theme_color": "#10283c", "lang": "ko", "dir": "ltr",
+        "background_color": "#0b131e", "theme_color": "#070d16", "lang": "ko", "dir": "ltr",
         "categories": ["sports", "travel", "lifestyle"],
         "icons": [
             {"src": "/assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},

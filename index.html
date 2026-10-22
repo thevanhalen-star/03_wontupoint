@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="전국 차박·원투낚시·워킹낚시 포인트를 지역별로 살펴보세요. 포인트 사진, 이름, 지역 정보를 한눈에 확인할 수 있습니다.">
-  <meta name="theme-color" content="#10293d">
+  <meta name="theme-color" content="#070d16">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
   <title>낚시·차박 포인트 | 전국 차박·원투·워킹 낚시 포인트</title>
   <link rel="canonical" href="https://wontupoint.com/">
@@ -83,6 +83,29 @@
     @media(max-width:900px){:root{--side:165px}.main{padding:24px 23px 0}.footer{margin:0 23px}.topbar h1{font-size:21px}.search-field{width:220px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:600px){:root{--side:0px}.sidebar{transform:translateX(-100%);width:230px;transition:transform .2s}.sidebar.open{transform:translateX(0)}.shade.open{display:block;position:fixed;inset:0;background:#101b2b80;z-index:11}.mobile-menu{display:inline-flex}.main{padding:19px 15px 0}.topbar{flex-wrap:wrap;gap:13px}.top-title{display:flex;gap:6px;align-items:center}.topbar h1{font-size:19px}.search{width:100%}.search-field{width:auto;flex:1}.cards{gap:14px;grid-template-columns:1fr}.point-name{font-size:17px}.point-address{font-size:11px}.card-info{padding:8px}.subbar h2{font-size:14px}.subbar-right{gap:6px}#citySelect{max-width:108px}.footer{margin:0 15px;flex-wrap:wrap}.footer-links{gap:12px}.pager{flex-wrap:wrap}}
     @media(max-width:370px){.cards{grid-template-columns:1fr}}
+
+    /* ===== 나이트 다크 테마 (배경 #0b131e · 카드 #101b2b · 선 #1f2f45 · 포인트 #38e1ff) ===== */
+    :root{--text:#cdd9e6;--muted:#7f93aa;--line:#1f2f45;--page:#0b131e}
+    body{background:var(--page);color:var(--text)}
+    .sidebar{background:#070d16;color:#aebfd1}.brand{border-bottom-color:#1a2a40;color:#fff}.brand svg{color:#38e1ff}
+    .side-caption{color:#667b93}.region-btn{color:#aebfd1}.region-btn:hover{background:#111e30}
+    .region-btn.active{background:linear-gradient(90deg,#0e5f7a,#0c4666);color:#fff}.region-count{color:#667b93}.region-btn.active .region-count{color:#d6eefa}
+    .city-list{border-left-color:#1a2a40}.city-btn{color:#8ea5bd}.city-btn:hover{background:#111e30}.city-btn.active{background:#10405a;color:#fff}
+    .topbar h1{background:linear-gradient(90deg,#fff,#38e1ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .search input{background:#0f1a2a;border-color:#26395a;color:#cdd9e6}.search input:focus{border-color:#38e1ff;box-shadow:0 0 0 3px #38e1ff33}
+    .search input::placeholder{color:#667b93}.search-field svg{color:#667b93}
+    .search button{background:#1a8fb3}.search button:hover{background:#1fa3cb}
+    .subbar{border-bottom-color:#1f2f45}.subbar h2{color:#fff}#count{color:#7f93aa}
+    .point-card{background:#101b2b;border:1px solid #213249;border-radius:14px;box-shadow:0 2px 10px #0006}
+    .point-card:hover{transform:translateY(-3px);border-color:#2b6f8c;box-shadow:0 0 0 1px #38e1ff55,0 12px 34px #000a,0 0 28px #38e1ff22}
+    .point-photo{background:#0c1522}.point-name{color:#f1f6fb}.point-address{color:#7f93aa}
+    .point-card.last{border:3px solid #ffb454;box-shadow:0 0 22px #ffb45455}
+    .empty{background:#101b2b;border-color:#1f2f45;color:#7f93aa}
+    .pager button{background:#101b2b;border-color:#26395a;color:#5fd8f2}.pager button.active{background:#1a8fb3;border-color:#1a8fb3;color:#fff}
+    .pager button:disabled{background:#0c1522;border-color:#1a2a40;color:#4a5d73}.pager button:not(:disabled):hover:not(.active){background:#16283f}
+    .footer{border-top-color:#1f2f45;color:#7f93aa}.mobile-menu{color:#cdd9e6}
+    .upd{color:#ffb454}
+    html{color-scheme:dark}
   </style>
 </head>
 <body>
