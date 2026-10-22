@@ -105,6 +105,14 @@
     .pager button:disabled{background:#0c1522;border-color:#1a2a40;color:#4a5d73}.pager button:not(:disabled):hover:not(.active){background:#16283f}
     .footer{border-top-color:#1f2f45;color:#7f93aa}.mobile-menu{color:#cdd9e6}
     .upd{color:#ffb454}
+    .notice{display:flex;align-items:center;gap:18px;margin:6px 0 28px;padding:22px 26px;border:1px dashed #2b6f8c;border-radius:14px;background:linear-gradient(135deg,#0e1c2c,#0b1522);box-shadow:0 0 0 1px #38e1ff14 inset}
+    .notice[hidden]{display:none}.notice-icon{width:54px;height:54px;flex:none;color:#38e1ff;filter:drop-shadow(0 0 8px #38e1ff66)}
+    .notice-tx b{display:block;font-size:17px;color:#fff;letter-spacing:-.4px}.notice-tx p{margin:3px 0 0;font-size:13.5px;color:#8ea5bd}
+    .notice-dots{margin-left:auto;display:flex;gap:6px}.notice-dots i{width:8px;height:8px;border-radius:50%;background:#38e1ff;opacity:.25;animation:ndot 1.2s infinite ease-in-out}
+    .notice-dots i:nth-child(2){animation-delay:.2s}.notice-dots i:nth-child(3){animation-delay:.4s}
+    @keyframes ndot{0%,80%,100%{opacity:.2;transform:scale(.8)}40%{opacity:1;transform:scale(1.15)}}
+    @media(max-width:600px){.notice{padding:16px;gap:12px;flex-wrap:wrap}.notice-icon{width:42px;height:42px}.notice-tx b{font-size:15px}.notice-dots{display:none}}
+    @media(prefers-reduced-motion:reduce){.notice-dots i{animation:none;opacity:.6}}
     html{color-scheme:dark}
   </style>
 </head>
@@ -133,6 +141,7 @@
     </div>
     <div id="cards" class="cards" aria-live="polite"></div>
     <nav class="pager" id="pagination" aria-label="페이지 선택"></nav>
+    <section class="notice" id="updateNotice" hidden aria-live="polite"></section>
   </main>
   <footer class="footer"><span>© 차박·원투·워킹 낚시 포인트</span><div class="footer-links"><a href="all-points.html">전체 포인트 목록</a><a href="about.html">사이트 소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="legal.html">운영 및 법적 고지</a><a href="contact.html">문의</a></div></footer>
 </div>
@@ -219,8 +228,21 @@
     if(page>1)u.searchParams.set('page',String(page));
     history.replaceState(null,'',u);
   }
+  const updating=()=>UPDATING.includes(activeRegion);
+  function renderNotice(label,count){
+    const box=el('updateNotice');
+    if(!updating()||keyword){box.hidden=true;box.replaceChildren();return;}
+    const icon=document.createElementNS('http://www.w3.org/2000/svg','svg');icon.setAttribute('viewBox','0 0 64 64');icon.setAttribute('class','notice-icon');icon.setAttribute('aria-hidden','true');
+    icon.innerHTML='<path d="M6 40c8 0 11-9 21-9 8 0 11 6 21 2M6 50c8 0 11-8 21-8 8 0 11 6 21 0" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="46" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="4"/><path d="M46 11v5l3 3" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>';
+    const txt=make('div','notice-tx');
+    txt.append(make('b','',label+' 포인트는 현재 업데이트 중입니다'),
+      make('p','',count?'지금은 일부 포인트만 공개되어 있고, 사진과 안내를 계속 추가하고 있어요.':'사진과 안내를 정리하는 중이에요. 곧 새로운 포인트로 찾아뵙겠습니다.'));
+    const dots=make('div','notice-dots');dots.setAttribute('aria-hidden','true');dots.append(make('i'),make('i'),make('i'));
+    box.replaceChildren(icon,txt,dots);box.hidden=false;
+  }
   function renderCards(items){
     const parent=el('cards');parent.replaceChildren();
+    if(!items.length&&updating()&&!keyword)return; // 업데이트중 지역은 아래 안내 문구로 대체
     if(!items.length){parent.append(make('div','empty',all.length?'검색 조건에 맞는 포인트가 없습니다.':'포인트 데이터를 불러오지 못했습니다.'));return;}
     for(const item of items){
       const a=make('a','point-card'+(item.id===lastId?' last':''));a.href=pointUrl(item.url);
@@ -254,7 +276,7 @@
     const data=filtered();
     el('count').textContent='총 '+data.length.toLocaleString('ko-KR')+'개';
     page=Math.max(1,Math.min(page,Math.max(1,Math.ceil(data.length/PAGE_SIZE))));
-    renderCards(data.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE));renderPages(data.length);syncUrl();
+    renderCards(data.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE));renderPages(data.length);renderNotice(regionLabel,data.length);syncUrl();
   }
   function closeMenu(){el('sidebar').classList.remove('open');el('shade').classList.remove('open');}
   el('menuButton').addEventListener('click',()=>{el('sidebar').classList.toggle('open');el('shade').classList.toggle('open');});
