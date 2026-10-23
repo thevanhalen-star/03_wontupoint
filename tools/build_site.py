@@ -7,6 +7,7 @@
 
 실행:  python tools/build_site.py          (저장소 루트에서)
 """
+import hashlib
 import html
 import json
 from urllib.parse import quote
@@ -20,6 +21,11 @@ DOMAIN = "https://wontupoint.com"
 SITE = "원투포인트"
 EMAIL = "thevanhalen@gmail.com"
 TODAY = date.today().isoformat()
+
+
+def asset_ver(rel):
+    """assets 파일 내용으로 만든 짧은 해시 — 파일이 바뀌면 주소(?v=…)도 자동으로 바뀌어 캐시된 옛 파일을 쓰지 않는다."""
+    return hashlib.md5((ROOT / rel).read_bytes()).hexdigest()[:8]
 POLICY_DATE = "2026년 10월 21일"
 # 포인트 사진 출처 표기 (실제 출처와 다르면 여기만 바꾸고 다시 실행)
 KAKAO_URL = "https://map.kakao.com"
@@ -88,9 +94,9 @@ def layout(path, title, desc, eyebrow, h1, body, robots="index,follow", extra_he
         ]}) if robots.startswith("index") else ""
     return (f'''<!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><meta name="robots" content="{robots}"><link rel="canonical" href="{url}">{ICON_LINKS}
-<meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg"><meta name="twitter:card" content="summary_large_image">{crumbs}<style>{LEGACY_CSS}</style><link rel="stylesheet" href="/assets/theme.css?v=2"></head><body><main><nav class="nav">{nav}</nav><h1>{h1}</h1>
+<meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg"><meta name="twitter:card" content="summary_large_image">{crumbs}<style>{LEGACY_CSS}</style><link rel="stylesheet" href="/assets/theme.css?v={asset_ver("assets/theme.css")}"></head><body><main><nav class="nav">{nav}</nav><h1>{h1}</h1>
 {body}
-<div class="foot-links">{footer_links()}<span>© 2026 차박·원투·워킹 낚시 포인트</span></div></main><script src="/assets/shell.js?v=9" defer></script></body></html>
+<div class="foot-links">{footer_links()}<span>© 2026 차박·원투·워킹 낚시 포인트</span></div></main><script src="/assets/shell.js?v={asset_ver("assets/shell.js")}" defer></script></body></html>
 ''')
 
 
@@ -300,8 +306,9 @@ def build_all_points():
     p = ROOT / "all-points.html"
     t = p.read_text(encoding="utf-8-sig")
     extra = (f'{ICON_LINKS}<meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR">'
-             f'<meta property="og:title" content="전체 포인트 목록 | {SITE}"><meta property="og:url" content="{DOMAIN}/all-points.html"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg"><link rel="stylesheet" href="/assets/theme.css?v=2">')
+             f'<meta property="og:title" content="전체 포인트 목록 | {SITE}"><meta property="og:url" content="{DOMAIN}/all-points.html"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg"><link rel="stylesheet" href="/assets/theme.css?v={asset_ver("assets/theme.css")}">')
     t = replace_block(t, "WONTU_HEAD", extra, r"</head>")
+    t = re.sub(r"(/assets/shell\.js\?v=)[0-9a-f]+", lambda m: m.group(1) + asset_ver("assets/shell.js"), t)  # 스크립트 주소의 버전 갱신
     p.write_text(t, encoding="utf-8", newline="\n")
 
 
@@ -427,7 +434,7 @@ def process_point(path: Path):
         f'<meta property="og:type" content="article"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR">\n'
         f'<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">\n'
         f'<meta property="og:url" content="{url}"><meta property="og:image" content="{img_abs}"><meta name="twitter:card" content="summary_large_image">\n'
-        f"{jsonld(ld)}\n<style id=\"wontu-chrome\">{POINT_CSS}</style>\n<link rel=\"stylesheet\" href=\"/assets/theme.css?v=2\">"
+        f"{jsonld(ld)}\n<style id=\"wontu-chrome\">{POINT_CSS}</style>\n<link rel=\"stylesheet\" href=\"/assets/theme.css?v={asset_ver('assets/theme.css')}\">"
     )
     t = replace_block(t, "WONTU_HEAD", head_block, r"</head>")
 
@@ -473,7 +480,8 @@ def process_point(path: Path):
 
     # 8) 공통 스크립트: 광고 자리 렌더러(ads.js), 좌측 카테고리·상하단 버튼(shell.js)
     t = re.sub(r'<script src="/assets/ad-random\.js[^"]*" defer></script>\s*', "", t)  # 옛 랜덤 광고 스크립트 제거
-    for src, ver in (("ads.js", 1), ("shell.js", 9)):  # 스크립트를 고치면 ver 을 올려 캐시를 갱신
+    for src in ("ads.js", "shell.js"):
+        ver = asset_ver(f"assets/{src}")  # 내용 해시 → 스크립트를 고치면 주소가 바뀌어 캐시 문제가 없다
         tag = f'<script src="/assets/{src}?v={ver}" defer></script>'
         if tag not in t:
             t = re.sub(r'<script src="/assets/' + re.escape(src) + r'[^"]*" defer></script>\s*', "", t)
