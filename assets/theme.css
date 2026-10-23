@@ -14,7 +14,7 @@ body.wontu-shell .container h1,body.wontu-shell .container h1.wontu-point-title{
 body.wontu-shell main h1{font-size:30px;font-weight:800;letter-spacing:-.04em;margin:8px 0 6px;background:linear-gradient(90deg,#fff,#38e1ff);-webkit-background-clip:text;background-clip:text;color:transparent}
 body.wontu-shell .container h2,body.wontu-shell main h2{color:#fff!important;font-weight:800;letter-spacing:-.03em;border-left:4px solid #38e1ff!important;padding-left:13px;box-shadow:-10px 0 24px -14px #38e1ff}
 body.wontu-shell main h2{font-size:20px;margin:34px 0 10px}
-body.wontu-shell .container h3{color:#fff!important;font-weight:800;border-left:4px solid #38e1ff!important;border-bottom:1px solid #1f2f45!important;padding:0 0 9px 15px!important;box-shadow:-10px 0 24px -14px #38e1ff}
+body.wontu-shell .container h3{background:transparent!important;color:#fff!important;font-weight:800;border-left:4px solid #38e1ff!important;border-bottom:1px solid #1f2f45!important;padding:0 0 9px 15px!important;box-shadow:-10px 0 24px -14px #38e1ff}
 body.wontu-shell .container .conclusion-heading{border-top:1px solid #1f2f45!important}
 .wontu-title-divider{background:linear-gradient(90deg,#38e1ff,#2563eb,transparent)!important}
 body.wontu-shell .container h1.wontu-point-title{padding:34px 0 30px!important}
