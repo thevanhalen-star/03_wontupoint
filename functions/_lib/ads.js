@@ -6,6 +6,8 @@
 //   enabled: true,                                   ← 전체 스위치 (끄면 모든 광고 숨김)
 //   slots: [{ id, label, enabled }],                 ← 광고 자리(위치)별 스위치
 //   ads:   [{ id, name, slot, link, images[], enabled, weight, start, end }]
+//   images 의 각 항목은 문자열(이미지 주소) 또는 객체 {src, link} — 이미지마다 클릭 링크를 따로 줄 수 있고,
+//   link 가 없으면 광고의 기본 link 를 쓴다.
 // }
 
 export const KV_KEY = 'ads_config';
@@ -16,7 +18,7 @@ const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const IMG_EXT_RE = /\.(jpe?g|png|webp|gif|avif)(\?.*)?$/i;
 const MAX_ADS = 100;
 const MAX_SLOTS = 40;
-const MAX_IMAGES = 60;
+const MAX_IMAGES = 300;
 
 export function emptyConfig() {
   return { version: 0, updatedAt: '', updatedBy: '', enabled: true, slots: [], ads: [] };
@@ -29,6 +31,17 @@ function isHttps(u) {
   } catch {
     return false;
   }
+}
+
+/** 이미지 목록을 [{src, link}] 모양으로 통일 (문자열/객체 모두 허용) */
+export function normImages(images) {
+  const out = [];
+  for (const it of Array.isArray(images) ? images : []) {
+    const src = typeof it === 'string' ? it : String(it?.src ?? '');
+    const link = typeof it === 'object' && it ? String(it.link ?? '') : '';
+    if (src.trim()) out.push({ src: src.trim(), link: link.trim() });
+  }
+  return out;
 }
 
 function validImage(s) {
@@ -70,18 +83,25 @@ export function validateConfig(input) {
       const name = String(a.name ?? '').trim().slice(0, 60);
       if (!name) errors.push(`${label}: 이름이 비어 있습니다.`);
       if (!slotIds.has(String(a.slot))) errors.push(`${label}: 존재하지 않는 광고 자리 "${a.slot}" 입니다.`);
-      if (!isHttps(a.link) || String(a.link).length > 500) errors.push(`${label}: 링크는 https:// 로 시작하는 주소여야 합니다.`);
-      const images = Array.isArray(a.images) ? a.images.map((x) => String(x).trim()).filter(Boolean) : [];
+      const link = String(a.link ?? '').trim();
+      if (link && (!isHttps(link) || link.length > 500)) errors.push(`${label}: 기본 링크는 https:// 로 시작하는 주소여야 합니다.`);
+      const images = normImages(a.images);
       if (!images.length) errors.push(`${label}: 이미지가 한 장도 없습니다.`);
       if (images.length > MAX_IMAGES) errors.push(`${label}: 이미지는 최대 ${MAX_IMAGES}장입니다.`);
-      for (const im of images) if (!validImage(im)) errors.push(`${label}: 이미지 주소가 올바르지 않습니다 → ${im.slice(0, 60)}`);
+      let bad = 0;
+      images.slice(0, MAX_IMAGES).forEach((im, i) => {
+        if (bad >= 5) return; // 오류 목록이 너무 길어지지 않게 5건까지만 표시
+        if (!validImage(im.src)) { errors.push(`${label}: ${i + 1}번째 이미지 주소가 올바르지 않습니다 → ${im.src.slice(0, 60)}`); bad++; }
+        else if (im.link && (!isHttps(im.link) || im.link.length > 500)) { errors.push(`${label}: ${i + 1}번째 이미지의 링크는 https:// 로 시작해야 합니다 → ${im.link.slice(0, 60)}`); bad++; }
+        else if (!im.link && !link) { errors.push(`${label}: ${i + 1}번째 이미지에 링크가 없습니다(기본 링크도 비어 있음).`); bad++; }
+      });
       const weight = Number.isInteger(a.weight) ? a.weight : parseInt(a.weight, 10);
       const start = String(a.start || ''), end = String(a.end || '');
       if (start && !DATE_RE.test(start)) errors.push(`${label}: 시작일 형식은 YYYY-MM-DD 입니다.`);
       if (end && !DATE_RE.test(end)) errors.push(`${label}: 종료일 형식은 YYYY-MM-DD 입니다.`);
       if (start && end && DATE_RE.test(start) && DATE_RE.test(end) && end < start) errors.push(`${label}: 종료일이 시작일보다 빠릅니다.`);
       ads.push({
-        id, name, slot: String(a.slot), link: String(a.link), images: images.slice(0, MAX_IMAGES),
+        id, name, slot: String(a.slot), link, images: images.slice(0, MAX_IMAGES),
         enabled: a.enabled !== false, weight: weight >= 1 && weight <= 100 ? weight : 1, start, end,
       });
     }
@@ -106,7 +126,9 @@ export function publicView(config, nowMs = Date.now()) {
     if (a.enabled === false || !on.has(a.slot)) continue;
     if (a.start && today < a.start) continue;
     if (a.end && today > a.end) continue;
-    out.ads.push({ id: a.id, slot: a.slot, link: a.link, images: a.images, weight: a.weight || 1 });
+    const images = normImages(a.images).map((im) => ({ src: im.src, link: im.link || a.link || '' })).filter((im) => im.link);
+    if (!images.length) continue;
+    out.ads.push({ id: a.id, slot: a.slot, images, weight: a.weight || 1 });
   }
   return out;
 }

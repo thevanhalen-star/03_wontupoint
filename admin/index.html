@@ -147,8 +147,24 @@ code{background:#0c1522;border:1px solid #1f2f45;border-radius:5px;padding:1px 6
     if (!cfg.slots.length) box.innerHTML = '<div class="hint">광고 자리가 없습니다.</div>';
   }
 
+  // 이미지 항목은 {src, link}. 문자열(예전 형식)이 와도 객체로 맞춘다.
+  function normImgs(list) {
+    return (list || []).map(function (x) { return typeof x === 'string' ? { src: x.trim(), link: '' } : { src: String(x.src || '').trim(), link: String(x.link || '').trim() }; }).filter(function (x) { return x.src; });
+  }
+  // 입력칸 한 줄 = "이미지주소 | 링크"  (링크는 생략 가능, 엑셀에서 두 칸을 복사해 붙여도 됩니다)
+  function toLines(a) { return a.images.map(function (x) { return x.link ? x.src + ' | ' + x.link : x.src; }).join('\n'); }
+  function parseLines(text) {
+    return text.split('\n').map(function (line) {
+      var m = line.match(/^([^|\t]*)[|\t]\s*(.*)$/);
+      return m ? { src: m[1].trim(), link: m[2].trim() } : { src: line.trim(), link: '' };
+    }).filter(function (x) { return x.src; });
+  }
+  function countText(a) {
+    var own = a.images.filter(function (x) { return x.link; }).length, none = a.images.length - own;
+    return '이미지 ' + a.images.length + '장 · 개별 링크 ' + own + '장' + (none && !a.link ? ' · ⚠ 링크 없는 이미지 ' + none + '장 (기본 링크를 넣으세요)' : '');
+  }
   function thumbs(a) {
-    return a.images.slice(0, 8).map(function (u) { return '<img src="' + esc(u) + '" alt="" onerror="this.classList.add(\'bad\')" title="' + esc(u) + '">'; }).join('')
+    return a.images.slice(0, 8).map(function (x) { return '<img src="' + esc(x.src) + '" alt="" onerror="this.classList.add(\'bad\')" title="' + esc(x.src + (x.link ? '  →  ' + x.link : '')) + '">'; }).join('')
       + (a.images.length > 8 ? '<span class="hint" style="align-self:center">+' + (a.images.length - 8) + '</span>' : '');
   }
 
@@ -160,21 +176,23 @@ code{background:#0c1522;border:1px solid #1f2f45;border-radius:5px;padding:1px 6
       el.innerHTML = '<div class="adhead"><label class="switch"><input type="checkbox" class="en"' + (a.enabled !== false ? ' checked' : '') + '><span></span></label>'
         + '<input type="text" class="name" value="' + esc(a.name) + '" maxlength="60" placeholder="광고 이름"><span class="badge st"></span>'
         + '<button class="btn sm dup">복제</button><button class="btn danger sm del">삭제</button></div>'
-        + '<div class="adbody"><div class="row r4"><div><label class="f">링크 (https://)</label><input type="url" class="link" value="' + esc(a.link) + '"></div>'
+        + '<div class="adbody"><div class="row r4"><div><label class="f">기본 링크 (이미지에 링크가 없을 때 사용 · 선택)</label><input type="url" class="link" value="' + esc(a.link) + '"></div>'
         + '<div><label class="f">광고 자리</label><select class="slot">' + opts + '</select></div>'
         + '<div><label class="f">가중치 (1~100)</label><input type="number" class="w" min="1" max="100" value="' + esc(a.weight || 1) + '"></div>'
         + '<div><label class="f">시작일 / 종료일 (선택)</label><div class="row r2"><input type="date" class="start" value="' + esc(a.start) + '"><input type="date" class="end" value="' + esc(a.end) + '"></div></div></div>'
-        + '<label class="f">이미지 (한 줄에 하나, 예: /ad_image/001/001.jpg 또는 https://…)</label><textarea class="imgs" spellcheck="false">' + esc(a.images.join('\n')) + '</textarea>'
+        + '<label class="f">이미지 — 한 줄에 하나: <code>이미지주소 | 클릭 링크</code> (링크를 생략하면 기본 링크 사용). 엑셀에서 두 칸을 복사해 붙여도 됩니다</label><textarea class="imgs" spellcheck="false" placeholder="/ad_image/005/001.jpg | https://제휴링크1&#10;https://example.com/b.jpg | https://제휴링크2">' + esc(toLines(a)) + '</textarea>'
+        + '<div class="hint cnt" style="margin-top:6px"></div>'
         + '<div class="thumbs"></div></div>';
       var q = function (s) { return el.querySelector(s); };
       q('.en').onchange = function (e) { a.enabled = e.target.checked; setDirty(true); refreshBadges(); };
       q('.name').oninput = function (e) { a.name = e.target.value; setDirty(true); };
-      q('.link').oninput = function (e) { a.link = e.target.value.trim(); setDirty(true); };
+      q('.link').oninput = function (e) { a.link = e.target.value.trim(); q('.cnt').textContent = countText(a); setDirty(true); };
       q('.slot').onchange = function (e) { a.slot = e.target.value; setDirty(true); renderSlots(); refreshBadges(); };
       q('.w').oninput = function (e) { a.weight = parseInt(e.target.value, 10) || 1; setDirty(true); };
       q('.start').onchange = function (e) { a.start = e.target.value; setDirty(true); refreshBadges(); };
       q('.end').onchange = function (e) { a.end = e.target.value; setDirty(true); refreshBadges(); };
-      q('.imgs').oninput = function (e) { a.images = e.target.value.split('\n').map(function (x) { return x.trim(); }).filter(Boolean); q('.thumbs').innerHTML = thumbs(a); setDirty(true); };
+      q('.imgs').oninput = function (e) { a.images = parseLines(e.target.value); q('.thumbs').innerHTML = thumbs(a); q('.cnt').textContent = countText(a); setDirty(true); };
+      q('.cnt').textContent = countText(a);
       q('.dup').onclick = function () { var c = JSON.parse(JSON.stringify(a)); c.id = newId(); c.name = a.name + ' (복사)'; cfg.ads.splice(i + 1, 0, c); setDirty(true); renderAll(); };
       q('.del').onclick = function () { if (confirm('"' + a.name + '" 광고를 삭제할까요? (저장 전에는 되돌리기로 취소할 수 있습니다)')) { cfg.ads.splice(i, 1); setDirty(true); renderAll(); } };
       q('.thumbs').innerHTML = thumbs(a);
@@ -201,7 +219,7 @@ code{background:#0c1522;border:1px solid #1f2f45;border-radius:5px;padding:1px 6
 
   function clean(c) {
     return { enabled: c.enabled !== false, slots: c.slots.map(function (s) { return { id: s.id, label: s.label, enabled: s.enabled !== false }; }),
-      ads: c.ads.map(function (a) { return { id: a.id, name: a.name, slot: a.slot, link: a.link, images: a.images, enabled: a.enabled !== false, weight: a.weight || 1, start: a.start || '', end: a.end || '' }; }) };
+      ads: c.ads.map(function (a) { return { id: a.id, name: a.name, slot: a.slot, link: a.link || '', images: a.images, enabled: a.enabled !== false, weight: a.weight || 1, start: a.start || '', end: a.end || '' }; }) };
   }
 
   async function load() {
@@ -209,7 +227,7 @@ code{background:#0c1522;border:1px solid #1f2f45;border-radius:5px;padding:1px 6
     try {
       var d = await api('GET');
       cfg = d.config; baseVersion = cfg.version || 0; history = d.history || []; kvOk = d.kv; window.__user = d.user;
-      cfg.ads.forEach(function (a) { a.images = a.images || []; });
+      cfg.ads.forEach(function (a) { a.images = normImgs(a.images); a.link = a.link || ''; });
       if (!d.kv) banner('warn', '<b>저장소(KV)가 아직 연결되지 않았습니다.</b> 화면은 볼 수 있지만 저장은 되지 않습니다. 「관리자 설정 방법」 문서의 KV 연결 단계를 먼저 진행하세요.');
       else if (!cfg.version) banner('ok', '아직 저장된 설정이 없어 <b>기본 설정</b>(현재 사이트의 광고 4개)을 보여주고 있습니다. 저장하면 그때부터 이 화면의 설정이 적용됩니다.');
       setDirty(false); renderAll();
@@ -229,7 +247,7 @@ code{background:#0c1522;border:1px solid #1f2f45;border-radius:5px;padding:1px 6
   };
   $('addAd').onclick = function () {
     if (!cfg.slots.length) return alert('먼저 광고 자리를 추가하세요.');
-    cfg.ads.push({ id: newId(), name: '새 광고', slot: cfg.slots[0].id, link: 'https://', images: [], enabled: false, weight: 1, start: '', end: '' });
+    cfg.ads.push({ id: newId(), name: '새 광고', slot: cfg.slots[0].id, link: '', images: [], enabled: false, weight: 1, start: '', end: '' });
     setDirty(true); renderAll();
     var last = cfg.ads[cfg.ads.length - 1].__el; if (last) last.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
@@ -238,7 +256,7 @@ code{background:#0c1522;border:1px solid #1f2f45;border-radius:5px;padding:1px 6
     $('save').disabled = true; $('state').textContent = '저장 중…';
     try {
       var d = await api('PUT', { baseVersion: baseVersion, config: clean(cfg) });
-      cfg = d.config; baseVersion = cfg.version; history = d.history || []; cfg.ads.forEach(function (a) { a.images = a.images || []; });
+      cfg = d.config; baseVersion = cfg.version; history = d.history || []; cfg.ads.forEach(function (a) { a.images = normImgs(a.images); a.link = a.link || ''; });
       $('banners').innerHTML = ''; banner('ok', '저장했습니다. 방문자 화면에는 최대 1~2분 안에 반영됩니다.');
       setDirty(false); renderAll();
     } catch (e) {

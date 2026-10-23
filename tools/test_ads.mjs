@@ -37,6 +37,27 @@ ok(publicView({ ...def, enabled: false }, now).ads.length === 0, '전체 스위�
 { const c = JSON.parse(JSON.stringify(def)); c.ads[0].start = '2026-11-01'; ok(publicView(c, now).ads.length === 3, '시작일 전 광고는 숨김'); c.ads[0].start = ''; c.ads[0].end = '2026-10-01'; ok(publicView(c, now).ads.length === 3, '종료일 지난 광고는 숨김'); }
 ok(todayKST(Date.parse('2026-10-23T16:00:00Z')) === '2026-10-24', '한국 시간 날짜 계산(UTC 16시 = 다음날 01시)');
 
+// ---------- 2-2. 이미지마다 링크 (이미지 100장 · 링크 100개)
+console.log('[이미지별 링크]');
+{
+  const big = JSON.parse(JSON.stringify(def));
+  big.ads = [{ id: 'many', name: '100개 묶음', slot: 'detail-top', link: '', enabled: true, weight: 1, start: '', end: '',
+    images: Array.from({ length: 100 }, (_, i) => ({ src: `/ad_image/009/${String(i + 1).padStart(3, '0')}.jpg`, link: `https://shop.example.com/item/${i + 1}` })) }];
+  const v = validateConfig(big);
+  ok(v.ok && v.config.ads[0].images.length === 100, '이미지 100장 + 각각 다른 링크 100개를 광고 하나로 저장할 수 있다');
+  const pv2 = publicView(v.config, now);
+  ok(pv2.ads[0].images.length === 100 && pv2.ads[0].images[41].link === 'https://shop.example.com/item/42', '방문자용 데이터에 이미지와 링크가 짝지어 내려간다');
+  const mix = JSON.parse(JSON.stringify(def)); mix.ads[0].images = ['/ad_image/001/001.jpg', { src: '/ad_image/001/002.jpg', link: 'https://other.example.com/x' }];
+  const pm = publicView(mix, now).ads.find((a) => a.id === 'ad-1');
+  ok(pm.images[0].link === mix.ads[0].link && pm.images[1].link === 'https://other.example.com/x', '링크가 없는 이미지는 광고의 기본 링크를 쓰고, 있는 이미지는 자기 링크를 쓴다');
+  const noLink = JSON.parse(JSON.stringify(def)); noLink.ads[0].link = ''; noLink.ads[0].images = ['/ad_image/001/001.jpg'];
+  ok(!validateConfig(noLink).ok, '기본 링크도 이미지 링크도 없으면 거부');
+  const badLink = JSON.parse(JSON.stringify(def)); badLink.ads[0].images = [{ src: '/ad_image/001/001.jpg', link: 'javascript:alert(1)' }];
+  ok(!validateConfig(badLink).ok, '이미지별 링크도 https 만 허용');
+  const tooMany = JSON.parse(JSON.stringify(def)); tooMany.ads[0].images = Array.from({ length: 301 }, (_, i) => `/a/${i}.jpg`);
+  ok(!validateConfig(tooMany).ok, '이미지는 광고당 300장까지');
+}
+
 // ---------- 3. Access JWT 검증
 console.log('[로그인(Access) 검증]');
 const { publicKey, privateKey } = await webcrypto.subtle.generateKey({ name: 'RSASSA-PKCS1-v1_5', modulusLength: 2048, publicExponent: new Uint8Array([1, 0, 1]), hash: 'SHA-256' }, true, ['sign', 'verify']);

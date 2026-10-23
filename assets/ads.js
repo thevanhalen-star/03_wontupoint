@@ -22,17 +22,25 @@
     for (var i = 0; i < list.length; i++) { r -= list[i].weight || 1; if (r < 0) return list[i]; }
     return list[list.length - 1];
   }
+  // 광고의 이미지 항목은 {src, link}(이미지마다 링크가 다를 수 있음). 예전 형식(문자열 + 광고 공통 link)도 허용.
+  function pickImage(ad) {
+    var it = ad.images[Math.floor(Math.random() * ad.images.length)];
+    return typeof it === 'string' ? { src: it, link: ad.link } : it;
+  }
   function render(slot, ad) {
+    var it = pickImage(ad);
+    if (!it || !it.link) { slot.style.display = 'none'; return false; }
     var a = document.createElement('a');
-    a.href = ad.link; a.target = '_blank'; a.rel = 'sponsored noopener noreferrer';
+    a.href = it.link; a.target = '_blank'; a.rel = 'sponsored noopener noreferrer';
     var label = document.createElement('span'); label.className = 'wontu-ad-label'; label.textContent = 'AD 광고';
     var img = document.createElement('img');
-    img.src = ad.images[Math.floor(Math.random() * ad.images.length)];
+    img.src = it.src;
     img.alt = '광고 이미지'; img.loading = 'lazy';
     img.style.cssText = 'display:block;width:100%;height:auto;';
     a.appendChild(label); a.appendChild(img);
     slot.replaceChildren(a);
     slot.style.display = '';
+    return true;
   }
 
   fetch('/api/ads', { credentials: 'omit' })
@@ -43,7 +51,7 @@
       slots.forEach(function (slot) {
         var cands = cfg.ads.filter(function (a) { return a.slot === slot.getAttribute('data-ad-slot') && a.images && a.images.length; });
         if (!cands.length) { slot.style.display = 'none'; return; }
-        render(slot, pick(cands)); shown++;
+        if (render(slot, pick(cands))) shown++;
       });
       toggleNote(shown > 0);
     })
