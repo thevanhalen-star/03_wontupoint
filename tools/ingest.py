@@ -27,13 +27,8 @@ import build_site as bs  # noqa: E402
 POINTS = ROOT / "points"
 HEAD_TPL = (Path(__file__).resolve().parent / "templates" / "point_head.html").read_text(encoding="utf-8")
 
-# 광고 4종 (링크, 위치): 1=도입부 사진 아래, 2=본론2 사진 아래, 3=본론5 사진 아래, 4=글 맨 끝
-ADS = {
-    1: "https://mkt.shopping.naver.com/link/68831b4c815d200271efd26a",
-    2: "https://mkt.shopping.naver.com/link/69c387ff01c5cd3461ab40a0",
-    3: "https://mkt.shopping.naver.com/link/69c387fffc2fa72357614b8c",
-    4: "https://www.fish-gear.com",
-}
+# 광고는 '광고 자리'만 넣는다. 어떤 광고를 보일지·켜고 끌지는 관리자 페이지(/admin/)의 설정이 정한다.
+# 자리 번호: 1=도입부 사진 아래, 2=본론 앞쪽, 3=본론 뒤쪽, 4=글 맨 끝 (bs.AD_SLOT 참고)
 
 
 def esc(s):
@@ -41,11 +36,7 @@ def esc(s):
 
 
 def ad_block(n, margin):
-    return (
-        f'<div class="point-media ad-photo" style="margin:{margin};text-align:center;">'
-        f'<a href="{ADS[n]}" target="_blank" rel="sponsored noopener noreferrer"><span class="wontu-ad-label">AD 광고</span><img src="/ad_image/00{n}/001.jpg" data-ad="{n}" '
-        f'alt="광고 이미지 {n}" loading="lazy" style="display:block;width:100%;height:auto;"></a></div>'
-    )
+    return f'<div class="point-media ad-photo ad-slot" data-ad-slot="{bs.AD_SLOT[n]}" style="margin:{margin};text-align:center;"></div>'
 
 
 def photo_block(name, n, margin):

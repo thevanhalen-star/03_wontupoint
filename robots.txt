@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /tools/
+Disallow: /admin/
+Disallow: /api/admin/
 Disallow: /SEARCH_ENGINE_SETUP.txt
 Disallow: /points/*/002.txt
 

@@ -25,6 +25,8 @@ POLICY_DATE = "2026년 10월 21일"
 KAKAO_URL = "https://map.kakao.com"
 # 카카오맵 이미지 활용 가이드(2023.01) 표기법: "출처 : 카카오맵 (https://map.kakao.com)"
 IMAGE_CREDIT = "출처 : 카카오맵"  # 링크 없이 문구만 표기
+# 예전 고정 광고(1~4번)가 들어가는 광고 자리 ID — ads-default.json 의 slots 와 같아야 한다
+AD_SLOT = {1: "detail-top", 2: "detail-mid-1", 3: "detail-mid-2", 4: "detail-end"}
 IMAGE_CREDIT_LONG = "카카오맵 스카이뷰·로드뷰"
 IMAGE_DIFF_NOTE = "이 페이지의 지도·사진 이미지는 카카오맵의 실제 서비스 이미지와 다를 수 있습니다."
 
@@ -311,6 +313,7 @@ POINT_CSS = """
 .wontu-ad-label{position:absolute;top:8px;left:8px;z-index:1;font-size:11px;font-weight:700;line-height:1;color:#fff;background:rgba(0,0,0,.62);border-radius:3px;padding:4px 6px;letter-spacing:.04em;pointer-events:none}
 .point-photo{position:relative}.point-photo img{display:block!important}
 .point-photo + .ad-photo{margin-top:24px!important}
+.ad-slot:empty{display:none}
 .wontu-img-credit{position:absolute;right:8px;bottom:8px;max-width:calc(100% - 16px);font-size:11px;line-height:1.3;color:#fff;background:rgba(0,0,0,.55);border-radius:3px;padding:3px 7px;text-align:right}.wontu-img-credit a{color:inherit;text-decoration:none}
 @media(max-width:700px){.wontu-img-credit{font-size:9.5px;right:5px;bottom:5px;padding:2px 5px}}
 .wontu-kakao{margin:34px 0 0;padding:16px 18px;border:1px solid #dde6ed;border-radius:8px;display:flex;gap:18px;align-items:center;font-size:14px;line-height:1.7}
@@ -388,13 +391,16 @@ def process_point(path: Path):
     t = re.sub(r'(<div class="wontu-title-divider"[^>]*aria-label=")[^"]*(")', r"\1제목과 본문 구분\2", t)
     t = re.sub(r'(<div class="wontu-hashtags" aria-label=")[^"]*(")', r"\1해시태그\2", t)
 
-    # 2) 광고 표시 라벨
-    def ad_fix(m):
-        # 이전 방식(이미지 위 별도 '광고' 라벨)을 이미지 모퉁이 'AD 광고' 표시로 정리
-        block = re.sub(r'<span class="wontu-ad-label">[^<]*</span>(?:<br>)?', "", m.group(0))
-        block = re.sub(r"(<a [^>]*>)", r'\1<span class="wontu-ad-label">AD 광고</span>', block, count=1)
-        return block.replace("display:inline-block;width:400px;max-width:100%;height:auto;", "display:block;width:100%;height:auto;")
-    t = re.sub(r'<div class="point-media ad-photo".*?</div>', ad_fix, t, flags=re.S)
+    # 2) 광고 → '광고 자리'로 정리. 어떤 광고를 보일지·켜고 끌지는 관리자 설정(/api/ads)이 정한다.
+    def ad_to_slot(m):
+        block = m.group(0)
+        n = re.search(r'data-ad="(\d)"', block)
+        if not n:  # 이미 자리(placeholder)이거나 알 수 없는 블록
+            return block
+        style = re.search(r'<div class="point-media ad-photo" style="([^"]*)"', block)
+        return (f'<div class="point-media ad-photo ad-slot" data-ad-slot="{AD_SLOT[int(n.group(1))]}" '
+                f'style="{style.group(1) if style else ""}"></div>')
+    t = re.sub(r'<div class="point-media ad-photo".*?</div>', ad_to_slot, t, flags=re.S)
 
     # 3) 포인트 사진 alt + 출처(카카오맵 가이드 표기법)
     def photo_fix(m):
@@ -427,7 +433,7 @@ def process_point(path: Path):
 
     # 5) 본문 상단: 내비 + 광고 고지
     top = (
-        f'<p class="wontu-disclosure">이 페이지에는 <strong>광고</strong>(제휴 링크 포함)가 있으며, 광고 링크를 통해 구매하면 운영자가 판매 수익 또는 수수료를 받을 수 있습니다. '
+        f'<p class="wontu-disclosure"><span class="ad-note">이 페이지에는 <strong>광고</strong>(제휴 링크 포함)가 있으며, 광고 링크를 통해 구매하면 운영자가 판매 수익 또는 수수료를 받을 수 있습니다. </span>'
         f'포인트 사진: {IMAGE_CREDIT_LONG}. {IMAGE_DIFF_NOTE}</p>'
     )
     # 제목이 맨 위에 오도록 수정된 페이지는 제목·구분선 바로 아래에, 아니면 컨테이너 시작에 넣는다
@@ -465,8 +471,9 @@ def process_point(path: Path):
     foot = f'<footer class="wontu-foot"><nav aria-label="사이트 정보">{footer_links()}</nav><span>© 2026 차박·원투·워킹 낚시 포인트</span></footer>'
     t = replace_block(t, "WONTU_FOOT", foot, r"</body>")
 
-    # 8) 공통 스크립트: 광고 랜덤 이미지(ad-random.js), 좌측 카테고리·상하단 버튼(shell.js)
-    for src, ver in (("ad-random.js", 2), ("shell.js", 9)):  # 스크립트를 고치면 ver 을 올려 캐시를 갱신
+    # 8) 공통 스크립트: 광고 자리 렌더러(ads.js), 좌측 카테고리·상하단 버튼(shell.js)
+    t = re.sub(r'<script src="/assets/ad-random\.js[^"]*" defer></script>\s*', "", t)  # 옛 랜덤 광고 스크립트 제거
+    for src, ver in (("ads.js", 1), ("shell.js", 9)):  # 스크립트를 고치면 ver 을 올려 캐시를 갱신
         tag = f'<script src="/assets/{src}?v={ver}" defer></script>'
         if tag not in t:
             t = re.sub(r'<script src="/assets/' + re.escape(src) + r'[^"]*" defer></script>\s*', "", t)
@@ -518,6 +525,8 @@ def build_meta_files():
     write("robots.txt", f"""User-agent: *
 Allow: /
 Disallow: /tools/
+Disallow: /admin/
+Disallow: /api/admin/
 Disallow: /SEARCH_ENGINE_SETUP.txt
 Disallow: /points/*/002.txt
 
@@ -562,6 +571,13 @@ Sitemap: {DOMAIN}/sitemap.xml
 
 /tools/*
   X-Robots-Tag: noindex
+
+/admin/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
+/ads-default.json
+  Cache-Control: public, max-age=300
 """)
 
 
