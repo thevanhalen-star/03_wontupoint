@@ -94,7 +94,7 @@ def layout(path, title, desc, eyebrow, h1, body, robots="index,follow", extra_he
         ]}) if robots.startswith("index") else ""
     return (f'''<!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><meta name="robots" content="{robots}"><link rel="canonical" href="{url}">{ICON_LINKS}
-<meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg"><meta name="twitter:card" content="summary_large_image">{crumbs}<style>{LEGACY_CSS}</style><link rel="stylesheet" href="/assets/theme.css?v={asset_ver("assets/theme.css")}"></head><body><main><nav class="nav">{nav}</nav><h1>{h1}</h1>
+<meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{DOMAIN}/assets/og-image-2.jpg"><meta name="twitter:card" content="summary_large_image">{crumbs}<style>{LEGACY_CSS}</style><link rel="stylesheet" href="/assets/theme.css?v={asset_ver("assets/theme.css")}"></head><body><main><nav class="nav">{nav}</nav><h1>{h1}</h1>
 {body}
 <div class="foot-links">{footer_links()}<span>© 2026 차박·원투·워킹 낚시 포인트</span></div></main><script src="/assets/shell.js?v={asset_ver("assets/shell.js")}" defer></script></body></html>
 ''')
@@ -119,9 +119,9 @@ def build_static_pages():
 
     write("about.html", layout(
         "/about.html", f"사이트 소개 | {SITE}",
-        f"{SITE}는 전국 바다 원투낚시·워킹낚시·차박 포인트 {n}곳의 위치, 진입 동선, 차박 여건, 낚시 스타일을 지역별로 정리한 정보 사이트입니다.",
+        f"{SITE}는 전국 바다 원투낚시·워킹낚시·차박 포인트의 위치, 진입 동선, 차박 여건, 낚시 스타일을 지역별로 정리한 정보 사이트입니다.",
         "WONTUPOINT · ABOUT", "사이트 소개", f"""
-<p class="lead">{SITE}는 전국 바다 원투낚시·워킹낚시·차박 포인트 {n}곳을 지역별로 정리한 무료 정보 사이트입니다. 처음 가 보는 포구·방파제·선착장의 분위기와 진입 동선을 출발 전에 가늠할 수 있도록 돕는 것을 목표로 합니다.</p>
+<p class="lead">{SITE}는 전국 바다 원투낚시·워킹낚시·차박 포인트를 지역별로 정리한 무료 정보 사이트입니다. 처음 가 보는 포구·방파제·선착장의 분위기와 진입 동선을 출발 전에 가늠할 수 있도록 돕는 것을 목표로 합니다.</p>
 <h2>무엇을 볼 수 있나요</h2>
 <ul>
 <li>지역(시·도, 시·군)별 포인트 목록과 검색</li>
@@ -306,7 +306,7 @@ def build_all_points():
     p = ROOT / "all-points.html"
     t = p.read_text(encoding="utf-8-sig")
     extra = (f'{ICON_LINKS}<meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR">'
-             f'<meta property="og:title" content="전체 포인트 목록 | {SITE}"><meta property="og:url" content="{DOMAIN}/all-points.html"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg"><link rel="stylesheet" href="/assets/theme.css?v={asset_ver("assets/theme.css")}">')
+             f'<meta property="og:title" content="전체 포인트 목록 | {SITE}"><meta property="og:url" content="{DOMAIN}/all-points.html"><meta property="og:image" content="{DOMAIN}/assets/og-image-2.jpg"><link rel="stylesheet" href="/assets/theme.css?v={asset_ver("assets/theme.css")}">')
     t = replace_block(t, "WONTU_HEAD", extra, r"</head>")
     t = re.sub(r"(/assets/shell\.js\?v=)[0-9a-f]+", lambda m: m.group(1) + asset_ver("assets/shell.js"), t)  # 스크립트 주소의 버전 갱신
     p.write_text(t, encoding="utf-8", newline="\n")
@@ -495,7 +495,7 @@ def process_point(path: Path):
 
 # ---------------------------------------------------------------- 홈
 HOME_HEAD = f"""{ICON_LINKS}
-<meta property="og:locale" content="ko_KR"><meta property="og:image" content="{DOMAIN}/assets/og-image.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR"><meta property="og:image" content="{DOMAIN}/assets/og-image-2.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 {{LD}}"""
 
