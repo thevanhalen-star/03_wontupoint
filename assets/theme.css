@@ -58,3 +58,18 @@ body.wontu-shell main .foot-links a{color:#7f93aa}
 body.wontu-shell main strong,body.wontu-shell main b{color:#e6eef7}
 body.wontu-shell main code{background:#0c1522;color:#9be7f8}
 @media(max-width:700px){body.wontu-shell main{padding:22px 18px}}
+
+/* 자주 묻는 질문(FAQ) — 포인트 상세·안내 글·홈 공통 */
+.wontu-faq{margin:34px 0 0}
+.wontu-faq-item{border:1px solid #1f2f45;border-radius:10px;background:#0c1522;margin:0 0 10px;overflow:hidden}
+.wontu-faq-item summary{cursor:pointer;padding:13px 44px 13px 16px;font-weight:700;color:#e6eef7;line-height:1.55;list-style:none;position:relative}
+.wontu-faq-item summary::-webkit-details-marker{display:none}
+.wontu-faq-item summary::after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:#38e1ff;font-size:20px;font-weight:400}
+.wontu-faq-item[open] summary::after{content:"\2212"}
+.wontu-faq-item summary:hover{background:#101d2e}
+.wontu-faq-item p{margin:0!important;padding:2px 16px 15px;color:#c3d1e0!important;font-size:15px!important;line-height:1.8}
+.wontu-faq .note{margin:12px 2px 0!important;font-size:12.5px!important;line-height:1.8;color:#7f93aa!important}
+.wontu-faq .note a{color:#5fd8f2}
+body.wontu-shell main .guide-list{padding-left:0;list-style:none}
+body.wontu-shell main .guide-list li{margin:0 0 12px;padding:13px 16px;border:1px solid #1f2f45;border-radius:10px;background:#0c1522}
+body.wontu-shell main .guide-list li span{color:#8fa3b8;font-size:14px}

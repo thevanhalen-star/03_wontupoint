@@ -16,6 +16,10 @@ import sys
 from datetime import date
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import faq  # noqa: E402  포인트 페이지 FAQ
+import guides  # noqa: E402  낚시·차박 안내 글 원고
+
 ROOT = Path(__file__).resolve().parent.parent
 DOMAIN = "https://wontupoint.com"
 SITE = "원투포인트"
@@ -39,12 +43,14 @@ IMAGE_DIFF_NOTE = "이 페이지의 지도·사진 이미지는 카카오맵의 
 NAV = [
     ("/", "홈"),
     ("/all-points.html", "전체 포인트"),
+    ("/guide/", "낚시·차박 안내"),
     ("/about.html", "소개"),
     ("/contact.html", "문의"),
 ]
 FOOT = [
     ("/about.html", "사이트 소개"),
     ("/all-points.html", "전체 포인트 목록"),
+    ("/guide/", "낚시·차박 안내"),
     ("/privacy.html", "개인정보처리방침"),
     ("/terms.html", "이용약관"),
     ("/legal.html", "운영 및 법적 고지"),
@@ -79,7 +85,7 @@ LEGACY_CSS = ('body{font-family:"Malgun Gothic",system-ui,sans-serif;margin:0;ba
  'table{border-collapse:collapse;width:100%;font-size:14px;margin:10px 0;display:block;overflow-x:auto}th,td{border:1px solid #dee6ed;padding:7px 9px;text-align:left;vertical-align:top}th{background:#f2f6f9;white-space:nowrap}'
  '.updated{color:#6f879b;font-size:13px;margin-top:28px}.foot-links{margin-top:34px;padding-top:14px;border-top:1px solid #e6ecf1;font-size:13px;display:flex;gap:14px;flex-wrap:wrap}.foot-links a{color:#6f879b}'
  '@media(max-width:700px){main{margin:0;padding:22px}}')
-NAV_LEGACY = [("/", "홈"), ("/all-points.html", "전체 포인트"), ("/about.html", "소개"),
+NAV_LEGACY = [("/", "홈"), ("/all-points.html", "전체 포인트"), ("/guide/", "낚시·차박 안내"), ("/about.html", "소개"),
               ("/privacy.html", "개인정보처리방침"), ("/terms.html", "이용약관"), ("/contact.html", "문의")]
 
 
@@ -94,7 +100,7 @@ def layout(path, title, desc, eyebrow, h1, body, robots="index,follow", extra_he
         ]}) if robots.startswith("index") else ""
     return (f'''<!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><meta name="robots" content="{robots}"><link rel="canonical" href="{url}">{ICON_LINKS}
-<meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{DOMAIN}/assets/og-image-2.jpg"><meta name="twitter:card" content="summary_large_image">{crumbs}<style>{LEGACY_CSS}</style><link rel="stylesheet" href="/assets/theme.css?v={asset_ver("assets/theme.css")}"></head><body><main><nav class="nav">{nav}</nav><h1>{h1}</h1>
+<meta property="og:type" content="website"><meta property="og:site_name" content="{SITE}"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{DOMAIN}/assets/og-image-2.jpg"><meta name="twitter:card" content="summary_large_image">{crumbs}{extra_head}<style>{LEGACY_CSS}</style><link rel="stylesheet" href="/assets/theme.css?v={asset_ver("assets/theme.css")}"></head><body><main><nav class="nav">{nav}</nav><h1>{h1}</h1>
 {body}
 <div class="foot-links">{footer_links()}<span>© 2026 차박·원투·워킹 낚시 포인트</span></div></main><script src="/assets/shell.js?v={asset_ver("assets/shell.js")}" defer></script></body></html>
 ''')
@@ -393,6 +399,7 @@ def process_point(path: Path):
     if len(desc) > 155:
         desc = desc[:152].rstrip() + "…"
     img_abs = f"{DOMAIN}/points/{pid}/image/001.jpg"
+    qa = faq.build_faq(t, name)  # 본문 단락에서 뽑은 자주 묻는 질문(4개 미만이면 만들지 않음)
 
     # 1) 깨진 해시태그 aria-label 수정
     t = re.sub(r'(<div class="wontu-title-divider"[^>]*aria-label=")[^"]*(")', r"\1제목과 본문 구분\2", t)
@@ -428,6 +435,8 @@ def process_point(path: Path):
             {"@type": "ListItem", "position": 2, "name": "전체 포인트", "item": DOMAIN + "/all-points.html"},
             {"@type": "ListItem", "position": 3, "name": name, "item": url}]},
     ]
+    if qa:
+        ld.append(faq.faq_jsonld(qa))
     head_block = (
         f'<meta name="description" content="{esc(desc)}">\n<meta name="robots" content="index,follow">\n'
         f'<meta name="theme-color" content="#070d16">\n<link rel="canonical" href="{url}">\n{ICON_LINKS}\n'
@@ -459,6 +468,10 @@ def process_point(path: Path):
         f'<p class="src"><img src="/assets/kakaomap/kakaomap_name_EN.png" alt="kakaomap">{IMAGE_CREDIT}</p><p>{IMAGE_DIFF_NOTE}</p></div></aside>'
     )
     t = replace_block(t, "WONTU_KAKAO", kakao, r"<!-- WONTU_HASHTAGS_START -->" if "<!-- WONTU_HASHTAGS_START -->" in t else r"</div>\s*</body>")
+
+    # 5c) 자주 묻는 질문 (카카오맵 안내 바로 위)
+    t = replace_block(t, "WONTU_FAQ", faq.render_faq(qa), r"<!-- WONTU_KAKAO_START -->") if qa else re.sub(
+        r"<!-- WONTU_FAQ_START -->.*?<!-- WONTU_FAQ_END -->\n?", "", t, flags=re.S)
 
     # 6) 본문 끝: 안전·법규 안내
     safety = (
@@ -493,6 +506,46 @@ def process_point(path: Path):
     return False
 
 
+# ---------------------------------------------------------------- 낚시·차박 안내(가이드)
+def _faq_html(items):
+    return "".join(f"<details class=\"wontu-faq-item\"><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in items)
+
+
+def build_guides():
+    gs = guides.GUIDES
+    cards = "".join(
+        f'<li><a href="/guide/{g["slug"]}.html"><strong>{esc(g["h1"])}</strong></a><br><span>{esc(g["summary"])}</span></li>' for g in gs)
+    write("guide/index.html", layout(
+        "/guide/", f"낚시·차박 안내 | {SITE}",
+        "물때 보는 법, 차박 낚시 준비물, 원투낚시·워킹낚시 입문, 방파제·갯바위 안전 수칙을 정리한 안내 글 모음입니다.",
+        "WONTUPOINT · GUIDE", "낚시·차박 안내", f"""
+<p class="lead">포인트 글을 읽다 보면 물때, 차박 준비, 장비, 안전처럼 따로 알아 두면 좋은 내용이 자주 나옵니다. 처음 바다낚시와 차박을 함께 하는 분들이 궁금해하는 주제를 한 편씩 정리했습니다.</p>
+<ul class="guide-list">{cards}</ul>
+<p>정리된 내용은 일반적인 안내입니다. 지역·포인트·시기에 따라 다를 수 있으니 현장 안내판과 지자체·해양경찰 공지를 우선해 주세요. 잘못된 내용은 <a href="/contact.html">문의</a>로 알려 주세요.</p>
+<p><a href="/all-points.html">전체 포인트 목록 보기 →</a></p>
+"""))
+    for g in gs:
+        path = f"/guide/{g['slug']}.html"
+        nl = "\n"
+        body = f'<p class="lead">{g["lead"]}</p>{nl}'
+        body += "".join(f"<h2>{esc(h)}</h2>{nl}{c}{nl}" for h, c in g["sections"])
+        body += f'<h2>자주 묻는 질문</h2>{nl}<section class="wontu-faq" aria-label="자주 묻는 질문">{_faq_html(g["faq"])}</section>{nl}'
+        others = "".join(f'<li><a href="/guide/{o["slug"]}.html">{esc(o["h1"])}</a></li>' for o in gs if o is not g)
+        body += f'<h2>함께 보면 좋은 안내</h2>{nl}<ul>{others}</ul>{nl}'
+        body += (f'<div class="box warn"><strong>참고용 안내입니다.</strong> 지역·포인트·시기에 따라 다를 수 있으며, 현장 안내판과 지자체·해양경찰 공지가 우선합니다. '
+                 f'<a href="/all-points.html">전체 포인트</a>의 글에서 포인트별 진입 동선과 낚시 여건을 확인하세요.</div>{nl}'
+                 f'<p class="updated">최종 수정: {guides.GUIDE_DATE}</p>')
+        ld = jsonld([
+            {"@context": "https://schema.org", "@type": "Article", "headline": g["h1"], "description": g["desc"], "inLanguage": "ko-KR",
+             "mainEntityOfPage": DOMAIN + path, "datePublished": guides.GUIDE_DATE, "dateModified": guides.GUIDE_DATE,
+             "author": {"@type": "Organization", "name": SITE, "url": DOMAIN + "/"},
+             "publisher": {"@type": "Organization", "name": SITE, "logo": {"@type": "ImageObject", "url": DOMAIN + "/assets/icon-512.png"}}},
+            {"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "ko-KR",
+             "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in g["faq"]]},
+        ])
+        write(path.lstrip("/"), layout(path, g["title"], g["desc"], "WONTUPOINT · GUIDE", g["h1"], body, extra_head=ld))
+
+
 # ---------------------------------------------------------------- 홈
 HOME_HEAD = f"""{ICON_LINKS}
 <meta property="og:locale" content="ko_KR"><meta property="og:image" content="{DOMAIN}/assets/og-image-2.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
@@ -507,9 +560,18 @@ def build_home():
         {"@context": "https://schema.org", "@type": "WebSite", "name": SITE, "url": DOMAIN + "/", "inLanguage": "ko-KR",
          "potentialAction": {"@type": "SearchAction", "target": DOMAIN + "/?q={search_term_string}", "query-input": "required name=search_term_string"}},
         {"@context": "https://schema.org", "@type": "Organization", "name": SITE, "url": DOMAIN + "/", "logo": DOMAIN + "/assets/icon-512.png", "email": EMAIL},
+        {"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "ko-KR",
+         "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in guides.HOME_FAQ]},
     ])
     t = replace_block(t, "WONTU_HEAD", HOME_HEAD.replace("{LD}", ld), r"\s*<style>", before=True)
+    # 하단 FAQ + 안내 글 링크 (목록 아래, 사이트 전체에 대한 자주 묻는 질문)
+    glinks = " · ".join(f'<a href="/guide/{g["slug"]}.html">{esc(g["h1"])}</a>' for g in guides.GUIDES)
+    home_faq = (f'<section class="home-faq" aria-label="자주 묻는 질문"><h2>자주 묻는 질문</h2>{_faq_html(guides.HOME_FAQ)}'
+                f'<p class="note">더 알아보기: {glinks}</p></section>')
+    t = replace_block(t, "WONTU_HOMEFAQ", home_faq, r"</main>")
     # 푸터: 기존 링크는 그대로 두고 이용약관·법적 고지 링크만 추가
+    if 'href="guide/"' not in t:
+        t = t.replace('<a href="all-points.html">전체 포인트 목록</a>', '<a href="all-points.html">전체 포인트 목록</a><a href="guide/">낚시·차박 안내</a>', 1)
     if 'href="terms.html"' not in t:
         t = t.replace('<a href="privacy.html">개인정보처리방침</a>',
                       '<a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="legal.html">운영 및 법적 고지</a>', 1)
@@ -541,9 +603,10 @@ Disallow: /points/*/002.txt
 Sitemap: {DOMAIN}/sitemap.xml
 """)
 
-    pages = ["/", "/all-points.html", "/about.html", "/privacy.html", "/terms.html", "/legal.html", "/contact.html"]
+    gpages = ["/guide/"] + [f"/guide/{g['slug']}.html" for g in guides.GUIDES]
+    pages = ["/", "/all-points.html"] + gpages + ["/about.html", "/privacy.html", "/terms.html", "/legal.html", "/contact.html"]
     pts = sorted(p.parent.name for p in (ROOT / "points").glob("*/001.html"))
-    urls = [(u, "1.0" if u == "/" else "0.6" if u in ("/all-points.html",) else "0.3") for u in pages]
+    urls = [(u, "1.0" if u == "/" else "0.7" if u in gpages else "0.6" if u in ("/all-points.html",) else "0.3") for u in pages]
     urls += [(f"/points/{c}/001.html", "0.8") for c in pts]
     body = "\n".join(f"  <url><loc>{DOMAIN}{u}</loc><lastmod>{TODAY}</lastmod><priority>{pr}</priority></url>" for u, pr in urls)
     write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{body}\n</urlset>\n')
@@ -591,6 +654,7 @@ Sitemap: {DOMAIN}/sitemap.xml
 
 def main():
     build_static_pages()
+    build_guides()
     build_all_points()
     build_home()
     changed = 0
