@@ -23,7 +23,7 @@ import guides  # noqa: E402  낚시·차박 안내 글 원고
 ROOT = Path(__file__).resolve().parent.parent
 DOMAIN = "https://wontupoint.com"
 SITE = "원투포인트"
-EMAIL = "thevanhalen@gmail.com"
+EMAIL = "contact@wontupoint.com"
 TODAY = date.today().isoformat()
 
 
